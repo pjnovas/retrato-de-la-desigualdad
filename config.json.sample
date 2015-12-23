@@ -1,0 +1,11 @@
+{
+  "clientID": "YYY",
+  "clientSecret": "ZZZ",
+  "baseURL": "http://example.com",
+  "tokenPath": "/oauth/token",
+  "apiPath": "/api/",
+
+  "language": "es",
+  "publication": 7,
+  "issue": 210
+}

@@ -1,0 +1,39 @@
+html, body {
+  height: 100%; }
+
+body {
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  margin: 0; }
+  body:after {
+    content: " ";
+    display: block;
+    clear: both; }
+
+.button {
+  background: transparent;
+  border: 1px solid silver;
+  margin: 10px auto;
+  display: block;
+  text-decoration: none;
+  color: #000;
+  text-align: center;
+  width: 200px;
+  padding: 5px;
+  cursor: pointer; }
+
+.link {
+  text-decoration: none;
+  color: #4C79B0;
+  padding: 5px;
+  cursor: pointer; }
+  .link:hover {
+    text-decoration: underline; }
+
+h1 {
+  text-align: center;
+  margin: 0; }
+
+a {
+  cursor: pointer; }

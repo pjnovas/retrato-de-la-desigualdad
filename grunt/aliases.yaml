@@ -1,0 +1,8 @@
+default:
+  - 'eslint'
+  - 'sass'
+  - 'browserify:app'
+
+w:
+  - 'browserify:watch'
+  - 'watch:app'
