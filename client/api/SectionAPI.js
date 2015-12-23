@@ -16,8 +16,8 @@ class SectionAPI {
         if (this.errorHandler(err, "find")){
           return;
         }
-        
-        SectionActions.receive(res.body.items);
+
+        SectionActions.receive(res.body);
       });
   }
 
