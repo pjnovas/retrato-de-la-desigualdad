@@ -9,10 +9,10 @@ class ArticleActions {
     this.constants = ArticleConstants;
   }
 
-  find(secion) {
+  find(section) {
     this.dispatcher.dispatch({
       type: this.constants.FIND,
-      secion
+      section
     });
   }
 

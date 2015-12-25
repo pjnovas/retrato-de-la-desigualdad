@@ -1,6 +1,8 @@
 .header {
   background-color: #000;
+
   ul {
+    padding: 0;
     list-style: none;
     text-align: center;
 
@@ -25,5 +27,31 @@
         }
       }
     }
+
+    &.articles {
+      text-align: left;
+      display: inline-block;
+
+      li {
+
+        a {
+          border: none;
+          background: #000;
+          color: #fff;
+          display: inline;
+          padding: 10px;
+        }
+
+        &.selected {
+          a {
+            text-decoration: underline;
+            background-color: #000;
+            color: #fff;
+          }
+        }
+      }
+
+    }
+
   }
 }

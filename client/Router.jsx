@@ -10,6 +10,7 @@ const routes = (
   <Router history={createBrowserHistory()}>
     <Route path="/" component={Landing} />
     <Route path="/:section" component={SectionView} />
+    <Route path="/:section/:article" component={SectionView} />
   </Router>
 );
 

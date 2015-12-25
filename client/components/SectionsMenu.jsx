@@ -1,7 +1,7 @@
 import { convertTitleToPath } from '../utils';
 import { Button } from "./controls";
 
-class Sections extends React.Component {
+class SectionsMenu extends React.Component {
 
   render() {
     return (
@@ -10,7 +10,7 @@ class Sections extends React.Component {
           return (
             <li key={s.number}
               className={s.number === this.props.selected ? "selected": ""}>
-              <Button to={convertTitleToPath(s.title)}>
+              <Button to={"/" + convertTitleToPath(s.title)}>
                 {s.title}
               </Button>
             </li>
@@ -22,5 +22,5 @@ class Sections extends React.Component {
 
 };
 
-Sections.displayName = "Sections";
-export default Sections;
+SectionsMenu.displayName = "SectionsMenu";
+export default SectionsMenu;

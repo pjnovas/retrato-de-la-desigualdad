@@ -1,6 +1,8 @@
 
 import Immutable from "immutable";
 
+import { convertPathToTitle, removeAccents } from "../utils";
+
 import { AppDispatcher } from "../dispatcher";
 import { ArticleConstants } from "../constants";
 import { ArticleAPI } from "../api";
@@ -32,6 +34,40 @@ class ArticleStore extends ReduceStore {
 
   getArray(){
     return this.getState().toArray();
+  }
+
+  getByNumber(number){
+    let list = this.getArray();
+
+    let article;
+    list.some( _article => {
+      if (_article.number === number) {
+        article = _article;
+        return true;
+      }
+      return false;
+    });
+
+    return article;
+  }
+
+  getNumberFromUrl(path){
+    if (!isNaN(+path)) { // is the number
+      return path;
+    }
+
+    let list = this.getArray();
+    let title = convertPathToTitle(path);
+    let result;
+    list.some( article => {
+      if (removeAccents(article.title) === title) {
+        result = article.number;
+        return true;
+      }
+      return false;
+    });
+
+    return result;
   }
 
 }

@@ -1,6 +1,6 @@
 
 import Immutable from "immutable";
-import { convertPathToTitle, removeAccents } from '../utils';
+import { convertPathToTitle, removeAccents } from "../utils";
 
 import { AppDispatcher } from "../dispatcher";
 import { SectionConstants } from "../constants";
@@ -33,6 +33,21 @@ class SectionStore extends ReduceStore {
 
   getArray(){
     return this.getState().toArray();
+  }
+
+  getByNumber(number){
+    let list = this.getArray();
+
+    let section;
+    list.some( _section => {
+      if (_section.number === number) {
+        section = _section;
+        return true;
+      }
+      return false;
+    });
+
+    return section;
   }
 
   getNumberFromUrl(path){

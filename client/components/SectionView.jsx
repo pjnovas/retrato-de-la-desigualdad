@@ -1,21 +1,25 @@
 
-import { SectionStore } from "../stores";
-import { SectionActions } from "../actions";
+import { SectionStore, ArticleStore } from "../stores";
+import { SectionActions, ArticleActions } from "../actions";
 
 import Header from "./Header.jsx";
-import Articles from "./Articles.jsx";
+import Article from "./Article.jsx";
 
 class SectionView extends React.Component {
 
   constructor(props){
     super(props);
     this.state = {
-      sections: []
+      sections: [],
+      section: null,
+      articles: [],
+      article: null
     };
   }
 
   componentDidMount(){
-    this.evChange = SectionStore.addListener(this.onChangeStore.bind(this));
+    this.evChangeSections = SectionStore.addListener(this.onChangeStoreSections.bind(this));
+    this.evChangeArticles = ArticleStore.addListener(this.onChangeStoreArticles.bind(this));
 
     let sections = SectionStore.getArray();
     if (!sections || !sections.length){
@@ -26,28 +30,90 @@ class SectionView extends React.Component {
   }
 
   componentWillUnmount() {
-    this.evChange.remove();
+    this.evChangeSections.remove();
+    this.evChangeArticles.remove();
   }
 
-  onChangeStore(){
+  componentWillReceiveProps(nextProps){
+    this.setSelectedSection(
+      nextProps.params.section,
+      nextProps.params.article
+    );
+  }
+
+  onChangeStoreSections(){
     this.setState({
       sections: SectionStore.getArray()
+    });
+
+    this.setSelectedSection(
+      this.props.params.section,
+      this.props.params.article
+    );
+  }
+
+  setSelectedSection(section, article) {
+    let state = this.state;
+    let sectionNbo = SectionStore.getNumberFromUrl(section);
+    let lastSection = state.section && state.section.number || -1;
+
+    this.setState({
+      section: SectionStore.getByNumber(sectionNbo)
+    });
+
+    if (!state.articles.length || sectionNbo !== lastSection){
+      setTimeout(() => ArticleActions.find(sectionNbo), 1);
+    }
+    else {
+      this.setSelectedArticle(article);
+    }
+  }
+
+  onChangeStoreArticles(){
+    let articles = ArticleStore.getArray();
+    this.setState({ articles });
+
+    if (this.props.params.article){
+      this.setSelectedArticle(this.props.params.article);
+    }
+    else {
+      this.setState({ article: articles[0] });
+    }
+  }
+
+  setSelectedArticle(articlePath){
+    if (!articlePath){
+      this.setState({ article: ArticleStore.getArray()[0] });
+      return;
+    }
+
+    let articleNbo = ArticleStore.getNumberFromUrl(articlePath);
+    this.setState({
+      article: ArticleStore.getByNumber(articleNbo)
     });
   }
 
   render() {
-    let sections = this.state.sections || [];
+    let state = this.state;
+    let sections = state.sections || [];
 
-    if (sections.length === 0){
-      return (<div className="section-view">Cargando ...</div>);
+    if (sections.length === 0 || !state.section){
+      return (<div className="section-view">Cargando Secciones ...</div>);
     }
 
-    let selected = SectionStore.getNumberFromUrl(this.props.params.section);
+    if (state.articles.length === 0 || !state.article){
+      return (<div className="section-view">Cargando Articulos ...</div>);
+    }
 
     return (
       <div className="section-view">
-        <Header sections={sections} selected={selected}/>
-        <Articles section={selected}/>
+        <Header
+          sections={sections}
+          section={state.section}
+          articles={state.articles}
+          article={state.article} />
+
+        <Article article={state.article}/>
       </div>
     );
   }

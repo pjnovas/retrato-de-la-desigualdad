@@ -42,6 +42,7 @@ a {
 .header {
   background-color: #000; }
   .header ul {
+    padding: 0;
     list-style: none;
     text-align: center; }
     .header ul li {
@@ -56,3 +57,16 @@ a {
       .header ul li.selected a {
         background-color: #fff;
         color: #000; }
+    .header ul.articles {
+      text-align: left;
+      display: inline-block; }
+      .header ul.articles li a {
+        border: none;
+        background: #000;
+        color: #fff;
+        display: inline;
+        padding: 10px; }
+      .header ul.articles li.selected a {
+        text-decoration: underline;
+        background-color: #000;
+        color: #fff; }
