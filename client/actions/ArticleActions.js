@@ -1,24 +1,25 @@
 
 import { AppDispatcher } from "../dispatcher";
-import { SectionConstants } from "../constants";
+import { ArticleConstants } from "../constants";
 
-class SectionActions {
+class ArticleActions {
 
   constructor(){
     this.dispatcher = AppDispatcher;
-    this.constants = SectionConstants;
+    this.constants = ArticleConstants;
   }
 
-  find() {
+  find(secion) {
     this.dispatcher.dispatch({
-      type: this.constants.FIND
+      type: this.constants.FIND,
+      secion
     });
   }
-  
-  receive(sections){
+
+  receive(articles){
     this.dispatcher.dispatch({
       type: this.constants.RECEIVE,
-      sections
+      articles
     });
   }
 
@@ -31,5 +32,5 @@ class SectionActions {
 
 }
 
-const instance = new SectionActions();
+const instance = new ArticleActions();
 export default instance;

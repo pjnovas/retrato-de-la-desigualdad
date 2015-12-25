@@ -1,6 +1,8 @@
 
 import SectionConstants from "./SectionConstants";
+import ArticleConstants from "./ArticleConstants";
 
 export {
-  SectionConstants
+  SectionConstants,
+  ArticleConstants
 };

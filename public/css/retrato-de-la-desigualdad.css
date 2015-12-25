@@ -5,7 +5,8 @@ body {
   max-width: 100%;
   margin-left: auto;
   margin-right: auto;
-  margin: 0; }
+  margin: 0;
+  padding: 0 20px; }
   body:after {
     content: " ";
     display: block;
@@ -37,3 +38,21 @@ h1 {
 
 a {
   cursor: pointer; }
+
+.header {
+  background-color: #000; }
+  .header ul {
+    list-style: none;
+    text-align: center; }
+    .header ul li {
+      display: inline-block;
+      margin: 0 10px; }
+      .header ul li a {
+        color: #fff;
+        text-transform: uppercase; }
+        .header ul li a:hover {
+          background-color: #fff;
+          color: #000; }
+      .header ul li.selected a {
+        background-color: #fff;
+        color: #000; }

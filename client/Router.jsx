@@ -1,22 +1,15 @@
 
 import { Router, Route } from 'react-router';
-import { createHistory } from 'history';
-
+import createBrowserHistory from 'history/lib/createBrowserHistory';
 import { render } from 'react-dom';
 
-import Home from "./components/Home/index.jsx";
-
-// Opt-out of persistent state, not recommended.
-// TODO: checkout adding server routes from Parse.com
-//const history = createHistory({
-//  queryKey: false
-//});
-
-const history = null; // use hash history, to develop on client side without a server.
+import Landing from "./components/index.jsx";
+import SectionView from "./components/SectionView.jsx";
 
 const routes = (
-  <Router history={history}>
-    <Route path="/" component={Home} />
+  <Router history={createBrowserHistory()}>
+    <Route path="/" component={Landing} />
+    <Route path="/:section" component={SectionView} />
   </Router>
 );
 

@@ -1,5 +1,6 @@
 
 import Immutable from "immutable";
+import { convertPathToTitle, removeAccents } from '../utils';
 
 import { AppDispatcher } from "../dispatcher";
 import { SectionConstants } from "../constants";
@@ -14,8 +15,6 @@ class SectionStore extends ReduceStore {
   }
 
   reduce(state, action) {
-    let t;
-
     switch (action.type) {
       case SectionConstants.FIND:
         SectionAPI.getAll();
@@ -34,6 +33,25 @@ class SectionStore extends ReduceStore {
 
   getArray(){
     return this.getState().toArray();
+  }
+
+  getNumberFromUrl(path){
+    if (!isNaN(+path)) { // is the number
+      return path;
+    }
+
+    let list = this.getArray();
+    let title = convertPathToTitle(path);
+    let result;
+    list.some( section => {
+      if (removeAccents(section.title) === title) {
+        result = section.number;
+        return true;
+      }
+      return false;
+    });
+
+    return result;
   }
 
 }
