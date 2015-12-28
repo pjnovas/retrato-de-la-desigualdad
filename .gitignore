@@ -32,3 +32,4 @@ npm-debug.log
 # Compiled code for Camera
 lib/build
 config.json
+data.json

@@ -70,3 +70,16 @@ a {
         text-decoration: underline;
         background-color: #000;
         color: #fff; }
+
+.article-view .article-content {
+  border: 2px solid #887E7E;
+  padding: 20px 50px 30px 50px; }
+  .article-view .article-content h1 {
+    margin: 10px 0 20px 0; }
+  .article-view .article-content > div {
+    text-align: justify;
+    -webkit-column-count: 2;
+    -moz-column-count: 2;
+    column-count: 3; }
+    .article-view .article-content > div p {
+      margin-top: 0; }
