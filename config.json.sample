@@ -7,5 +7,7 @@
 
   "language": "es",
   "publication": 7,
-  "issue": 210
+  "issue": 210,
+
+  "cachePassword": "some_secret_password"
 }

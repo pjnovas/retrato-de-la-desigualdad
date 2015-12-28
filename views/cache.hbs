@@ -1,0 +1,9 @@
+<h1>Cache</h1>
+{{error}}
+{{#if success}}
+  Cache cleared!
+{{/if}}
+<form id="clear" action="/cache/clear" method="POST">
+  <input type="password" name="password">
+  <input type="submit" value="Clear">
+</form>
