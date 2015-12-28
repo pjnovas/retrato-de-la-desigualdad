@@ -5,8 +5,9 @@ body {
   max-width: 100%;
   margin-left: auto;
   margin-right: auto;
+  font-family: 'Open Sans', sans-serif;
   margin: 0;
-  padding: 0 20px; }
+  padding: 0; }
   body:after {
     content: " ";
     display: block;
@@ -15,7 +16,7 @@ body {
 .button {
   background: transparent;
   border: 1px solid silver;
-  margin: 10px auto;
+  margin: 0;
   display: block;
   text-decoration: none;
   color: #000;
@@ -42,15 +43,17 @@ a {
 .header {
   background-color: #000; }
   .header ul {
+    margin: 0;
     padding: 0;
     list-style: none;
     text-align: center; }
     .header ul li {
       display: inline-block;
-      margin: 0 10px; }
+      margin: 10px; }
       .header ul li a {
         color: #fff;
-        text-transform: uppercase; }
+        text-transform: uppercase;
+        border: 1px solid #fff; }
         .header ul li a:hover {
           background-color: #fff;
           color: #000; }
@@ -67,15 +70,14 @@ a {
         display: inline;
         padding: 10px; }
       .header ul.articles li.selected a {
-        text-decoration: underline;
-        background-color: #000;
-        color: #fff; }
+        color: #000;
+        background-color: #fff; }
 
 .article-view .article-content {
-  border: 2px solid #887E7E;
   padding: 20px 50px 30px 50px; }
   .article-view .article-content h1 {
-    margin: 10px 0 20px 0; }
+    margin: 10px 0 20px 0;
+    font-weight: 500; }
   .article-view .article-content > div {
     text-align: justify;
     -webkit-column-count: 2;

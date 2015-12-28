@@ -15,8 +15,9 @@ $container-style: fluid;
 
 body {
   @include container;
+  font-family: 'Open Sans', sans-serif;
   margin: 0;
-  padding: 0 20px;
+  padding: 0;
 }
 
 @import "./components/index.scss";

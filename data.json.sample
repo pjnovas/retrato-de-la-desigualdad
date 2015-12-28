@@ -1,0 +1,20 @@
+{
+  "sections": {
+    "sort": [1,2,3] // number of sections ordered, it will tail others not declared
+  },
+  "articles": {
+    "sort": {
+      // [sectionNbo]: article numbers ordered, it will tail others not declared
+      "1": [30, 40]
+    },
+    "maps": {
+      // [articleNbo]: Object with map properties
+      "30": {
+        "url": "https://example.com/xxx/embed_map"
+      },
+      "40": {
+        "url": "https://example.com/yyy/embed_map"
+      }
+    }
+  }
+}
