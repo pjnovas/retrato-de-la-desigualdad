@@ -4,6 +4,7 @@ import { SectionActions, ArticleActions } from "../actions";
 
 import Header from "./Header.jsx";
 import Article from "./Article.jsx";
+import Gallery from "./Gallery.jsx";
 
 class SectionView extends React.Component {
 
@@ -113,7 +114,14 @@ class SectionView extends React.Component {
           articles={state.articles}
           article={state.article} />
 
-        <Article article={state.article}/>
+        { state.section.gallery ?
+          <Gallery
+            section={state.section}
+            article={state.article}
+            articles={state.articles}/>
+        :
+          <Article article={state.article}/>
+        }
       </div>
     );
   }

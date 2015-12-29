@@ -11,10 +11,13 @@ class Header extends React.Component {
         <SectionsMenu
           sections={p.sections}
           selected={p.section.number}/>
-        <ArticlesMenu
-          section={p.section}
-          articles={p.articles}
-          selected={p.article.number}/>
+
+        { !p.section.gallery ?
+          <ArticlesMenu
+            section={p.section}
+            articles={p.articles}
+            selected={p.article.number}/>
+        : null }
       </div>
     );
   }

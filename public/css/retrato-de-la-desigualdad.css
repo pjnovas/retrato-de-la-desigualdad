@@ -85,3 +85,22 @@ a {
     column-count: 3; }
     .article-view .article-content > div p {
       margin-top: 0; }
+
+.gallery-view ul {
+  list-style: none;
+  padding: 0;
+  margin: 20px; }
+  .gallery-view ul li {
+    display: inline-block;
+    position: relative;
+    width: 100px;
+    height: 100px;
+    background: silver;
+    margin: 5px; }
+    .gallery-view ul li a {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      padding: 0; }
+    .gallery-view ul li.selected {
+      border: 2px solid yellow; }
