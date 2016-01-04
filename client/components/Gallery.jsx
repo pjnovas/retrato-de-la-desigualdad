@@ -34,7 +34,10 @@ class Gallery extends React.Component {
           })}
         </ul>
         <h1>{current.title}</h1>
-        <div dangerouslySetInnerHTML={{__html: current.body}}></div>
+        <div className="content">
+          <img className="picture" src={current.images[0].url} />
+          <div className="body" dangerouslySetInnerHTML={{__html: current.body}}></div>
+        </div>
       </div>
     );
   }

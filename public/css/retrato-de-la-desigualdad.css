@@ -102,5 +102,16 @@ a {
       height: 100%;
       position: absolute;
       padding: 0; }
+      .gallery-view ul li a img {
+        width: 100%;
+        height: 100%; }
     .gallery-view ul li.selected {
       border: 2px solid yellow; }
+
+.gallery-view .content .picture {
+  width: 40%;
+  height: 200px;
+  margin-right: 10px; }
+
+.gallery-view .content .body {
+  width: 50%; }
