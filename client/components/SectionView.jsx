@@ -3,7 +3,9 @@ import { SectionStore, ArticleStore } from "../stores";
 import { SectionActions, ArticleActions } from "../actions";
 
 import Header from "./Header.jsx";
+
 import Article from "./Article.jsx";
+import MapArticle from "./MapArticle.jsx";
 import Gallery from "./Gallery.jsx";
 
 class SectionView extends React.Component {
@@ -106,6 +108,27 @@ class SectionView extends React.Component {
       return (<div className="section-view">Cargando Articulos ...</div>);
     }
 
+    let article;
+
+    if (state.section.gallery){
+      article = (
+        <Gallery
+          section={state.section}
+          article={state.article}
+          articles={state.articles}/>
+      );
+    }
+    else if (state.article && state.article.hasMap){
+      article = (
+        <MapArticle article={state.article}/>
+      );
+    }
+    else {
+      article = (
+        <Article article={state.article}/>
+      );
+    }
+
     return (
       <div className="section-view">
         <Header
@@ -114,14 +137,7 @@ class SectionView extends React.Component {
           articles={state.articles}
           article={state.article} />
 
-        { state.section.gallery ?
-          <Gallery
-            section={state.section}
-            article={state.article}
-            articles={state.articles}/>
-        :
-          <Article article={state.article}/>
-        }
+        {article}
       </div>
     );
   }

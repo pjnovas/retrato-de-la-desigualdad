@@ -1,8 +1,28 @@
 
 .article-view {
 
-  .article-map {
+  .layer-selector {
+    padding: 20px;
 
+    a {
+      border: 2px solid gray;
+      padding: 7px;
+      margin: 5px;
+      border-radius: 4px;
+      color: #000;
+      background: #fff;
+
+      &.active {
+        background: #72D675;
+        color: #fff;
+      }
+    }
+  }
+
+  .article-map {
+    width: 100%;
+    min-width: 200px;
+    height: 520px;
   }
 
   .article-content {
