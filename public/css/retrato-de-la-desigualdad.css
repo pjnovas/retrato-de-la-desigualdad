@@ -133,3 +133,51 @@ a {
 
 .gallery-view .content .body {
   width: 50%; }
+
+.metadata {
+  width: 600px;
+  margin: 20px auto; }
+  .metadata h1 {
+    margin: 10px; }
+  .metadata .control {
+    display: block;
+    margin: 10px 0; }
+    .metadata .control label {
+      display: block;
+      font-size: 16px; }
+    .metadata .control input[type=text] {
+      width: 100%;
+      padding: 3px;
+      margin: 5px 0; }
+      .metadata .control input[type=text].coord, .metadata .control input[type=text].distance {
+        width: 150px; }
+    .metadata .control textarea {
+      width: 100%;
+      height: 60px;
+      margin: 5px 0; }
+    .metadata .control .check {
+      padding: 5px 13px;
+      display: inline-block;
+      background: #EFEFEF;
+      border-radius: 2px;
+      margin: 5px 10px; }
+      .metadata .control .check label {
+        display: inline-block;
+        vertical-align: top;
+        font-size: 14px; }
+      .metadata .control .check input {
+        display: inline-block;
+        width: auto; }
+  .metadata .parsed {
+    width: 100%;
+    height: 150px; }
+  .metadata .error {
+    color: red; }
+  .metadata a {
+    padding: 5px;
+    border: 1px solid silver;
+    color: #000;
+    border-radius: 4px;
+    text-decoration: none;
+    margin: 10px 20px;
+    float: right; }

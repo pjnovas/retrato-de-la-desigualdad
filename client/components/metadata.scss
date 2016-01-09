@@ -1,0 +1,72 @@
+.metadata {
+  width: 600px;
+  margin: 20px auto;
+
+  h1 {
+    margin: 10px;
+  }
+
+  .control {
+    display: block;
+    margin: 10px 0;
+
+    label {
+      display: block;
+      font-size: 16px;
+    }
+
+    input[type=text] {
+      width: 100%;
+      padding: 3px;
+      margin: 5px 0;
+
+      &.coord, &.distance {
+        width: 150px;
+      }
+    }
+
+    textarea {
+      width: 100%;
+      height: 60px;
+      margin: 5px 0;
+    }
+
+    .check {
+      padding: 5px 13px;
+      display: inline-block;
+      background: #EFEFEF;
+      border-radius: 2px;
+      margin: 5px 10px;
+
+      label {
+        display: inline-block;
+        vertical-align: top;
+        font-size: 14px;
+      }
+
+      input {
+        display: inline-block;
+        width: auto;
+      }
+    }
+  }
+
+  .parsed {
+    width: 100%;
+    height: 150px;
+  }
+
+  .error {
+    color: red;
+  }
+
+  a {
+    padding: 5px;
+    border: 1px solid silver;
+    color: #000;
+    border-radius: 4px;
+    text-decoration: none;
+    margin: 10px 20px;
+    float: right;
+  }
+}
