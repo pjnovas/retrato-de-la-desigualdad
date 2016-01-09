@@ -56,6 +56,8 @@ class MapArticle extends React.Component {
       this.cVis = vis;
       this.cLayers = layers;
 
+      this.setMarker(["13.718787","-89.202793"]);
+
       // layer 0 is the base layer, layer 1 is cartodb layer
       let [head, ...tail] = layers;
 
@@ -100,6 +102,18 @@ class MapArticle extends React.Component {
 
     layers[layer.index] = _layer;
     this.setState({ layers });
+  }
+
+  setMarker(coord){
+    let map = this.cVis.getNativeMap();
+
+    if (this.marker){
+      map.removeLayer(this.marker);
+    }
+
+    this.marker = new L.Marker(coord);
+    map.addLayer(this.marker);
+    this.marker.bindPopup("<b>Hello world!</b><br />I am a test Marker!.").openPopup();
   }
 
   render() {
