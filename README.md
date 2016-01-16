@@ -1,5 +1,7 @@
 # Retrato de la desigualdad
 
+[TODO]: brief explanation of the project.
+
 ## Getting started
 
 ### Requirements
@@ -23,7 +25,7 @@ npm install
 ```bash
 npm install --production
 ```
-For a complete guide of Production installation follow [this wiki]()
+For a complete guide of Production installation follow [this wiki](../../wiki/Installation-for-Production-enviroment)
 
 ### Configuration  
 * Copy `config.json.sample` to `config.json` and edit your configs (follow the  instructions in the json file).
