@@ -1,13 +1,16 @@
 {
+  // Newscoop API configs
   "clientID": "YYY",
   "clientSecret": "ZZZ",
   "baseURL": "http://example.com",
   "tokenPath": "/oauth/token",
   "apiPath": "/api/",
 
+  // Newscoop configs to get the sections
   "language": "es",
   "publication": 7,
   "issue": 210,
 
+  // A password to clear cache using: http://your_host/cache
   "cachePassword": "some_secret_password"
 }

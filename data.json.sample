@@ -1,19 +1,18 @@
 {
   "sections": {
-    "sort": [1,2,3] // number of sections ordered, it will tail others not declared
+    "sort": [1, 2, 3], // number of sections ordered, it will tail others not declared
+    "gallery": [2, 4] // number of sections to use the gallery
   },
   "articles": {
     "sort": {
       // [sectionNbo]: article numbers ordered, it will tail others not declared
-      "1": [30, 40]
+      "1": [10, 20],
+      "2": [50, 60, 70]
     },
     "maps": {
-      // [articleNbo]: Object with map properties
-      "30": {
-        "url": "https://example.com/xxx/embed_map"
-      },
-      "40": {
-        "url": "https://example.com/yyy/embed_map"
+      // declare which articles are going to have a Map view with the Map id from CartoDB
+      "50": {
+        "id": "xxx"
       }
     }
   }
