@@ -1,0 +1,63 @@
+.map-article {
+
+  .map {
+    width: 100%;
+    min-width: 200px;
+    height: 520px;
+    background: #DBFFDB;
+  }
+
+  .content {
+    @include container();
+
+    .tag {
+      @include span(3 of 12);
+
+      span {
+        border: 2px solid black;
+        display: inline-block;
+        padding: 10px;
+        margin: 10px 0;
+        width: 80%;
+      }
+    }
+
+    .header {
+      @include span(9 of 12);
+
+      h2 {
+        margin: 10px 0 20px 0;
+        font-weight: 500;
+        font-size: 40px;
+        margin: 0;
+      }
+
+      .author {
+        text-transform: uppercase;
+        font-size: 20px;
+      }
+    }
+
+    .intro {
+      display: inline-block;
+      margin: 10px 0;
+      font-size: 20px;
+      font-weight: 700;
+    }
+
+    .body {
+      display: inline-block;
+      margin: 10px 0;
+
+      text-align: justify;
+      -webkit-column-count: 2;
+      -moz-column-count: 2;
+      column-count: 3;
+
+      p {
+        margin-top: 0;
+      }
+    }
+  }
+
+}

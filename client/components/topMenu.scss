@@ -1,0 +1,29 @@
+.top-menu {
+
+  .layers, .sections {
+    list-style: none;
+    padding: 0;
+    margin: 10px;
+    display: inline-block;
+
+    li {
+      display: inline;
+      margin: 10px;
+
+      a {
+        padding: 10px;
+        background: #D5D5D5;
+        color: black;
+        border: 1px solid silver;
+      }
+    }
+  }
+
+  .layers {
+    float: left;
+  }
+
+  .sections {
+    float: right;
+  }
+}

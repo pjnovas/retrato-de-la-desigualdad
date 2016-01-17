@@ -1,16 +1,31 @@
 
-class Landing extends React.Component {
+import IntroArticle from "./IntroArticle.jsx";
+import MapsSelector from "./MapsSelector.jsx";
+import TopMenu from "./TopMenu.jsx";
+import MapArticle from "./MapArticle.jsx";
+import AnalysisArticle from "./AnalysisArticle.jsx";
+//import Places from "./Places.jsx";
+import Testimonials from "./Testimonials.jsx";
+
+class Main extends React.Component {
 
   render() {
     return (
       <div>
-        <h1>Retrato de la Desigualdad</h1>
-        <h2>Landing Page Holder</h2>
+        <div className="logo"></div>
+
+        <IntroArticle />
+        <MapsSelector />
+        <TopMenu />
+        <MapArticle />
+        <AnalysisArticle />
+
+        <Testimonials />
       </div>
     );
   }
 
 };
 
-Landing.displayName = "Landing";
-export default Landing;
+Main.displayName = "Main";
+export default Main;

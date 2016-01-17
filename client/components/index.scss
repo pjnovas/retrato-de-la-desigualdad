@@ -1,15 +1,28 @@
 @import "./controls/index.scss";
 
-h1 {
-  text-align: center;
-  margin: 0;
-}
-
 a {
   cursor: pointer;
 }
 
-@import "./header.scss";
-@import "./article.scss";
-@import "./gallery.scss";
+.logo {
+  background-image: url(/images/logo.svg);
+  background-repeat: no-repeat;
+  width: 234px;
+  height: 87px;
+}
+
+section {
+  clear: both;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: inline-block;
+}
+
+@import "./introArticle.scss";
+@import "./mapsSelector.scss";
+@import "./topMenu.scss";
+@import "./mapArticle.scss";
+@import "./analysisArticle.scss";
+@import "./testimonials.scss";
+
 @import "./metadata.scss";

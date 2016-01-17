@@ -1,0 +1,29 @@
+.intro-article {
+  @include container();
+  position: relative;
+
+  h1 {
+    font-size: 50px;
+    margin: 0;
+    @include span(10 of 12);
+  }
+
+  .section-name {
+    @include span(2 of 12);
+
+    span {
+      display: inline-block;
+      border-left: 2px solid #343434;
+      font-size: 16px;
+      text-transform: uppercase;
+      padding-left: 10px;
+      margin-top: 30px;
+      float: right;
+    }
+  }
+
+  .body {
+    display: inline-block;
+    font-size: 20px;
+  }
+}
