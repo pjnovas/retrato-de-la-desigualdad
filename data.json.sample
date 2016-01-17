@@ -1,19 +1,31 @@
 {
-  "sections": {
-    "sort": [1, 2, 3], // number of sections ordered, it will tail others not declared
-    "gallery": [2, 4] // number of sections to use the gallery
+  "metodology": {
+    "section": 100, // Section Number
+    "useImages": false // true to fetch for articles images
   },
-  "articles": {
-    "sort": {
-      // [sectionNbo]: article numbers ordered, it will tail others not declared
-      "1": [10, 20],
-      "2": [50, 60, 70]
+  "publishers": {
+    "section": 200,
+    "useImages": false,
+    "articles": [1, 2, 3, 4], // Article Numbers sorted
+    "analysis": {
+      "1": 5, // Analysis Article Number (5) for this Article Number (1)
+      "2": 6,
+      "3": 7,
+      "4": 8
     },
     "maps": {
-      // declare which articles are going to have a Map view with the Map id from CartoDB
-      "50": {
-        "id": "xxx"
-      }
+      "1": "x-y-z", // CartoDB Map Id for Article Number 1
+      "2": "x-y-z",
+      "3": "x-y-z",
+      "4": "x-y-z"
     }
+  },
+  "places": {
+    "section": 300,
+    "useImages": true
+  },
+  "testimonials": {
+    "section": 400,
+    "useImages": false
   }
 }
