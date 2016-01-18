@@ -230,7 +230,7 @@ section {
       width: 100%;
       padding: 3px;
       margin: 5px 0; }
-      .metadata .control input[type=text].coord, .metadata .control input[type=text].distance {
+      .metadata .control input[type=text].coord {
         width: 150px; }
     .metadata .control textarea {
       width: 100%;

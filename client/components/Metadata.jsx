@@ -8,6 +8,7 @@ const defaultState = {
     cando: "",
     prices: "",
     distance: "",
+    address: "",
     groups: { a: false, b: false },
     times: { day: false, night: false }
   },
@@ -82,12 +83,17 @@ class Metadata extends React.Component {
   }
 
   cleanAll(){
-    //this.setState(defaultState);
     window.location.reload();
   }
 
   render() {
     let metas = this.state.metas;
+
+    if (!metas){
+      return null;
+    }
+
+    let coords = metas.coords || ["", ""];
 
     return (
       <div className="metadata">
@@ -96,10 +102,10 @@ class Metadata extends React.Component {
         <div className="control">
           <label>Coordenadas</label>
           <input className="coord" type="text"
-            placeholder="LATITUD" value={metas.coords[0]}
+            placeholder="LATITUD" value={coords[0]}
             onChange={e=>this.onChangeCoords(0, e.target.value)}/>
           <input className="coord" type="text"
-            placeholder="LONGITUD" value={metas.coords[1]}
+            placeholder="LONGITUD" value={coords[1]}
             onChange={e=>this.onChangeCoords(1, e.target.value)}/>
         </div>
 
@@ -119,6 +125,12 @@ class Metadata extends React.Component {
           <label>Distancia desde El Salvador del Mundo</label>
           <input type="text" value={metas.distance} className="distance"
             onChange={e=>this.onChange("distance", e.target.value)}/>
+        </div>
+
+        <div className="control">
+          <label>Dirección</label>
+          <input type="text" value={metas.address} className="address"
+            onChange={e=>this.onChange("address", e.target.value)}/>
         </div>
 
         <div className="control">
