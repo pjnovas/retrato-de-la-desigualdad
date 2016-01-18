@@ -5,11 +5,6 @@ body {
   max-width: 100%;
   margin-left: auto;
   margin-right: auto;
-  background-image: linear-gradient(to right, rgba(102, 102, 255, 0.25), rgba(179, 179, 255, 0.25));
-  background-size: 8.3333333333%;
-  background-origin: content-box;
-  background-clip: content-box;
-  background-position: left top;
   font-family: 'Open Sans', sans-serif;
   margin: 0;
   padding: 0; }
@@ -57,11 +52,6 @@ section {
   max-width: 100%;
   margin-left: auto;
   margin-right: auto;
-  background-image: linear-gradient(to right, rgba(102, 102, 255, 0.25), rgba(179, 179, 255, 0.25));
-  background-size: 8.3333333333%;
-  background-origin: content-box;
-  background-clip: content-box;
-  background-position: left top;
   position: relative; }
   .intro-article:after {
     content: " ";
@@ -106,12 +96,7 @@ section {
   margin: 10px;
   max-width: 100%;
   margin-left: auto;
-  margin-right: auto;
-  background-image: linear-gradient(to right, rgba(102, 102, 255, 0.25), rgba(179, 179, 255, 0.25));
-  background-size: 8.3333333333%;
-  background-origin: content-box;
-  background-clip: content-box;
-  background-position: left top; }
+  margin-right: auto; }
   .maps-selector:after {
     content: " ";
     display: block;
@@ -180,12 +165,7 @@ section {
 .map-article .content {
   max-width: 100%;
   margin-left: auto;
-  margin-right: auto;
-  background-image: linear-gradient(to right, rgba(102, 102, 255, 0.25), rgba(179, 179, 255, 0.25));
-  background-size: 8.3333333333%;
-  background-origin: content-box;
-  background-clip: content-box;
-  background-position: left top; }
+  margin-right: auto; }
   .map-article .content:after {
     content: " ";
     display: block;
