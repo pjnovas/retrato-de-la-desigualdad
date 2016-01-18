@@ -1,25 +1,30 @@
 
+import Loading from "./Loading.jsx";
+
 class MapsSelector extends React.Component {
 
   render() {
+    let articles = this.props.articles;
+    let selected = this.props.selected;
+
+    if (!articles){
+      return (
+        <Loading />
+      );
+    }
+
     return (
       <ul className="maps-selector">
-        <li>
-          <h4>Mapa 1</h4>
-          <div><img src=""/></div>
-        </li>
-        <li>
-          <h4>Mapa 2</h4>
-          <div><img src=""/></div>
-        </li>
-        <li>
-          <h4>Mapa 3</h4>
-          <div><img src=""/></div>
-        </li>
-        <li>
-          <h4>Mapa 4</h4>
-          <div><img src=""/></div>
-        </li>
+        { articles.map( article => {
+          return (
+            <li key={article.number}
+              onClick={ e => this.props.onSelect(article.number) }
+              className={selected === article.number ? "selected" : ""}>
+              <h4>{article.subtitle}</h4>
+              <div><img src=""/></div>
+            </li>
+          );
+        })}
       </ul>
     );
   }

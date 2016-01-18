@@ -29,6 +29,16 @@
         height: 100%;
       }
     }
+
+    &.selected {
+      h4 {
+        color: red;
+      }
+
+      div {
+        border: 1px solid red;
+      }
+    }
   }
 
 }

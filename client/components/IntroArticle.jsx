@@ -1,17 +1,28 @@
 
+import Loading from "./Loading.jsx";
+
 class IntroArticle extends React.Component {
 
   render() {
+    let article = this.props.article;
+
+    if (!article){
+      return (
+        <Loading />
+      );
+    }
+
     return (
       <section className="intro-article">
-        <h1>Retrato de la Desigualdad</h1>
-        <div className="section-name">
-          <span>Metodologia</span>
+        <div className="title">
+          <h1>Retrato de la Desigualdad</h1>
+          <h2>{article.title}</h2>
         </div>
-        <div className="body">
-          <p>Como se mueven los habitantes asjndja ksnd jakndakjs ndasjk dnasj dnasjdn akjdsn
-          kansdjkasdn askjdn askjdnas jkdnsakjdnadjkn jdnas djnsad
-          aslkd aslkd nasdsan dlkasndaskl dnksldnaksl nd</p>
+        <div className="section-name">
+          <span>Metodología</span>
+        </div>
+        <div className="body"
+          dangerouslySetInnerHTML={{__html: article.body}}>
         </div>
       </section>
     );
