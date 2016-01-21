@@ -1,7 +1,6 @@
 
 import IntroArticle from "./IntroArticle.jsx";
 import MapsSelector from "./MapsSelector.jsx";
-import TopMenu from "./TopMenu.jsx";
 import MapArticle from "./MapArticle.jsx";
 import AnalysisArticle from "./AnalysisArticle.jsx";
 //import Places from "./Places.jsx";
@@ -30,6 +29,7 @@ class Main extends React.Component {
   }
 
   componentDidMount(){
+
     getMethodologies( (err, methodologies) => {
       if (!err){
         let [methodology] = methodologies;
@@ -102,13 +102,9 @@ class Main extends React.Component {
           selected={cPublisher && cPublisher.number}
           onSelect={ number => this.onChangePublisher(number) } />
 
-        <TopMenu
-          layers={layers}
-          onPlacesClicked={ () => this.togglePlaces() }
-          onLayerClicked={ layer => this.onChangeLayer(layer) }
-          onMenuClicked={ menu => this.onChangeMenu(menu) } />
-
-        <MapArticle article={cPublisher} />
+        { this.state.places.length ?
+          <MapArticle places={this.state.places} article={cPublisher} />
+        : null }
 
         { this.state.showAnalysis ?
           <AnalysisArticle article={cPublisher.analysis} />

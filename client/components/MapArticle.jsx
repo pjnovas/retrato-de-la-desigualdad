@@ -58,8 +58,6 @@ class MapArticle extends React.Component {
       this.cVis = vis;
       this.cLayers = layers;
 
-      this.setMarker(["13.718787","-89.202793"]);
-
       // layer 0 is the base layer, layer 1 is cartodb layer
       let [head, ...tail] = layers;
 
@@ -82,6 +80,7 @@ class MapArticle extends React.Component {
         })
       });
 
+      this.createMarkers();
     })
     .error( err => {
       console.log(err);
@@ -104,18 +103,85 @@ class MapArticle extends React.Component {
 
     layers[layer.index] = _layer;
     this.setState({ layers });
+    this.toggleLayers();
   }
 
-  setMarker(coord){
+  createMarkers() {
+    let places = this.props.places;
     let map = this.cVis.getNativeMap();
 
-    if (this.marker){
-      map.removeLayer(this.marker);
+    this.removeMarkerLayers();
+
+    const mPlace = p => {
+      return L
+        .marker(p.meta.coords)
+        .bindPopup(`
+          <h3>${p.title}</h3>
+          <div class="img"
+            style="background-image: url('${p.images[0].url}')" >
+          </div>
+          `);
+    };
+
+    let markersA = places.filter( p => p.meta.groups.a ).map(mPlace);
+    let markersB = places.filter( p => p.meta.groups.b ).map(mPlace);
+
+    this.markersLA = L.layerGroup(markersA);
+    this.markersLB = L.layerGroup(markersB);
+
+    this.showLA = true;
+    this.showLB = true;
+
+    this.toggleLayers();
+  }
+
+  removeMarkerLayers(){
+    let map = this.cVis.getNativeMap();
+
+    if (this.showLA){
+      map.removeLayer(this.markersLA);
+      this.showLA = false;
     }
 
-    this.marker = new L.Marker(coord);
-    map.addLayer(this.marker);
-    this.marker.bindPopup("<b>Hello world!</b><br />I am a test Marker!.").openPopup();
+    if (this.showLB){
+      map.removeLayer(this.markersLB);
+      this.showLB = false;
+    }
+  }
+
+  toggleLayers() {
+    let map = this.cVis.getNativeMap();
+    this.removeMarkerLayers();
+
+    if (this.cLayers.length <= 3){
+      //FOR TEST
+      map.addLayer(this.markersLA);
+      map.addLayer(this.markersLB);
+
+      return;
+    }
+
+    if (this.cLayers[1].hidden){
+      map.removeLayer(this.markersLA);
+      this.showLA = false;
+    }
+    else if (!this.showLA){
+      map.addLayer(this.markersLA);
+      this.showLA = true;
+    }
+
+    if (this.cLayers[2].hidden){
+      map.removeLayer(this.markersLB);
+      this.showLB = false;
+    }
+    else if (!this.showLB){
+      map.addLayer(this.markersLB);
+      this.showLB = true;
+    }
+  }
+
+  onPlacesClick() {
+
   }
 
   render() {
@@ -131,10 +197,12 @@ class MapArticle extends React.Component {
     if (this.state.layers.length > 1){
       layers = this.state.layers.map( (layer, i) => {
         return (
-          <a key={i} className={layer.active ? "active": ""}
-            onClick={ () => this.onLayerClick(layer) }>
-            {layer.name}
-          </a>
+          <li key={i}>
+            <a className={layer.active ? "active": ""}
+              onClick={ () => this.onLayerClick(layer) }>
+              {layer.name}
+            </a>
+          </li>
         );
       });
     }
@@ -143,6 +211,20 @@ class MapArticle extends React.Component {
 
     return (
       <section className="map-article">
+        <div className="top-menu">
+
+          <ul className="layers">
+            {layers}
+          </ul>
+
+          <ul className="sections">
+            <li>
+              <a onClick={ () => this.onPlacesClick() }>Destinos</a>
+            </li>
+          </ul>
+
+        </div>
+
         <div ref="map" className="map"></div>
         <div className="content">
           <div className="tag">
