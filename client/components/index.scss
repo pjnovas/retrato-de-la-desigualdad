@@ -25,3 +25,16 @@ section {
 @import "./testimonials.scss";
 
 @import "./metadata.scss";
+
+.footer-content {
+  @include container();
+
+  .left {
+    overflow: hidden;
+    @include span(5 of 12);
+  }
+
+  .right {
+    @include span(7 of 12);
+  }
+}

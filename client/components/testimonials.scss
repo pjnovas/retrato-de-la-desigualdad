@@ -1,3 +1,55 @@
 .testimonials {
-  
+  display: block;
+  border: solid 2px black;
+  padding: 10px;
+
+  .content {
+
+    .tag {
+      display: inline-block;
+
+      span {
+        border: 2px solid black;
+        display: inline-block;
+        padding: 10px;
+        margin: 10px 0;
+        width: 80%;
+      }
+    }
+  }
+
+  .body {
+    display: inline-block;
+    margin: 10px 0;
+
+    p {
+      margin-top: 0;
+    }
+  }
+
+  .author {
+    text-transform: uppercase;
+    font-size: 20px;
+  }
+
+  .slick-next, .slick-prev {
+    display: block;
+    bottom: -30px;
+    top: auto;
+    background: black;
+    padding: 2px;
+    width: 24px;
+    height: 22px;
+    border-radius: 3px;
+    z-index: 5;
+  }
+
+  .slick-next {
+    right: 0px;
+  }
+
+  .slick-prev {
+    left: 0px;
+  }
+
 }

@@ -23,8 +23,7 @@ class Main extends React.Component {
       places: [],
       testimonials: [],
 
-      selectedPublisher: null,
-      showAnalysis: false
+      selectedPublisher: null
     };
   }
 
@@ -106,11 +105,21 @@ class Main extends React.Component {
           <MapArticle places={this.state.places} article={cPublisher} />
         : null }
 
-        { this.state.showAnalysis ?
-          <AnalysisArticle article={cPublisher.analysis} />
-        : null }
 
-        <Testimonials articles={this.state.testimonials} />
+        <div className="footer-content">
+
+          <div className="left">
+            <Testimonials articles={this.state.testimonials} />
+          </div>
+
+          <div className="right">
+          { cPublisher && cPublisher.analysis ?
+            <AnalysisArticle article={cPublisher.analysis} />
+          : null }
+          </div>
+
+        </div>
+
       </div>
     );
   }

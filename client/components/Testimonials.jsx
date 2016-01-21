@@ -1,45 +1,47 @@
 
+import Slider from "react-slick";
+import Loading from "./Loading.jsx";
+
 class Testimonials extends React.Component {
 
   render() {
+    let articles = this.props.articles;
+
+    if (!articles || !articles.length){
+      return (
+        <Loading />
+      );
+    }
+
+    let settings = {
+      dots: true,
+      infinite: true,
+      speed: 500,
+      slidesToShow: 1,
+      slidesToScroll: 1
+    };
+
     return (
       <section className="testimonials">
-        <div className="tag">Testimonios</div>
-        <div className="content">
-          <ul>
-            <li>
-              <h3>1. Siempre vamos a la gasolineria de la Avenida Libertad a tomar cerveza</h3>
-              <div className="author">Alberto, 12 años, mecánico</div>
-              <div className="body">
-                ajshd kjasdhajsk dhasjkdhas jdhasjdhasjlk dhas ldjhas djhas djkash dlasjhdasd
-                asd lkasdlkasd aklsd nas kldnas ldknas kldnas kldnas dklnas kasd as
-                alskdn aklsdnaskl dnsa dklnsadkl.
-                ajshd kjasdhajsk dhasjkdhas jdhasjdhasjlk dhas ldjhas djhas djkash dlasjhdasd
-                asd lkasdlkasd aklsd nas kldnas ldknas kldnas kldnas dklnas kasd as
-                alskdn aklsdnaskl dnsa dklnsadkl.
-                ajshd kjasdhajsk dhasjkdhas jdhasjdhasjlk dhas ldjhas djhas djkash dlasjhdasd
-                asd lkasdlkasd aklsd nas kldnas ldknas kldnas kldnas dklnas kasd as
-                alskdn aklsdnaskl dnsa dklnsadkl.
-              </div>
-            </li>
 
-            <li>
-              <h3>2. Siempre vamos a la gasolineria de la Avenida Libertad a tomar cerveza</h3>
-              <div className="author">Alberto, 12 años, mecánico</div>
-              <div className="body">
-                ajshd kjasdhajsk dhasjkdhas jdhasjdhasjlk dhas ldjhas djhas djkash dlasjhdasd
-                asd lkasdlkasd aklsd nas kldnas ldknas kldnas kldnas dklnas kasd as
-                alskdn aklsdnaskl dnsa dklnsadkl.
-                ajshd kjasdhajsk dhasjkdhas jdhasjdhasjlk dhas ldjhas djhas djkash dlasjhdasd
-                asd lkasdlkasd aklsd nas kldnas ldknas kldnas kldnas dklnas kasd as
-                alskdn aklsdnaskl dnsa dklnsadkl.
-                ajshd kjasdhajsk dhasjkdhas jdhasjdhasjlk dhas ldjhas djhas djkash dlasjhdasd
-                asd lkasdlkasd aklsd nas kldnas ldknas kldnas kldnas dklnas kasd as
-                alskdn aklsdnaskl dnsa dklnsadkl.
+        <div className="content">
+          <div className="tag">
+            <span>Testimonios</span>
+          </div>
+          <Slider {...settings}>
+          { articles.map( article => {
+            let [author] = article.authors || [""];
+
+            return (
+              <div key={article.number}>
+                <div className="body" dangerouslySetInnerHTML={{__html: article.body}}></div>
+                <div className="author">{author}</div>
               </div>
-            </li>
-          </ul>
+            );
+          })}
+          </Slider>
         </div>
+
       </section>
     );
   }
