@@ -11,6 +11,10 @@
   "publication": 7,
   "issue": 210,
 
+  // API has no implementation of paging
+  // Set this field into the max number of articles you have on a section
+  "itemsPerPage": 40,
+
   // A password to clear cache using: http://your_host/cache
   "cachePassword": "some_secret_password"
 }
