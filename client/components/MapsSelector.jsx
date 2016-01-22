@@ -16,12 +16,15 @@ class MapsSelector extends React.Component {
     return (
       <ul className="maps-selector">
         { articles.map( article => {
+          let mapId = article.map.replace(/-/g, "_");
+          let mapImgUrl = `https:\/\/cartocdn-ashbu.global.ssl.fastly.net/elfaro/api/v1/map/static/named/tpl_${mapId}/300/170.png`;
+
           return (
             <li key={article.number}
               onClick={ e => this.props.onSelect(article.number) }
               className={selected === article.number ? "selected" : ""}>
               <h4>{article.subtitle}</h4>
-              <div><img src=""/></div>
+              <div><img src={mapImgUrl}/></div>
             </li>
           );
         })}

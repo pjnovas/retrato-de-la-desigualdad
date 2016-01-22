@@ -44,7 +44,7 @@ class MapArticle extends React.Component {
     }
 
     cartodb.createVis(this.refs.map,
-        `http://elfaro.cartodb.com/api/v2/viz/${mapId}/viz.json`, {
+        `http:\/\/elfaro.cartodb.com/api/v2/viz/${mapId}/viz.json`, {
       shareable: false,
       title: false,
       description: false,
@@ -56,21 +56,23 @@ class MapArticle extends React.Component {
     })
     .done( (vis, layers) => {
       this.cVis = vis;
-      this.cLayers = layers;
+      this.mapLayers = layers;
 
-      // layer 0 is the base layer, layer 1 is cartodb layer
-      let [head, ...tail] = layers;
+      this.cLayers =
+        layers[1].options &&
+        layers[1].options.layer_definition &&
+        layers[1].options.layer_definition.layers;
 
       this.setState({
-        layers: tail.map( (l, i) => {
+        layers: this.cLayers.map( (l, i) => {
           let ly = {
             index: i,
             active: false,
-            name: l.model.get('layer_name')
+            name: l.options.layer_name
           };
 
           if (i) {
-            l.hide();
+            l.sub.hide();
           }
           else {
             ly.active = true;
@@ -90,35 +92,37 @@ class MapArticle extends React.Component {
   onLayerClick(layer){
     let layers = this.state.layers;
     let [_layer] = layers.filter( l => l.index === layer.index );
-    let idx = layer.index+1;
+    let idx = layer.index;
+    let currShow = (idx === 0 ? this.showLA : this.showLB)
 
-    if (this.cLayers[idx].hidden){
-      this.cLayers[idx].show();
-      _layer.active = true;
+    if (currShow){
+      this.cLayers[idx].sub.hide();
+      _layer.active = false;
     }
     else {
-      this.cLayers[idx].hide();
-      _layer.active = false;
+      this.cLayers[idx].sub.show();
+      _layer.active = true;
     }
 
     layers[layer.index] = _layer;
     this.setState({ layers });
-    this.toggleLayers();
+
+    this.togglePlaces(idx === 0 ? "a" : "b", !currShow);
   }
 
   createMarkers() {
     let places = this.props.places;
     let map = this.cVis.getNativeMap();
 
-    this.removeMarkerLayers();
-
     const mPlace = p => {
+      let img = p.images && p.images.length && p.images[0].url || "";
+
       return L
         .marker(p.meta.coords)
         .bindPopup(`
           <h3>${p.title}</h3>
           <div class="img"
-            style="background-image: url('${p.images[0].url}')" >
+            style="background-image: url('${img}')" >
           </div>
           `);
     };
@@ -129,54 +133,35 @@ class MapArticle extends React.Component {
     this.markersLA = L.layerGroup(markersA);
     this.markersLB = L.layerGroup(markersB);
 
-    this.showLA = true;
-    this.showLB = true;
-
-    this.toggleLayers();
+    this.togglePlaces("a", true);
+    this.togglePlaces("b", false);
   }
 
-  removeMarkerLayers(){
+  togglePlaces(type, visible) {
     let map = this.cVis.getNativeMap();
 
-    if (this.showLA){
-      map.removeLayer(this.markersLA);
-      this.showLA = false;
-    }
-
-    if (this.showLB){
-      map.removeLayer(this.markersLB);
-      this.showLB = false;
-    }
-  }
-
-  toggleLayers() {
-    let map = this.cVis.getNativeMap();
-    this.removeMarkerLayers();
-
-    if (this.cLayers.length <= 3){
-      //FOR TEST
-      map.addLayer(this.markersLA);
-      map.addLayer(this.markersLB);
-
+    if (this.cLayers.length < 2){
       return;
     }
 
-    if (this.cLayers[1].hidden){
-      map.removeLayer(this.markersLA);
-      this.showLA = false;
-    }
-    else if (!this.showLA){
-      map.addLayer(this.markersLA);
-      this.showLA = true;
-    }
+    const toggle = markers => {
 
-    if (this.cLayers[2].hidden){
-      map.removeLayer(this.markersLB);
-      this.showLB = false;
-    }
-    else if (!this.showLB){
-      map.addLayer(this.markersLB);
-      this.showLB = true;
+      if (visible) {
+        map.addLayer(markers);
+        return true;
+      }
+
+      map.removeLayer(markers);
+      return false;
+    };
+
+    switch(type) {
+      case "a":
+        this.showLA = toggle(this.markersLA);
+        break;
+      case "b":
+        this.showLB = toggle(this.markersLB);
+        break;
     }
   }
 
