@@ -68,6 +68,7 @@ class MapArticle extends React.Component {
           let ly = {
             index: i,
             active: false,
+            info: "Grupo con acceso a educación, transporte y resistencia estable",
             name: l.options.layer_name
           };
 
@@ -115,16 +116,19 @@ class MapArticle extends React.Component {
     let map = this.cVis.getNativeMap();
 
     const mPlace = p => {
-      let img = p.images && p.images.length && p.images[0].url || "";
+      let img = p.images && p.images.length && p.images[0].thumb || "";
 
       return L
         .marker(p.meta.coords)
         .bindPopup(`
-          <h3>${p.title}</h3>
+          <div class="desc">
+            <h3>${p.title}</h3>
+            <h4>${p.meta.address}</h4>
+          </div>
           <div class="img"
             style="background-image: url('${img}')" >
           </div>
-          `);
+        `);
     };
 
     let markersA = places.filter( p => p.meta.groups.a ).map(mPlace);
@@ -187,6 +191,7 @@ class MapArticle extends React.Component {
               onClick={ () => this.onLayerClick(layer) }>
               {layer.name}
             </a>
+            <span>{layer.info}</span>
           </li>
         );
       });
@@ -202,11 +207,10 @@ class MapArticle extends React.Component {
             {layers}
           </ul>
 
-          <ul className="sections">
-            <li>
-              <a onClick={ () => this.onPlacesClick() }>Destinos</a>
-            </li>
-          </ul>
+          <div className="places-btn">
+            <span>DONDE</span>
+            <a onClick={ () => this.onPlacesClick() }>Mapa de Destinos</a>
+          </div>
 
         </div>
 
