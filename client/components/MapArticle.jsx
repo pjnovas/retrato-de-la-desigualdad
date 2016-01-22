@@ -1,5 +1,6 @@
 
 import Loading from "./Loading.jsx";
+import Places from "./Places.jsx";
 
 class MapArticle extends React.Component {
 
@@ -7,7 +8,9 @@ class MapArticle extends React.Component {
     super(props);
 
     this.state = {
-      layers: []
+      layers: [],
+      selectedPlace: null,
+      showPlaces: false
     };
 
     this.cVis = null;
@@ -128,7 +131,13 @@ class MapArticle extends React.Component {
           <div class="img"
             style="background-image: url('${img}')" >
           </div>
-        `);
+        `)
+        .on('mouseover', function (e) {
+          this.openPopup();
+        })
+        .on('mouseout', function (e) {
+          this.closePopup();
+        });
     };
 
     let markersA = places.filter( p => p.meta.groups.a ).map(mPlace);
@@ -170,7 +179,15 @@ class MapArticle extends React.Component {
   }
 
   onPlacesClick() {
+    this.setState({ showPlaces: !this.state.showPlaces });
+  }
 
+  onPlaceSelect(place) {
+    this.setState({ selectedPlace: place });
+  }
+
+  onChangePlaceIndex(index) {
+    this.setState({ selectedPlace: this.props.places[index] });
   }
 
   render() {
@@ -215,6 +232,7 @@ class MapArticle extends React.Component {
         </div>
 
         <div ref="map" className="map"></div>
+
         <div className="content">
           <div className="tag">
             <span>{article.title}</span>
@@ -225,7 +243,16 @@ class MapArticle extends React.Component {
           </div>
           <div className="intro" dangerouslySetInnerHTML={{__html: article.intro}}></div>
           <div className="body" dangerouslySetInnerHTML={{__html: article.body}}></div>
+
+          { this.state.showPlaces ?
+            <Places
+              current={this.state.selectedPlace}
+              places={this.props.places}
+              onPlaceClick={ place => this.onPlaceSelect(place) }
+              onMoveTo={ index => this.onChangePlaceIndex(index) }/>
+          : null }
         </div>
+
       </section>
     );
   }
