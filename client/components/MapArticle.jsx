@@ -238,6 +238,7 @@ class MapArticle extends React.Component {
             <span>{article.title}</span>
           </div>
           <div className="header">
+            <div className="author-mobile">{author}</div>
             <h2>{article.subtitle}</h2>
             <div className="author">{author}</div>
           </div>

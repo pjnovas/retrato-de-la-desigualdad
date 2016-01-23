@@ -1,5 +1,5 @@
 
-import IntroArticle from "./IntroArticle.jsx";
+//import IntroArticle from "./IntroArticle.jsx";
 import MapsSelector from "./MapsSelector.jsx";
 import MapArticle from "./MapArticle.jsx";
 import AnalysisArticle from "./AnalysisArticle.jsx";
@@ -94,7 +94,14 @@ class Main extends React.Component {
       <div>
         <div className="logo"></div>
 
-        <IntroArticle article={this.state.methodology} />
+        <section className="intro">
+          <div className="title">
+            <h1>Retrato de la Desigualdad</h1>
+          </div>
+          <div className="body">
+            Como se mueven los habitantes de la ciudad. Donde van? Usando sus celulares pudimos detectar donde van los ciudadanos de el Salvador durante sus dias y que hábitos tienen.
+          </div>
+        </section>
 
         <MapsSelector
           articles={this.state.publishers}

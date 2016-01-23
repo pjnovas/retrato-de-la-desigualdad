@@ -9,6 +9,14 @@ a {
   background-repeat: no-repeat;
   width: 234px;
   height: 87px;
+
+  @include susy-media(0 30em) {
+    height: 47px;
+  }
+
+  @include susy-media(30em 60em) {
+    height: 67px;
+  }
 }
 
 section {
@@ -33,9 +41,46 @@ section {
   .left {
     overflow: hidden;
     @include span(5 of 12);
+
+    @include susy-media(0 45em) {
+      @include span(12);
+    }
   }
 
   .right {
     @include span(7 of 12);
+
+    @include susy-media(0 45em) {
+      @include span(12);
+    }
+  }
+}
+
+.intro {
+  @include container();
+  position: relative;
+
+  .title {
+    @include span(12);
+
+    h1 {
+      font-size: 50px;
+      margin: 0;
+      margin-bottom: 10px;
+
+      @include susy-media(0 30em) {
+        font-size: 25px;
+      }
+
+      @include susy-media(30em 60em) {
+        font-size: 35px;
+      }
+    }
+  }
+
+  .body {
+    @include span(12);
+    display: inline-block;
+    font-size: 20px;
   }
 }

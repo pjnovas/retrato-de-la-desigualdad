@@ -4,6 +4,16 @@ import Loading from "./Loading.jsx";
 
 class Testimonials extends React.Component {
 
+  shuffleArray(array) {
+    for (var i = array.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var temp = array[i];
+      array[i] = array[j];
+      array[j] = temp;
+    }
+    return array;
+  }
+
   render() {
     let articles = this.props.articles;
 
@@ -13,8 +23,10 @@ class Testimonials extends React.Component {
       );
     }
 
+    articles = this.shuffleArray(articles);
+
     let settings = {
-      dots: true,
+      dots: false,
       infinite: true,
       speed: 500,
       slidesToShow: 1,
@@ -34,7 +46,7 @@ class Testimonials extends React.Component {
 
             return (
               <div key={article.number}>
-                <div className="body" dangerouslySetInnerHTML={{__html: article.body}}></div>
+                <div className="body" dangerouslySetInnerHTML={{__html: "\"" + article.body + "\""}}></div>
                 <div className="author">{author}</div>
               </div>
             );

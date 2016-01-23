@@ -20,16 +20,19 @@
 
   .body {
     display: inline-block;
-    margin: 10px 0;
+    margin: 0;
+    font-size: 16px;
+    font-style: italic;
 
     p {
       margin-top: 0;
+      display: inline;
     }
   }
 
   .author {
-    text-transform: uppercase;
-    font-size: 20px;
+    font-size: 18px;
+    margin: 7px;
   }
 
   .slick-next, .slick-prev {
@@ -50,6 +53,10 @@
 
   .slick-prev {
     left: 0px;
+  }
+
+  @include susy-media(0 40em) {
+    border: none;
   }
 
 }

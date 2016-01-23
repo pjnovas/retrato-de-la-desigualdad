@@ -1,21 +1,19 @@
 .analysis-article {
   display: block;
   padding: 10px;
-  background-color: #FF8D00;
+  background-color: $active-color;
   min-height: 330px;
 
   .content {
 
     .tag {
       display: inline-block;
-      width: 250px;
 
       span {
         border: 2px solid black;
         display: inline-block;
         padding: 10px;
         margin: 10px 0;
-        width: 80%;
       }
     }
 

@@ -12,6 +12,10 @@ html, body {
 }
 
 $container-style: fluid;
+$primary-color: #6F6F6F;
+$secondary-color: #7C7C7C;
+$active-color: #F9AE0A;
+$active-secondary-color: #C68700;
 
 @mixin clearfix {
   &:after {
@@ -22,9 +26,9 @@ $container-style: fluid;
 }
 
 body {
-  @include container;
-  font-family: 'Open Sans', sans-serif;
-  margin: 0;
+  @include container(80em);
+  font-family: 'Roboto Slab', serif;
+  margin: 0 auto;
   padding: 0;
 }
 

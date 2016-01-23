@@ -1,14 +1,15 @@
 .map-article {
   margin-top: 0;
+  margin-bottom: 0;
 
   .top-menu {
     display: inline-block;
     width: 100%;
+    @include container();
 
     .layers, .places-btn {
       list-style: none;
       padding: 0;
-      margin: 10px;
       display: inline-block;
 
       li {
@@ -17,24 +18,27 @@
 
       a {
         padding: 10px;
-        background: #D5D5D5;
-        color: black;
-        border: 1px solid silver;
+        background: $primary-color;
+        color: #fff;
+        text-transform: uppercase;
+        font-weight: bold;
 
         &.active {
-          background: #27FF00;
+          background: $active-secondary-color;
         }
       }
     }
 
 
     .layers {
-      float: left;
+      @include span(9 of 12 no-gutter);
+      margin-bottom: 0;
 
       li {
         display: block;
 
         a {
+          text-align: center;
           display: inline-block;
           margin: 5px 0;
         }
@@ -43,21 +47,56 @@
           margin-left: 10px;
         }
       }
+
+      @include susy-media(0 45em) {
+        @include span(8 of 12 no-gutter);
+
+        li {
+          @include span(12 break);
+          margin: 5px 0;
+
+          span {
+            margin-left: 0;
+            @include span(9 of 12 wide);
+          }
+
+          a {
+            margin: 0;
+            @include span(3 of 12 no-gutter);
+          }
+        }
+      }
+
+      @include susy-media(0 30em) {
+        @include span(12 of 12 no-gutter);
+      }
     }
 
     .places-btn {
-      float: right;
+      @include span(3 of 12 no-gutter);
+      text-align: right;
+      margin-top: 15px;
 
       span {
         text-transform: uppercase;
-        display: inline-block;
-        margin: 15px 0;
+        display: block;
+        margin: 20px 0 5px 0;
         font-size: 18px;
         font-weight: 600;
       }
 
       a {
         display: block;
+        max-width: 140px;
+        float: right;
+      }
+
+      @include susy-media(0 45em) {
+        @include span(4 of 12 no-gutter);
+      }
+
+      @include susy-media(0 30em) {
+        display: none;
       }
     }
 
@@ -82,7 +121,14 @@
         display: inline-block;
         padding: 10px;
         margin: 10px 0;
-        width: 80%;
+      }
+
+      @include susy-media(0 45em) {
+        @include span(6 of 12);
+      }
+
+      @include susy-media(0 30em) {
+        @include span(12 of 12);
       }
     }
 
@@ -91,31 +137,79 @@
 
       h2 {
         margin: 10px 0 20px 0;
-        font-weight: 500;
-        font-size: 40px;
+        font-size: 60px;
+        font-weight: lighter;
         margin: 0;
       }
 
-      .author {
+      .author,
+      .author-mobile {
         text-transform: uppercase;
-        font-size: 20px;
+        font-size: 22px;
       }
+
+      .author-mobile {
+        display: none;
+        font-size: 16px;
+      }
+
+      @include susy-media(0 45em) {
+        @include span(12 of 12);
+
+        h2 {
+          font-size: 50px;
+        }
+
+        .author {
+          display: none;
+        }
+
+        .author-mobile {
+          font-size: 18px;
+          display: block;
+        }
+      }
+
+      @include susy-media(0 30em) {
+        h2 {
+          font-size: 38px;
+        }
+
+        .author-mobile {
+          font-size: 16px;
+        }
+      }
+
     }
 
     .intro {
       display: inline-block;
       margin: 10px 0;
-      font-size: 20px;
-      font-weight: 700;
+      font-size: 24px;
+      font-weight: bold;
+
+      p {
+        margin: 0;
+      }
+
+      @include susy-media(0 45em) {
+        font-size: 22px;
+      }
     }
 
     .body {
       @include span(9 of 12);
-      display: inline-block;
-      margin: 10px 0;
+      margin-left: span(3 wide);
+      font-size: 18px;
 
       p {
         margin-top: 0;
+      }
+
+      @include susy-media(0 45em) {
+        @include span(12);
+        margin-left: 0;
+        font-size: 16px;
       }
     }
   }

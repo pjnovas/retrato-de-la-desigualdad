@@ -7,12 +7,25 @@
   li {
     @include span(3 of 12);
 
+    background-color: $primary-color;
+    padding-bottom: 10px;
+
+    cursor: pointer;
+
+    &:nth-child(odd){
+      background-color: $secondary-color;
+    }
+
     h4 {
       margin: 5px;
+      min-height: 40px;
+      color: #EBEBEB;
     }
 
     div {
       background: #D7D7D7;
+      border: 1px solid white;
+      opacity: 0.74;
 
       @include span(12);
       height: 0;
@@ -30,13 +43,45 @@
       }
     }
 
+    &:hover,
     &.selected {
       h4 {
-        color: red;
+        color: #fff;
       }
 
       div {
-        border: 1px solid red;
+        opacity: 1;
+      }
+    }
+
+    &.selected {
+      cursor: default;
+      background-color: $active-secondary-color;
+    }
+
+    @include susy-media(0 40em) {
+      @include span(12);
+      padding-bottom: 0;
+
+      h4 {
+        @include span(9 of 12 narrow);
+        font-size: 16px;
+        margin-top: 10px;
+        color: #fff;
+      }
+
+      div {
+        @include span(3 of 12 right narrow);
+        padding-top: span(2);
+        opacity: 1;
+        background: none;
+        border: none;
+
+        img {
+          top: 5%;
+          bottom: 5%;
+          height: 90%;
+        }
       }
     }
   }
