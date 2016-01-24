@@ -178,10 +178,6 @@ class MapArticle extends React.Component {
     this.setState({ selectedPlace: place });
   }
 
-  onChangePlaceIndex(index) {
-    this.setState({ selectedPlace: this.props.places[index] });
-  }
-
   render() {
     let article = this.props.article;
 
@@ -241,8 +237,7 @@ class MapArticle extends React.Component {
             <Places
               current={this.state.selectedPlace}
               places={this.props.places}
-              onPlaceClick={ place => this.onPlaceSelect(place) }
-              onMoveTo={ index => this.onChangePlaceIndex(index) }/>
+              onPlaceClick={ place => this.onPlaceSelect(place) }/>
           : null }
         </div>
 

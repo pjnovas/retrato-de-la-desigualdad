@@ -32,48 +32,6 @@ class Places extends React.Component {
     return cIndex;
   }
 
-  moveToPrev() {
-    let idx = this.getCurrentIndex();
-    if (idx !== -1){
-      if (idx > 0){
-        this.props.onMoveTo(idx-1);
-        this.checkDisableArrows(idx-1);
-        return;
-      }
-
-      this.setState({ disableLeft: true });
-    }
-  }
-
-  moveToNext() {
-    let idx = this.getCurrentIndex();
-    if (idx !== -1){
-      if (idx < this.props.places.length-1){
-        this.props.onMoveTo(idx+1);
-        this.checkDisableArrows(idx+1);
-        return;
-      }
-
-      this.setState({ disableRight: true });
-    }
-  }
-
-  checkDisableArrows(nextIndex){
-    if (nextIndex === 0){
-      this.setState({ disableLeft: true });
-    }
-    else {
-      this.setState({ disableLeft: false });
-    }
-
-    if (nextIndex === this.props.places.length-1){
-      this.setState({ disableRight: true });
-    }
-    else {
-      this.setState({ disableRight: false });
-    }
-  }
-
   render() {
     let articles = this.props.places;
 
