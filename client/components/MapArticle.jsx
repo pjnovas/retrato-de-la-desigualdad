@@ -214,7 +214,8 @@ class MapArticle extends React.Component {
 
           <div className="places-btn">
             <span>DONDE</span>
-            <a onClick={ () => this.onPlacesClick() }>Mapa de Destinos</a>
+            <a className={ this.state.showPlaces ? "active" : "" }
+              onClick={ () => this.onPlacesClick() }>Mapa de Destinos</a>
           </div>
 
         </div>
@@ -237,7 +238,8 @@ class MapArticle extends React.Component {
             <Places
               current={this.state.selectedPlace}
               places={this.props.places}
-              onPlaceClick={ place => this.onPlaceSelect(place) }/>
+              onPlaceClick={ place => this.onPlaceSelect(place) }
+              onClose={ () => this.setState({ showPlaces: false }) }/>
           : null }
         </div>
 

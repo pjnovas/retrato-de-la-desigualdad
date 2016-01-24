@@ -115,6 +115,15 @@
         display: block;
         max-width: 140px;
         float: right;
+
+        color: $primary-color;
+        background: #fff;
+        border: 2px solid $primary-color;
+
+        &.active {
+          background: $primary-color;
+          color: #fff;
+        }
       }
 
       @include susy-media(0 45em) {

@@ -65,14 +65,50 @@ class Places extends React.Component {
     return (
       <section className="places">
         <div className="content-place">
-          <div className="picture">
-            <img src={cImg} />
+          <a className="close"
+            onClick={ () => this.props.onClose() }>x</a>
+
+          <div className="left">
+
+            <div className="picture">
+              <div style={{ backgroundImage: "url("+cImg+")" }}></div>
+            </div>
+
+            <div className="content">
+              <div>
+                <div className="groups">
+                  <label>Lo visita</label>
+                  {current.meta.groups.a ?
+                    <span className="a">Grupo A</span> : null }
+                  {current.meta.groups.b ?
+                    <span className="b">Grupo B</span> : null }
+                </div>
+
+                <div className="times">
+                  <label>Tiempo de visita</label>
+                  {current.meta.groups.a ?
+                    <span title="Día" className="day">
+                      <i className="icon-sun-filled"></i>
+                    </span> : null }
+                  {current.meta.groups.b ?
+                    <span title="Noche" className="night">
+                      <i className="icon-moon-inv"></i>
+                    </span> : null }
+                </div>
+              </div>
+            </div>
+
           </div>
-          <div className="content">
-            <div className="wrap">
+
+          <div className="right">
+
+            <div className="content">
               <div className="header">
                 <h2>{current.title}</h2>
                 <h3>{current.meta.address}</h3>
+                {current.meta.distance ?
+                <span>{"[ " + current.meta.distance + " desde El Salvador del Mundo ]"}</span>
+                : null }
               </div>
               <div className="body"
                 dangerouslySetInnerHTML={{__html: current.body}}>
@@ -86,32 +122,9 @@ class Places extends React.Component {
                   <label>Precios de referencia</label>
                   <span>{current.meta.prices}</span>
                 </div>
-                <div>
-                  <label>Distancia desde El Salvador del Mundo</label>
-                  <span>{current.meta.distance}</span>
-                </div>
-                <div>
-                  <label>Dirección</label>
-                  <span>{current.meta.address}</span>
-                </div>
-                <div>
-                  <label>Grupo que lo visita</label>
-                  <span>
-                    {current.meta.groups.a ? "A" : ""}
-                    {current.meta.groups.a && current.meta.groups.b ? " y " : ""}
-                    {current.meta.groups.b ? "B" : ""}
-                  </span>
-                </div>
-                <div>
-                  <label>Tiempo de visita</label>
-                  <span>
-                    {current.meta.times.day ? "Día" : ""}
-                    {current.meta.times.day && current.meta.times.night ? " y " : ""}
-                    {current.meta.times.night ? "Noche" : ""}
-                  </span>
-                </div>
               </div>
             </div>
+
           </div>
 
           <div className="places-list">
