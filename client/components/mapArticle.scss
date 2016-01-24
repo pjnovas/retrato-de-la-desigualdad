@@ -43,6 +43,32 @@
           margin: 5px 0;
         }
 
+        &:nth-child(1){
+          a {
+            background: #fff;
+            color: $group-a-color;
+            border: 2px solid $group-a-color;
+
+            &.active {
+              background: $group-a-color;
+              color: #fff;
+            }
+          }
+        }
+
+        &:nth-child(2){
+          a {
+            background: #fff;
+            color: $group-b-color;
+            border: 2px solid $group-b-color;
+
+            &.active {
+              background: $group-b-color;
+              color: #fff;
+            }
+          }
+        }
+
         span {
           margin-left: 10px;
         }
@@ -107,6 +133,10 @@
     min-width: 200px;
     height: 520px;
     background: #DDDDDD;
+
+    @include susy-media(0 30em) {
+      height: 320px;
+    }
   }
 
   .content {

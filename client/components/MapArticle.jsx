@@ -55,7 +55,8 @@ class MapArticle extends React.Component {
       tiles_loader: true,
       layer_selector: false,
       cartodb_logo: false,
-      fullscreen: false
+      fullscreen: true,
+      zoom: 12
     })
     .done( (vis, layers) => {
       this.cVis = vis;
@@ -68,21 +69,12 @@ class MapArticle extends React.Component {
 
       this.setState({
         layers: this.cLayers.map( (l, i) => {
-          let ly = {
+          return {
             index: i,
-            active: false,
+            active: true,
             info: "Grupo con acceso a educación, transporte y resistencia estable",
             name: l.options.layer_name
           };
-
-          if (i) {
-            l.sub.hide();
-          }
-          else {
-            ly.active = true;
-          }
-
-          return ly;
         })
       });
 
@@ -147,7 +139,7 @@ class MapArticle extends React.Component {
     this.markersLB = L.layerGroup(markersB);
 
     this.togglePlaces("a", true);
-    this.togglePlaces("b", false);
+    this.togglePlaces("b", true);
   }
 
   togglePlaces(type, visible) {
@@ -231,7 +223,7 @@ class MapArticle extends React.Component {
 
         </div>
 
-        <div ref="map" className="map"></div>
+        <div id="map" ref="map" className="map"></div>
 
         <div className="content">
           <div className="tag">

@@ -12,10 +12,14 @@ html, body {
 }
 
 $container-style: fluid;
+
 $primary-color: #6F6F6F;
 $secondary-color: #7C7C7C;
 $active-color: #F9AE0A;
 $active-secondary-color: #C68700;
+
+$group-a-color: #3E7BB6;
+$group-b-color: #FF6600;
 
 @mixin clearfix {
   &:after {
