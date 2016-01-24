@@ -106,6 +106,7 @@
   .places-list {
     display: inline-block;
     margin-top: 20px;
+    margin-bottom: 20px;
     @include span(12);
 
     .tag {
@@ -115,73 +116,58 @@
       width: auto;
     }
 
-    .arrows {
-      width: 50px;
-      float: right;
-      font-size: 30px;
-      font-weight: bold;
-      margin-right: 50px;
+    .slick-slider {
+      @include span(11 of 12 no-gutters);
+      margin: 0 span(0.5 of 12 no-gutters);
 
-      .left,
-      .right {
-        color: #000;
-        margin: 5px;
-        background-color: #fff;
-        padding: 0px 11px;
+      .slick-prev,
+      .slick-next {
+        display: block;
+        height: 67%;
+        top: 15%;
+        background: rgba(255,255,255,0.17);
+        width: 40px;
       }
 
+      .slick-prev {
+        left: -35px;
+      }
+
+      .slick-next {
+        right: -35px;
+      }
     }
 
-    ul {
-      @include clearfix;
-      list-style: none;
+    .place-item {
+      cursor: pointer;
+      color: #000;
       padding: 0;
-      margin: 0;
+      background: transparent;
 
-      li {
-        cursor: pointer;
-        color: #000;
-        padding: 0;
-        background: transparent;
+      overflow: hidden;
+      height: 100px;
 
-        overflow: hidden;
-        height: 100px;
+      .place-content {
+        background: #fff;
+        padding: 5px;
 
+        h3 {
+          font-size: 13px;
+          font-weight: bold;
+        }
+
+        h4 {
+          font-size: 12px;
+        }
+      }
+
+      &.selected {
         .place-content {
-          background: #fff;
-          padding: 5px;
-
-          h3 {
-            font-size: 14px;
-          }
-
-          h4 {
-            font-size: 12px;
-          }
-        }
-
-        &.selected {
-          .place-content {
-            background: #F77FFF;
-          }
-        }
-
-        @include gallery(4);
-        margin-bottom: gutter();
-        margin-left: gutter()/2;
-        margin-right: gutter()/2;
-
-        @media (max-width: 700px) {
-          @include gallery(3);
-          margin-bottom: gutter();
-        }
-
-        @media (max-width: 480px) {
-          @include gallery(1);
-          margin-bottom: gutter();
+          background: $active-color;
         }
       }
 
     }
+
   }
 }

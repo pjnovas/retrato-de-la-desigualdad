@@ -1,5 +1,6 @@
 
 import Loading from "./Loading.jsx";
+import Slider from "react-slick";
 
 class Places extends React.Component {
 
@@ -82,11 +83,26 @@ class Places extends React.Component {
       );
     }
 
-    let current = this.props.current || articles[0];
+    let current = this.getCurrent();
 
     let cImg = current.images &&
       current.images.length &&
       current.images[0].url || "";
+
+    let settings = {
+      initialSlide: this.getCurrentIndex(),
+      dots: false,
+      infinite: true,
+      speed: 500,
+      slidesToShow: 3,
+      slidesToScroll: 3,
+      adaptiveHeight: false,
+      responsive: [
+        { breakpoint: 768, settings: { slidesToShow: 1, slidesToScroll: 1 } },
+        { breakpoint: 1024, settings: { slidesToShow: 2, slidesToScroll: 2 } },
+        { breakpoint: 1280, settings: { slidesToShow: 3, slidesToScroll: 3 } }
+      ]
+    };
 
     return (
       <section className="places">
@@ -139,27 +155,16 @@ class Places extends React.Component {
               </div>
             </div>
           </div>
+
           <div className="places-list">
             <div className="tag">Otros Destinos</div>
 
-            <div className="arrows">
-              {!this.state.disableLeft ?
-              <a className="left"
-                onClick={ () => this.moveToPrev() }>&lt;</a>
-              : null }
-
-              {!this.state.disableRight ?
-              <a className="right"
-                onClick={ () => this.moveToNext() }>&gt;</a>
-              : null }
-            </div>
-
-            <ul>
+            <Slider {...settings}>
               { articles.map( p => {
                 let img = p.images && p.images.length && p.images[0].thumb || "";
 
                 return (
-                  <li key={p.number}
+                  <div key={p.number}
                     className={"place-item " + (p.number === current.number ? "selected" : "")}
                     onClick={ () => this.props.onPlaceClick(p) }>
                     <div className="place-content">
@@ -171,10 +176,12 @@ class Places extends React.Component {
                         style={{ backgroundImage: "url('" + img + "')" }} >
                       </div>
                     </div>
-                  </li>
+                  </div>
                 );
               }) }
-            </ul>
+
+            </Slider>
+
           </div>
         </div>
       </section>
