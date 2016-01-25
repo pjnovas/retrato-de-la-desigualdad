@@ -28,7 +28,7 @@ class Logos extends React.Component {
       <section className="logos">
 
         <p className="legend">
-          <strong>Retrato de la Desigualdad</strong> es posible gracias a
+          Contribuyeron para realizar <strong>Retrato de la Desigualdad</strong>:
         </p>
 
         { logos.map( l => {
