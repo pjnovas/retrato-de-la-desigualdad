@@ -31,16 +31,19 @@
 
 
     .layers {
-      @include span(9 of 12 no-gutter);
+      @include span(8 of 12 no-gutter);
       margin-bottom: 0;
 
       li {
         display: block;
+        @include span(12 break);
+        margin: 5px 0;
 
         a {
           text-align: center;
           display: inline-block;
-          margin: 5px 0;
+          margin: 0;
+          @include span(2 of 12 no-gutter);
         }
 
         &:nth-child(1){
@@ -70,36 +73,30 @@
         }
 
         span {
-          margin-left: 10px;
+          margin-left: 0;
+          @include span(10 of 12 wide);
         }
       }
 
-      @include susy-media(0 45em) {
-        @include span(8 of 12 no-gutter);
-
+      @include susy-media(0 50em) {
         li {
-          @include span(12 break);
-          margin: 5px 0;
-
-          span {
-            margin-left: 0;
-            @include span(9 of 12 wide);
-          }
-
           a {
-            margin: 0;
             @include span(3 of 12 no-gutter);
           }
+
+          span {
+            @include span(9 of 12 wide);
+          }
         }
       }
 
-      @include susy-media(0 30em) {
+      @include susy-media(0 35em) {
         @include span(12 of 12 no-gutter);
       }
     }
 
     .places-btn {
-      @include span(3 of 12 no-gutter);
+      @include span(4 of 12 no-gutter);
       text-align: right;
       margin-top: 15px;
 
@@ -130,7 +127,7 @@
         @include span(4 of 12 no-gutter);
       }
 
-      @include susy-media(0 30em) {
+      @include susy-media(0 35em) {
         display: none;
       }
     }

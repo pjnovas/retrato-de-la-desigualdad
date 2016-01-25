@@ -40,7 +40,8 @@ class MapArticle extends React.Component {
     }
 
     let article = this.props.article;
-    let mapId = article.map;
+    let mapId = article.map.id || article.map;
+    let articleLayers = article.map.layers || [];
 
     if (this.cVis){
       this.cVis.container.remove();
@@ -74,7 +75,7 @@ class MapArticle extends React.Component {
           return {
             index: i,
             active: true,
-            info: "Grupo con acceso a educación, transporte y resistencia estable",
+            info: articleLayers[i] && articleLayers[i].info || "",
             name: l.options.layer_name
           };
         })

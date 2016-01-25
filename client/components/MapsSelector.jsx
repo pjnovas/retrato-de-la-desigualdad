@@ -16,7 +16,8 @@ class MapsSelector extends React.Component {
     return (
       <ul className="maps-selector">
         { articles.map( article => {
-          let mapId = article.map.replace(/-/g, "_");
+          let map = article.map.id || article.map;
+          let mapId = map.replace(/-/g, "_");
           let mapImgUrl = `https:\/\/cartocdn-ashbu.global.ssl.fastly.net/elfaro/api/v1/map/static/named/tpl_${mapId}/300/170.png`;
 
           return (
