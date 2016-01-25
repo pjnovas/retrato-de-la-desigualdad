@@ -13,6 +13,7 @@ import {
   getTestimonials
 } from "../api";
 
+
 class Main extends React.Component {
 
   constructor(props){
@@ -60,18 +61,6 @@ class Main extends React.Component {
     });
   }
 
-  onChangeMenu(menu) {
-    console.log("Menu changed: " + menu);
-  }
-
-  onChangeLayer(layer) {
-    console.log("Layer changed: " + layer);
-  }
-
-  togglePlaces() {
-    console.log('Toggle places!');
-  }
-
   onChangePublisher(number) {
     if (number === this.state.selectedPublisher.number){
       return;
@@ -106,7 +95,7 @@ class Main extends React.Component {
         <MapsSelector
           articles={this.state.publishers}
           selected={cPublisher && cPublisher.number}
-          onSelect={ number => this.onChangePublisher(number) } />
+          onSelect={ number => this.onChangePublisher(number) }/>
 
         { this.state.places.length ?
           <MapArticle places={this.state.places} article={cPublisher} />

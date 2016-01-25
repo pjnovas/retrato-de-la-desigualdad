@@ -1,4 +1,6 @@
 
+import {Element, scroller} from 'react-scroll';
+
 import Loading from "./Loading.jsx";
 import Places from "./Places.jsx";
 
@@ -171,7 +173,11 @@ class MapArticle extends React.Component {
   }
 
   onPlacesClick() {
-    this.setState({ showPlaces: !this.state.showPlaces });
+    this.setState({ showPlaces: !this.state.showPlaces }, () => {
+      if (this.state.showPlaces){
+        scroller.scrollTo("ele-places", true, 500, -50);
+      }
+    });
   }
 
   onPlaceSelect(place) {
@@ -222,7 +228,7 @@ class MapArticle extends React.Component {
 
         <div id="map" ref="map" className="map"></div>
 
-        <div className="content">
+        <Element name="ele-places" className="content">
           <div className="tag">
             <span>{article.title}</span>
           </div>
@@ -235,13 +241,14 @@ class MapArticle extends React.Component {
           <div className="body" dangerouslySetInnerHTML={{__html: article.body}}></div>
 
           { this.state.showPlaces ?
-            <Places
-              current={this.state.selectedPlace}
-              places={this.props.places}
-              onPlaceClick={ place => this.onPlaceSelect(place) }
-              onClose={ () => this.setState({ showPlaces: false }) }/>
+
+              <Places
+                current={this.state.selectedPlace}
+                places={this.props.places}
+                onPlaceClick={ place => this.onPlaceSelect(place) }
+                onClose={ () => this.setState({ showPlaces: false }) }/>
           : null }
-        </div>
+        </Element>
 
       </section>
     );
