@@ -1,0 +1,57 @@
+.logos {
+  @include container();
+  display: block;
+  border-top: 3px solid $active-color;
+
+  .legend {
+    //@include span(12);
+    font-size: 20px;
+    display: block;
+
+    strong {
+      font-weight: bold;
+    }
+  }
+
+  a {
+    height: 100px;
+    display: inline-block;
+    text-align: center;
+    width: 20%;
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+
+    @include susy-media(0 30em) {
+      display: block;
+      width: 80%;
+      height: 60px;
+      margin: 10%;
+    }
+  }
+
+  .hackslabs {
+    background-image: url('/images/hackslabs.png');
+
+    @include susy-media(0 30em) {
+      height: 30px;
+    }
+  }
+
+  .icfj {
+    background-image: url('/images/ICFJ.jpg');
+  }
+
+  .hivos {
+    background-image: url('/images/hivos.jpg');
+  }
+
+  .avina {
+    background-image: url('/images/avina.gif');
+  }
+
+  .anacarolina {
+    background-image: url('/images/AnaCarolina.jpg');
+  }
+}

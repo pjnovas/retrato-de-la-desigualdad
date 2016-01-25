@@ -56,7 +56,15 @@
 
     &.selected {
       cursor: default;
-      background-color: $active-secondary-color;
+      background-color: $active-color;
+
+      h4 {
+        color: darken($active-color, 45%);
+      }
+
+      >div {
+        border: 1px solid darken($active-color, 45%);
+      }
     }
 
     @include susy-media(0 40em) {

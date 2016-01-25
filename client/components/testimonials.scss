@@ -39,20 +39,32 @@
     display: block;
     bottom: -30px;
     top: auto;
-    background: black;
     padding: 2px;
-    width: 24px;
-    height: 22px;
+    width: 32px;
+    height: 32px;
     border-radius: 3px;
     z-index: 5;
+
+    &:before {
+      font-family: "fontello";
+      color: #000;
+    }
   }
 
   .slick-next {
     right: 0px;
+
+    &:before {
+      content: "\e803";
+    }
   }
 
   .slick-prev {
     left: 0px;
+
+    &:before {
+      content: "\e800";
+    }
   }
 
   @include susy-media(0 40em) {

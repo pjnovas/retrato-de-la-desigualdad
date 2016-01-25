@@ -3,8 +3,8 @@
 import MapsSelector from "./MapsSelector.jsx";
 import MapArticle from "./MapArticle.jsx";
 import AnalysisArticle from "./AnalysisArticle.jsx";
-//import Places from "./Places.jsx";
 import Testimonials from "./Testimonials.jsx";
+import Logos from "./Logos.jsx";
 
 import {
   getMethodologies,
@@ -126,6 +126,8 @@ class Main extends React.Component {
           </div>
 
         </div>
+
+        <Logos />
 
       </div>
     );
