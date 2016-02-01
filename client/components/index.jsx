@@ -85,10 +85,10 @@ class Main extends React.Component {
 
         <section className="intro">
           <div className="title">
-            <h1>Retrato de la Desigualdad</h1>
+            <h1>Un retrato de la desigualdad</h1>
           </div>
           <div className="body">
-            Como se mueven los habitantes de la ciudad. Donde van? Usando sus celulares pudimos detectar donde van los ciudadanos de el Salvador durante sus dias y que hábitos tienen.
+            El Salvador, para algunos, puede ser una gran prisión. Estos mapas interactivos son el resultado de un experimento con 24 jóvenes del Área Metropolitana de San Salvador, que accedieron a que se registrara su movilización 24 horas al día durante todo octubre de 2015. El resultado, que confirma que la expresión popular “del Salvador del Mundo para abajo” acierta al aludir a dos mundos determinados por el nivel de ingresos, da luz sobre el acceso al ocio y la cultura de los jóvenes salvadoreños, probablemente también condicionado por la inseguridad.
           </div>
         </section>
 

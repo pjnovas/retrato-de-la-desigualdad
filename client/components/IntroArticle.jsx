@@ -15,7 +15,7 @@ class IntroArticle extends React.Component {
     return (
       <section className="intro-article">
         <div className="title">
-          <h1>Retrato de la Desigualdad</h1>
+          <h1>Un retrato de la desigualdad</h1>
           <h2>{article.title}</h2>
         </div>
         <div className="section-name">

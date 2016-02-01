@@ -1,6 +1,10 @@
-# Retrato de la desigualdad
+# Un retrato de la desigualdad
 
-[TODO]: brief explanation of the project.
+[Spanish]  
+El Salvador, para algunos, puede ser una gran prisión. Estos mapas interactivos son el resultado de un experimento con 24 jóvenes del Área Metropolitana de San Salvador, que accedieron a que se registrara su movilización 24 horas al día durante todo octubre de 2015. El resultado, que confirma que la expresión popular “del Salvador del Mundo para abajo” acierta al aludir a dos mundos determinados por el nivel de ingresos, da luz sobre el acceso al ocio y la cultura de los jóvenes salvadoreños, probablemente también condicionado por la inseguridad.
+
+[English]  
+El Salvador for some people could be a big prison. These interactive maps are the result of an experiment with 24 young from the Metropolitan area of San Salvador which agreed to register their movement over 24 hours along October 2015. The result confirms the popular expression "del Salvador del Mundo para abajo" (which means "from Salvador of the world down") which hits to avoid both worlds determined by income level, it shows the access to leisure time and culture of Salvador youth also probably conditioned by insecurity.
 
 ## Getting started
 
