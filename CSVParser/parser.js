@@ -8,7 +8,19 @@ program
   .version(version)
   .usage('[options] --in path/to/file.csv')
   .option('-i, --in <in>', 'Sorce file path of CSV')
+  .option('-e, --exclude <items>', 'Comma separated user ids to exclude')
   .parse(process.argv);
+
+function exclude(val) {
+  return val.split(',');
+}
+
+let excludeIds = [];
+if (program.exclude && program.exclude.length){
+  excludeIds = program.exclude.split(',');
+}
+
+console.log('Exclude User Ids: ' + excludeIds);
 
 let source = program.in || './example.csv';
 let output = {};
@@ -30,15 +42,18 @@ const grouper = transform( (record, next) => {
     output[type] = {};
   }
 
-  if (!output[type][id]) {
-    output[type][id] = [];
-  }
+  if (excludeIds.indexOf(id) === -1){
 
-  if (record.latitud && record.longitud){
-    output[type][id].push({
-      latitude: parseFloat(record.latitud),
-      longitude: parseFloat(record.longitud)
-    });
+    if (!output[type][id]) {
+      output[type][id] = [];
+    }
+
+    if (record.latitud && record.longitud){
+      output[type][id].push({
+        latitude: parseFloat(record.latitud),
+        longitude: parseFloat(record.longitud)
+      });
+    }
   }
 
   next();
@@ -46,12 +61,17 @@ const grouper = transform( (record, next) => {
 }, { parallel: 10 });
 
 const calculateAll = () => {
-  let data = {};
+  let data = {
+    count: {},
+    totals: {},
+    average: {}
+  };
 
   for (var type in output){
 
     if (!data[type]){
       data[type] = {};
+      data.totals[type] = 0;
     }
 
     for (var id in output[type]){
@@ -69,7 +89,14 @@ const calculateAll = () => {
 
       // to KM
       data[type][id] = convertUnit('km', data[type][id], 2);
+
+      data.count[id] = coords.length;
+
+      data.totals[type] += data[type][id];
+      data.totals[type] = parseFloat(data.totals[type].toFixed(2));
     }
+
+    data.average[type] = parseFloat((data.totals[type] / Object.keys(output[type]).length).toFixed(2));
   }
 
   console.dir(data);
