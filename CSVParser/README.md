@@ -19,6 +19,11 @@ To run another CSV file use option `--in`:
 node index.js --in path/to/file.csv
 ```
 
+To run excluding user ids use option `--exclude` with ids comma separated:
+```bash
+node index.js --in path/to/file.csv --exclude 1,5,25
+```
+
 Run `-h` for help
 ```bash
 node index.js -h
