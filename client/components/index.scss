@@ -4,29 +4,56 @@ a {
   cursor: pointer;
 }
 
-.logo {
-  background-image: url(/images/logo.svg);
-  background-repeat: no-repeat;
-  width: 234px;
-  height: 87px;
+.toolbar {
+  background: #009FE3;
+  padding: 10px 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
 
-  @include susy-media(0 30em) {
-    height: 47px;
+  .logo-elfaro {
+    background-image: $logo-el-faro;
+    background-repeat: no-repeat;
+    width: 180px;
+    height: 70px;
+    float: right;
+
+    @include susy-media(0 30em) {
+      height: 47px;
+    }
+
+    @include susy-media(30em 60em) {
+      height: 67px;
+    }
   }
 
-  @include susy-media(30em 60em) {
-    height: 67px;
+  .logo-retrato {
+    background-image: $logo-retrato;
+    background-repeat: no-repeat;
+    width: 234px;
+    height: 77px;
+
+    @include susy-media(0 30em) {
+      height: 47px;
+    }
+
+    @include susy-media(30em 60em) {
+      height: 67px;
+    }
   }
 }
-
+/*
 section {
   clear: both;
   margin-top: 20px;
   margin-bottom: 20px;
   display: inline-block;
 }
+*/
 
 @import "./introArticle.scss";
+@import "./introSection.scss";
 @import "./mapsSelector.scss";
 @import "./mapArticle.scss";
 @import "./analysisArticle.scss";
@@ -54,34 +81,5 @@ section {
     @include susy-media(0 45em) {
       @include span(12);
     }
-  }
-}
-
-.intro {
-  @include container();
-  position: relative;
-
-  .title {
-    @include span(12);
-
-    h1 {
-      font-size: 50px;
-      margin: 0;
-      margin-bottom: 10px;
-
-      @include susy-media(0 30em) {
-        font-size: 25px;
-      }
-
-      @include susy-media(30em 60em) {
-        font-size: 35px;
-      }
-    }
-  }
-
-  .body {
-    @include span(12);
-    display: inline-block;
-    font-size: 20px;
   }
 }

@@ -1,0 +1,116 @@
+
+$hero-bg: rgba(255, 255, 255, 0.6);
+
+.intro-section {
+  @include full-screen-section;
+
+  .background, .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .background {
+    background-image: url(/images/bgs/1.JPG);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
+  }
+
+  .overlay {
+    background-color: rgba(255, 255, 255, 0.45);
+    z-index: 2;
+  }
+
+  .content-center {
+    height: 100%;
+    display: table-cell;
+
+    text-align: center;
+    vertical-align: middle;
+
+    position: relative;
+    z-index: 3;
+  }
+
+  .logo-elfaro {
+    background-image: $logo-el-faro;
+    background-repeat: no-repeat;
+
+    width: 180px;
+    height: 70px;
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    @include susy-media(0 32em) {
+      height: 50px;
+      width: 100px;
+    }
+
+    @include susy-media(0 20em) {
+      height: 40px;
+      width: 90px;
+    }
+  }
+
+  .logo-retrato {
+    background-image: $logo-retrato;
+    background-repeat: no-repeat;
+
+    width: 400px;
+    height: 132px;
+    margin: 50px auto;
+    background-color: $hero-bg;
+
+    @include susy-media(0 32em) {
+      width: 250px;
+      height: 83px;
+      margin: 10px;
+    }
+
+    @include susy-media(0 20em) {
+      width: 210px;
+      height: 70px;
+    }
+  }
+
+  .body {
+    display: inline-block;
+    font-size: 20px;
+    background: $hero-bg;
+    padding: 10px 20px;
+    box-shadow: 10px 10px 0 rgba(0,0,0,0.5);
+
+    @include susy-media(0 32em) {
+      font-size: 16px;
+      padding: 10px;
+      box-shadow: 0 10px 0 rgba(0, 0, 0, 0.5);
+    }
+
+    @include susy-media(32em 60em) {
+      box-shadow: 0 10px 0 rgba(0, 0, 0, 0.5);
+    }
+  }
+
+  .continue {
+
+    i {
+      display: inline-block;
+      padding: 5px;
+      margin: 30px;
+      font-size: 60px;
+      color: #009FE3;
+      text-shadow: 0px 8px 0px #000;
+
+      @include susy-media(0 32em) {
+        margin: 0;
+      }
+    }
+
+  }
+
+}

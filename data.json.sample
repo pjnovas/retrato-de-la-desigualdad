@@ -7,6 +7,7 @@
     "section": 200,
     "useImages": false,
     "articles": [1, 2, 3, 4], // Article Numbers sorted
+    "hidden": [3, 4], // set articles to not be retrieved by server
     "analysis": {
       "1": 5, // Analysis Article Number (5) for this Article Number (1)
       "2": 6,

@@ -8,33 +8,46 @@ $susy: (
   //debug: (image: show)
 );
 
-html, body {
-  height:100%;
+html, body, #app, #app>div {
+  height: 100%;
+  width: 100%;
 }
 
 $container-style: fluid;
 
 $primary-color: #6F6F6F;
 $secondary-color: #7C7C7C;
-$active-color: #FFEC38; // #F9AE0A || #00A0DE || #FFEC38
-$active-secondary-color: #C68700;
+$active-color: #009FE3;
+$active-secondary-color: #1C7FA9;
 
 $group-a-color: #3E7BB6;
 $group-b-color: #FF6600;
 
-@mixin clearfix {
-  &:after {
-    content: "";
-    display: table;
-    clear: both;
-  }
+$logo-el-faro: url(/images/logo.svg);
+$logo-retrato: url(/images/retrato.svg);
+
+@mixin full-screen-section {
+  display: table;
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+@mixin section {
+  @include container(80em);
+  margin: 0 auto;
+  padding: 0;
 }
 
 body {
-  @include container(80em);
   font-family: 'Roboto Slab', serif;
-  margin: 0 auto;
+  margin: 0;
   padding: 0;
+  //padding-top: 100px;
+}
+
+.narrow-content {
+  @include section;
 }
 
 @import "./components/index.scss";

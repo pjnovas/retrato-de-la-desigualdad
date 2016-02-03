@@ -1,5 +1,5 @@
 
-//import IntroArticle from "./IntroArticle.jsx";
+import IntroSection from "./IntroSection.jsx";
 import MapsSelector from "./MapsSelector.jsx";
 import MapArticle from "./MapArticle.jsx";
 import AnalysisArticle from "./AnalysisArticle.jsx";
@@ -13,6 +13,7 @@ import {
   getTestimonials
 } from "../api";
 
+import {Element, scroller} from 'react-scroll';
 
 class Main extends React.Component {
 
@@ -75,27 +76,32 @@ class Main extends React.Component {
     }
   }
 
+  onContinue() {
+    scroller.scrollTo("map-selector", true, 500, 0);
+  }
+
   render() {
     let cPublisher = this.state.selectedPublisher;
     let layers = [];
 
+    /*
+    <div className="toolbar">
+      <div className="logo-elfaro"></div>
+      <div className="logo-retrato"></div>
+    </div>
+    */
+
     return (
       <div>
-        <div className="logo"></div>
 
-        <section className="intro">
-          <div className="title">
-            <h1>Un retrato de la desigualdad</h1>
-          </div>
-          <div className="body">
-            El Salvador, para algunos, puede ser una gran prisión. Estos mapas interactivos son el resultado de un experimento con 24 jóvenes del Área Metropolitana de San Salvador, que accedieron a que se registrara su movilización 24 horas al día durante todo octubre de 2015. El resultado, que confirma que la expresión popular “del Salvador del Mundo para abajo” acierta al aludir a dos mundos determinados por el nivel de ingresos, da luz sobre el acceso al ocio y la cultura de los jóvenes salvadoreños, probablemente también condicionado por la inseguridad.
-          </div>
-        </section>
+        <IntroSection onContinue={ () => this.onContinue() }/>
 
-        <MapsSelector
-          articles={this.state.publishers}
-          selected={cPublisher && cPublisher.number}
-          onSelect={ number => this.onChangePublisher(number) }/>
+        <Element name="map-selector">
+          <MapsSelector
+            articles={this.state.publishers}
+            selected={cPublisher && cPublisher.number}
+            onSelect={ number => this.onChangePublisher(number) }/>
+        </Element>
 
         { this.state.places.length ?
           <MapArticle places={this.state.places} article={cPublisher} />
