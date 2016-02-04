@@ -1,6 +1,6 @@
 .map-article {
-  margin-top: 0;
-  margin-bottom: 0;
+  @include section;
+  padding-top: 60px;
 
   .top-menu {
     display: inline-block;

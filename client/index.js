@@ -7,8 +7,8 @@ import moment from "moment";
 window.moment = moment;
 window.React = React;
 
-var router = require("./Router.jsx");
-
 window.app = {
-  router
+  sections: {}
 };
+
+window.app.router = require("./Router.jsx");

@@ -3,6 +3,11 @@ import request from "superagent";
 const fetcher = type => {
   return function(done) {
 
+    if (window.app.sections.hasOwnProperty(type)) {
+      // Already fetched - maybe add localstorage later?
+      return done(null, window.app.sections[type]);
+    }
+
     request
       .get(`/api/articles/${type}`)
       .end( (err, res) => {
@@ -17,6 +22,7 @@ const fetcher = type => {
           return done(err);
         }
 
+        window.app.sections[type] = res.body; // store as client cache
         done(null, res.body);
       });
   };

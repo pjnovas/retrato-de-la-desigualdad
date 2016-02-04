@@ -22,6 +22,20 @@
         @include container;
         border: solid 1px silver;
         margin: 10px;
+        padding: 0;
+        display: block;
+
+        &:hover {
+          background-color: $active-color;
+
+          .img {
+            opacity: 1;
+          }
+
+          h4 {
+            color: #fff;
+          }
+        }
       }
 
       &:nth-child(odd){
@@ -59,24 +73,6 @@
         font-weight: normal;
       }
 
-      &:hover,
-      &.selected {
-        .img {
-          opacity: 1;
-        }
-      }
-
-      &.selected {
-        cursor: default;
-
-        .wrap {
-          background-color: $active-color;
-        }
-
-        h4 {
-          color: #fff;
-        }
-      }
 
       @include susy-media(0 72em) {
         @include span(6 of 12 no-gutters);

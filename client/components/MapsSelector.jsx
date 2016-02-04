@@ -1,11 +1,11 @@
 
 import Loading from "./Loading.jsx";
+import { Link } from "./controls";
 
 class MapsSelector extends React.Component {
 
   render() {
     let articles = this.props.articles;
-    let selected = this.props.selected;
 
     if (!articles){
       return (
@@ -28,13 +28,11 @@ class MapsSelector extends React.Component {
               let mapImgUrl = `https:\/\/cartocdn-ashbu.global.ssl.fastly.net/elfaro/api/v1/map/static/named/tpl_${mapId}/300/170.png`;
 
               return (
-                <li key={article.number}
-                  onClick={ e => this.props.onSelect(article.number) }
-                  className={selected === article.number ? "selected" : ""}>
-                  <div className="wrap">
+                <li key={article.number}>
+                  <Link className="wrap" to={article.number}>
                     <div className="img"><img src={mapImgUrl}/></div>
                     <h4>{article.subtitle}</h4>
-                  </div>
+                  </Link>
                 </li>
               );
             })}

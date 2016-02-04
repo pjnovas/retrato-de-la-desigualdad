@@ -1,0 +1,27 @@
+.toolbar {
+  background: #009FE3;
+  padding: 5px 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1001;
+
+  .logo-elfaro {
+    background-image: $logo-el-faro;
+    background-repeat: no-repeat;
+    width: 130px;
+    height: 50px;
+    float: right;
+    margin-right: -20px;
+  }
+
+  .logo-retrato {
+    background-image: $logo-retrato;
+    background-repeat: no-repeat;
+    width: 145px;
+    height: 48px;
+    background-color: #fff;
+    margin-left: 10px;
+  }
+}

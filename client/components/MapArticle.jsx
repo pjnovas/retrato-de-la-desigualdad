@@ -3,6 +3,12 @@ import {Element, scroller} from 'react-scroll';
 
 import Loading from "./Loading.jsx";
 import Places from "./Places.jsx";
+import Toolbar from "./Toolbar.jsx";
+
+import {
+  getPublishers,
+  getPlaces
+} from "../api";
 
 class MapArticle extends React.Component {
 
@@ -10,6 +16,10 @@ class MapArticle extends React.Component {
     super(props);
 
     this.state = {
+      publishers: [],
+      places: [],
+      article: null,
+
       layers: [],
       selectedPlace: null,
       showPlaces: false
@@ -20,26 +30,39 @@ class MapArticle extends React.Component {
   }
 
   componentDidMount(){
-    this.initMap();
-  }
 
-  componentDidUpdate(prevProps, prevState){
-    if (!this.props.article){
-      return;
-    }
+    getPlaces( (err, places) => {
+      if (err){
+        return;
+      }
 
-    let nbo = this.props.article.number;
-    if (!prevProps.article || nbo !== prevProps.article.number){
-      setTimeout(() => this.initMap(), 500);
-    }
+      getPublishers( (err, publishers) => {
+        if (!err){
+
+          let [article] = publishers.filter(
+            art => art.number === this.props.params.publisher
+          );
+
+          if (article){
+            this.setState({ publishers, places, article }, () => {
+              setTimeout(() => this.initMap(), 500);
+              setTimeout(() => window.scrollTo(0, 0), 1000);
+            });
+          }
+
+          //else NOT FOUND!
+        }
+      });
+
+    });
   }
 
   initMap(){
-    if (!this.props.article){
+    if (!this.state.article){
       return;
     }
 
-    let article = this.props.article;
+    let article = this.state.article;
     let mapId = article.map.id || article.map;
     let articleLayers = article.map.layers || [];
 
@@ -110,7 +133,7 @@ class MapArticle extends React.Component {
   }
 
   createMarkers() {
-    let places = this.props.places;
+    let places = this.state.places;
     let map = this.cVis.getNativeMap();
 
     const mPlace = p => {
@@ -186,9 +209,9 @@ class MapArticle extends React.Component {
   }
 
   render() {
-    let article = this.props.article;
+    let article = this.state.article;
 
-    if (!article){
+    if (!this.state.publishers.length || !article){
       return (
         <Loading />
       );
@@ -213,6 +236,9 @@ class MapArticle extends React.Component {
 
     return (
       <section className="map-article">
+
+        <Toolbar opacity={1} />
+
         <div className="top-menu">
 
           <ul className="layers">
@@ -220,7 +246,6 @@ class MapArticle extends React.Component {
           </ul>
 
           <div className="places-btn">
-            <span>DONDE</span>
             <a className={ this.state.showPlaces ? "active" : "" }
               onClick={ () => this.onPlacesClick() }>Mapa de Destinos</a>
           </div>
@@ -245,7 +270,7 @@ class MapArticle extends React.Component {
 
               <Places
                 current={this.state.selectedPlace}
-                places={this.props.places}
+                places={this.state.places}
                 onPlaceClick={ place => this.onPlaceSelect(place) }
                 onClose={ () => this.setState({ showPlaces: false }) }/>
           : null }

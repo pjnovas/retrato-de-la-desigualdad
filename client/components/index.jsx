@@ -1,16 +1,16 @@
 
 import IntroSection from "./IntroSection.jsx";
 import MapsSelector from "./MapsSelector.jsx";
-import MapArticle from "./MapArticle.jsx";
 import AnalysisArticle from "./AnalysisArticle.jsx";
 import Testimonials from "./Testimonials.jsx";
 import Methodology from "./Methodology.jsx";
 import Logos from "./Logos.jsx";
 
+import Toolbar from "./Toolbar.jsx";
+
 import {
   getMethodologies,
   getPublishers,
-  getPlaces,
   getTestimonials
 } from "../api";
 
@@ -23,10 +23,7 @@ class Main extends React.Component {
     this.state = {
       methodology: null,
       publishers: [],
-      places: [],
       testimonials: [],
-
-      selectedPublisher: null,
       scroll: 0
     };
   }
@@ -42,18 +39,7 @@ class Main extends React.Component {
 
     getPublishers( (err, publishers) => {
       if (!err){
-        //let [selectedPublisher] = publishers;
-
-        this.setState({
-          publishers,
-          selectedPublisher: null
-        });
-      }
-    });
-
-    getPlaces( (err, places) => {
-      if (!err){
-        this.setState({ places });
+        this.setState({ publishers });
       }
     });
 
@@ -73,20 +59,6 @@ class Main extends React.Component {
 
   scrollHandler() {
     this.setState({ scroll: scrollSpy.currentPositionY() });
-  }
-
-  onChangePublisher(number) {
-    if (number === this.state.selectedPublisher.number){
-      return;
-    }
-
-    let [selectedPublisher] = this.state.publishers.filter(
-      art => number === art.number
-    );
-
-    if (selectedPublisher){
-      this.setState({ selectedPublisher });
-    }
   }
 
   onContinue() {
@@ -114,41 +86,26 @@ class Main extends React.Component {
   }
 
   render() {
-    let cPublisher = this.state.selectedPublisher;
-    let layers = [];
     let opacity = this.getToolbarOpacity();
 
     return (
       <div>
-
         <IntroSection opacity={opacity} onContinue={ () => this.onContinue() }/>
-
-        <div className="toolbar" style={ { opacity } }>
-          <div className="logo-elfaro"></div>
-          <div className="logo-retrato"></div>
-        </div>
+        <Toolbar opacity={opacity} />
 
         <Element name="map-selector">
-          <MapsSelector
-            articles={this.state.publishers}
-            selected={cPublisher && cPublisher.number}
-            onSelect={ number => this.onChangePublisher(number) }/>
+          <MapsSelector articles={this.state.publishers} />
         </Element>
-
-        { cPublisher && this.state.places.length ?
-          <MapArticle places={this.state.places} article={cPublisher} />
-        : null }
 
         <Element name="testimonials">
           <Testimonials articles={this.state.testimonials} />
         </Element>
-        
+
         <Element name="methodology">
           <Methodology article={this.state.methodology} />
         </Element>
 
         <Logos />
-
       </div>
     );
   }
