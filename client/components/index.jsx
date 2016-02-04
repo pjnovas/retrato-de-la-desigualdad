@@ -13,7 +13,7 @@ import {
   getTestimonials
 } from "../api";
 
-import {Element, scroller} from 'react-scroll';
+import { Element, scroller, scrollSpy } from 'react-scroll';
 
 class Main extends React.Component {
 
@@ -25,7 +25,8 @@ class Main extends React.Component {
       places: [],
       testimonials: [],
 
-      selectedPublisher: null
+      selectedPublisher: null,
+      scroll: 0
     };
   }
 
@@ -60,6 +61,17 @@ class Main extends React.Component {
         this.setState({ testimonials });
       }
     });
+
+    document.addEventListener('scroll', this.scrollHandler.bind(this));
+    window.setTimeout(() => this.scrollHandler(), 100);
+  }
+
+  componentWillUnmount(){
+    document.removeEventListener('scroll', this.scrollHandler);
+  }
+
+  scrollHandler() {
+    this.setState({ scroll: scrollSpy.currentPositionY() });
   }
 
   onChangePublisher(number) {
@@ -77,24 +89,24 @@ class Main extends React.Component {
   }
 
   onContinue() {
-    scroller.scrollTo("map-selector", true, 500, 0);
+    scroller.scrollTo("map-selector", true, 500, -60);
   }
 
   render() {
     let cPublisher = this.state.selectedPublisher;
     let layers = [];
-
-    /*
-    <div className="toolbar">
-      <div className="logo-elfaro"></div>
-      <div className="logo-retrato"></div>
-    </div>
-    */
+    let opacity = this.state.scroll > 150 ? 1 : 0;
+    let tbStyles = { opacity };
 
     return (
       <div>
 
         <IntroSection onContinue={ () => this.onContinue() }/>
+
+        <div className="toolbar" style={ tbStyles }>
+          <div className="logo-elfaro"></div>
+          <div className="logo-retrato"></div>
+        </div>
 
         <Element name="map-selector">
           <MapsSelector

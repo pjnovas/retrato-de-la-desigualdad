@@ -112,34 +112,26 @@ a {
 
 .toolbar {
   background: #009FE3;
-  padding: 10px 20px;
+  padding: 5px 0;
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%; }
+  width: 100%;
+  z-index: 1001; }
   .toolbar .logo-elfaro {
     background-image: url(/images/logo.svg);
     background-repeat: no-repeat;
-    width: 180px;
-    height: 70px;
-    float: right; }
-    @media (min-width: 0) and (max-width: 30em) {
-      .toolbar .logo-elfaro {
-        height: 47px; } }
-    @media (min-width: 30em) and (max-width: 60em) {
-      .toolbar .logo-elfaro {
-        height: 67px; } }
+    width: 130px;
+    height: 50px;
+    float: right;
+    margin-right: -20px; }
   .toolbar .logo-retrato {
     background-image: url(/images/retrato.svg);
     background-repeat: no-repeat;
-    width: 234px;
-    height: 77px; }
-    @media (min-width: 0) and (max-width: 30em) {
-      .toolbar .logo-retrato {
-        height: 47px; } }
-    @media (min-width: 30em) and (max-width: 60em) {
-      .toolbar .logo-retrato {
-        height: 67px; } }
+    width: 145px;
+    height: 48px;
+    background-color: #fff;
+    margin-left: 10px; }
 
 /*
 section {
