@@ -7,7 +7,7 @@ class IntroSection extends React.Component {
         <div className="background"></div>
         <div className="overlay"></div>
 
-        <div className="content-center">
+        <div className="content-center" style={{ opacity: (1 - this.props.opacity) }}>
           <div className="narrow-content">
             <div className="logo-retrato"></div>
             <div className="logo-elfaro"></div>

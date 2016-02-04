@@ -1,27 +1,37 @@
 .testimonials {
+  @include full-screen-section;
   display: block;
-  border: solid 2px black;
-  padding: 10px;
 
-  .content {
+  h1 {
+    @include section-title;
+  }
 
-    .tag {
-      display: inline-block;
+  .content-center {
+    border: $section-border;
+    display: block;
+  }
 
-      span {
-        border: 2px solid black;
-        display: inline-block;
-        padding: 10px;
-        margin: 10px 0;
-        width: 80%;
-      }
+  .narrow-content {
+
+    @include susy-media(0 80em) {
+      margin: 60px 20px 50px 20px;
     }
+
+    @include susy-media(0 32em) {
+      margin: 20px 20px 50px 20px;
+    }
+
+  }
+
+  .wrap {
+    @include container;
   }
 
   .body {
+    @include span(12 no-gutters);
     display: inline-block;
     margin: 0;
-    font-size: 16px;
+    font-size: 20px;
     font-style: italic;
 
     p {
@@ -31,6 +41,7 @@
   }
 
   .author {
+    @include span(12 no-gutters);
     font-size: 18px;
     margin: 7px;
   }
@@ -47,7 +58,8 @@
 
     &:before {
       font-family: "fontello";
-      color: #000;
+      color: #009FE3;
+      font-size: 40px;
     }
   }
 
@@ -65,10 +77,6 @@
     &:before {
       content: "\e800";
     }
-  }
-
-  @include susy-media(0 40em) {
-    border: none;
   }
 
 }

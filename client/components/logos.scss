@@ -1,19 +1,20 @@
 .logos {
-  @include container();
-  display: block;
-  border-top: 3px solid $active-color;
+  @include section;
 
   .legend {
-    //@include span(12);
     font-size: 20px;
     display: block;
 
     strong {
       font-weight: bold;
     }
+
+    @include susy-media(0 80em) {
+      margin: 10px;
+    }
   }
 
-  a {
+  a, >div {
     height: 100px;
     display: inline-block;
     text-align: center;

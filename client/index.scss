@@ -20,6 +20,9 @@ $secondary-color: #7C7C7C;
 $active-color: #009FE3;
 $active-secondary-color: #1C7FA9;
 
+$section-border-color: $active-color;
+$section-border: 20px solid $section-border-color;
+
 $group-a-color: #3E7BB6;
 $group-b-color: #FF6600;
 
@@ -30,7 +33,12 @@ $logo-retrato: url(/images/retrato.svg);
   display: table;
   position: relative;
   height: 100%;
-  width: 100%;
+  width: 90%;
+  margin: 20px auto;
+
+  @include susy-media(0 40em) {
+    width: 100%;
+  }
 }
 
 @mixin section {
@@ -39,15 +47,54 @@ $logo-retrato: url(/images/retrato.svg);
   padding: 0;
 }
 
+@mixin section-title {
+  text-align: left;
+  display: inline-block;
+  clear: both;
+  padding: 0 20px;
+  background: #fff;
+  position: absolute;
+  left: 20px;
+  top: -30px;
+  font-size: 60px;
+  margin: 0;
+  color: $section-border-color;
+
+  @include susy-media(0 32em) {
+    font-size: 32px;
+  }
+}
+
 body {
   font-family: 'Roboto Slab', serif;
   margin: 0;
   padding: 0;
-  //padding-top: 100px;
+}
+
+.content-center {
+  height: 100%;
+  display: table-cell;
+
+  text-align: center;
+  vertical-align: middle;
+
+  position: relative;
+  z-index: 3;
 }
 
 .narrow-content {
   @include section;
+
+  margin-top: 60px;
+  margin-bottom: 50px;
+
+  @include susy-media(0 80em) {
+    margin-bottom: 30px;
+  }
+
+  @include susy-media(0 32em) {
+    margin-top: 20px;
+  }
 }
 
 @import "./components/index.scss";

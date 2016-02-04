@@ -3,6 +3,8 @@ $hero-bg: rgba(255, 255, 255, 0.6);
 
 .intro-section {
   @include full-screen-section;
+  margin: 0;
+  width: 100%;
 
   .background, .overlay {
     position: absolute;
@@ -23,17 +25,6 @@ $hero-bg: rgba(255, 255, 255, 0.6);
   .overlay {
     background-color: rgba(255, 255, 255, 0.45);
     z-index: 2;
-  }
-
-  .content-center {
-    height: 100%;
-    display: table-cell;
-
-    text-align: center;
-    vertical-align: middle;
-
-    position: relative;
-    z-index: 3;
   }
 
   .logo-elfaro {

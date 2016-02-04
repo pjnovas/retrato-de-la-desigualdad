@@ -4,6 +4,7 @@ import MapsSelector from "./MapsSelector.jsx";
 import MapArticle from "./MapArticle.jsx";
 import AnalysisArticle from "./AnalysisArticle.jsx";
 import Testimonials from "./Testimonials.jsx";
+import Methodology from "./Methodology.jsx";
 import Logos from "./Logos.jsx";
 
 import {
@@ -41,11 +42,11 @@ class Main extends React.Component {
 
     getPublishers( (err, publishers) => {
       if (!err){
-        let [selectedPublisher] = publishers;
+        //let [selectedPublisher] = publishers;
 
         this.setState({
           publishers,
-          selectedPublisher
+          selectedPublisher: null
         });
       }
     });
@@ -89,21 +90,40 @@ class Main extends React.Component {
   }
 
   onContinue() {
-    scroller.scrollTo("map-selector", true, 500, -60);
+    scroller.scrollTo("map-selector", true, 1000, -80);
+  }
+
+  getToolbarOpacity() {
+    let opacity = 0;
+    let ele = scroller.get("map-selector");
+
+    if (ele && ele.getBoundingClientRect){
+      let top = ele.getBoundingClientRect().top;
+
+      if (top > 0){
+        opacity = ((this.state.scroll * 100) / top) / 100;
+        opacity = parseFloat(opacity.toFixed(1));
+      }
+
+      if (opacity > 1) {
+        opacity = 1;
+      }
+    }
+
+    return opacity;
   }
 
   render() {
     let cPublisher = this.state.selectedPublisher;
     let layers = [];
-    let opacity = this.state.scroll > 150 ? 1 : 0;
-    let tbStyles = { opacity };
+    let opacity = this.getToolbarOpacity();
 
     return (
       <div>
 
-        <IntroSection onContinue={ () => this.onContinue() }/>
+        <IntroSection opacity={opacity} onContinue={ () => this.onContinue() }/>
 
-        <div className="toolbar" style={ tbStyles }>
+        <div className="toolbar" style={ { opacity } }>
           <div className="logo-elfaro"></div>
           <div className="logo-retrato"></div>
         </div>
@@ -115,24 +135,17 @@ class Main extends React.Component {
             onSelect={ number => this.onChangePublisher(number) }/>
         </Element>
 
-        { this.state.places.length ?
+        { cPublisher && this.state.places.length ?
           <MapArticle places={this.state.places} article={cPublisher} />
         : null }
 
-
-        <div className="footer-content">
-
-          <div className="left">
-            <Testimonials articles={this.state.testimonials} />
-          </div>
-
-          <div className="right">
-          { cPublisher && cPublisher.analysis ?
-            <AnalysisArticle article={cPublisher.analysis} />
-          : null }
-          </div>
-
-        </div>
+        <Element name="testimonials">
+          <Testimonials articles={this.state.testimonials} />
+        </Element>
+        
+        <Element name="methodology">
+          <Methodology article={this.state.methodology} />
+        </Element>
 
         <Logos />
 

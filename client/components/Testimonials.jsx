@@ -4,6 +4,23 @@ import Loading from "./Loading.jsx";
 
 class Testimonials extends React.Component {
 
+  constructor(props){
+    super(props);
+    this.state = {
+      articles: null
+    };
+  }
+
+  componentWillReceiveProps(nextProps){
+    let articles = nextProps.articles;
+
+    if (this.state.articles && this.state.articles.length){
+      return;
+    }
+
+    this.setState({ articles: this.shuffleArray(articles) });
+  }
+
   shuffleArray(array) {
     for (var i = array.length - 1; i > 0; i--) {
       var j = Math.floor(Math.random() * (i + 1));
@@ -15,15 +32,13 @@ class Testimonials extends React.Component {
   }
 
   render() {
-    let articles = this.props.articles;
+    let articles = this.state.articles;
 
     if (!articles || !articles.length){
       return (
         <Loading />
       );
     }
-
-    articles = this.shuffleArray(articles);
 
     let settings = {
       dots: false,
@@ -35,27 +50,25 @@ class Testimonials extends React.Component {
     };
 
     return (
-      <section className="testimonials">
+      <div className="testimonials">
+        <div className="content-center">
+          <h1>Testimonios</h1>
+          <div className="narrow-content">
+            <Slider {...settings}>
+            { articles.map( article => {
+              let [author] = article.authors || [""];
 
-        <div className="content">
-          <div className="tag">
-            <span>Testimonios</span>
+              return (
+                <div key={article.number} className="wrap">
+                  <div className="body" dangerouslySetInnerHTML={{__html: "\"" + article.body + "\""}}></div>
+                  <div className="author">{author}</div>
+                </div>
+              );
+            })}
+            </Slider>
           </div>
-          <Slider {...settings}>
-          { articles.map( article => {
-            let [author] = article.authors || [""];
-
-            return (
-              <div key={article.number}>
-                <div className="body" dangerouslySetInnerHTML={{__html: "\"" + article.body + "\""}}></div>
-                <div className="author">{author}</div>
-              </div>
-            );
-          })}
-          </Slider>
         </div>
-
-      </section>
+      </div>
     );
   }
 

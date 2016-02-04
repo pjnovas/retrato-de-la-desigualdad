@@ -1,97 +1,91 @@
 .maps-selector {
-  list-style: none;
-  padding: 0;
-  margin: 10px;
-  @include container();
+  @include full-screen-section;
 
-  li {
-    @include span(3 of 12);
-
-    background-color: $primary-color;
-    padding-bottom: 10px;
-
-    cursor: pointer;
-
-    &:nth-child(odd){
-      background-color: $secondary-color;
-    }
-
-    h4 {
-      margin: 5px;
-      min-height: 40px;
-      color: #EBEBEB;
-    }
-
-    div {
-      background: #D7D7D7;
-      border: 1px solid white;
-      opacity: 0.74;
-
-      @include span(12);
-      height: 0;
-      padding-top: span(6);
-      position: relative;
-
-      img {
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-      }
-    }
-
-    &:hover,
-    &.selected {
-      h4 {
-        color: #fff;
-      }
-
-      div {
-        opacity: 1;
-      }
-    }
-
-    &.selected {
-      cursor: default;
-      background-color: $active-color;
-
-      h4 {
-        color: darken($active-color, 45%);
-      }
-
-      >div {
-        border: 1px solid darken($active-color, 45%);
-      }
-    }
-
-    @include susy-media(0 40em) {
-      @include span(12);
-      padding-bottom: 0;
-
-      h4 {
-        @include span(9 of 12 narrow);
-        font-size: 16px;
-        margin-top: 10px;
-        color: #fff;
-      }
-
-      div {
-        @include span(3 of 12 right narrow);
-        padding-top: span(2);
-        opacity: 1;
-        background: none;
-        border: none;
-
-        img {
-          top: 5%;
-          bottom: 5%;
-          height: 90%;
-        }
-      }
-    }
+  h1 {
+    @include section-title;
   }
 
+  .content-center {
+    border: $section-border;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    @include section;
+
+    li {
+      @include span(3 of 12 no-gutters);
+      cursor: pointer;
+
+      .wrap {
+        @include container;
+        border: solid 1px silver;
+        margin: 10px;
+      }
+
+      &:nth-child(odd){
+        .wrap {
+          //background-color: $secondary-color;
+        }
+      }
+
+      .img {
+        @include span(4 of 12 left narrow);
+        padding-top: span(2);
+        opacity: 0.75;
+
+        height: 0;
+        padding-top: span(3);
+        position: relative;
+
+        img {
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+        }
+      }
+
+      h4 {
+        @include span(8 of 12 narrow);
+        font-size: 16px;
+        margin-top: 10px;
+        margin-bottom: 0;
+        color: #000;
+        font-weight: normal;
+      }
+
+      &:hover,
+      &.selected {
+        .img {
+          opacity: 1;
+        }
+      }
+
+      &.selected {
+        cursor: default;
+
+        .wrap {
+          background-color: $active-color;
+        }
+
+        h4 {
+          color: #fff;
+        }
+      }
+
+      @include susy-media(0 72em) {
+        @include span(6 of 12 no-gutters);
+      }
+
+      @include susy-media(0 40em) {
+        @include span(12 no-gutters);
+      }
+
+    }
+  }
 }

@@ -1,0 +1,19 @@
+.methodology {
+  @include full-screen-section;
+
+  h1 {
+    @include section-title;
+  }
+
+  .content-center {
+    border: $section-border;
+  }
+
+  .body {
+    display: inline-block;
+    font-size: 20px;
+    text-align: left;
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+}

@@ -28,10 +28,16 @@ class Logos extends React.Component {
       <section className="logos">
 
         <p className="legend">
-          Contribuyeron para realizar <strong>Un retrato de la desigualdad</strong>:
+          Contribuyeron para realizar <strong>Un retrato de desigualdad</strong>:
         </p>
 
         { logos.map( l => {
+          if (!l.url){
+            return (
+              <div key={l.class} title={l.name} className={l.class}></div>
+            );
+          }
+
           return (
             <a key={l.class} title={l.name} className={l.class}
               href={l.url} target="__blank"></a>
