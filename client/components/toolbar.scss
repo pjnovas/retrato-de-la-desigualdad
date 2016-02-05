@@ -16,6 +16,27 @@
     margin-right: -20px;
   }
 
+  h1 {
+    margin: 12px auto;
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    color: #fff;
+    font-size: 26px;
+    text-align: center;
+
+    @include susy-media(0 35em) {
+      position: static;
+      float: left;
+      font-size: 22px;
+    }
+
+    @include susy-media(0 32em) {
+      margin: 0;
+    }
+  }
+
   .logo-retrato {
     background-image: $logo-retrato;
     background-repeat: no-repeat;

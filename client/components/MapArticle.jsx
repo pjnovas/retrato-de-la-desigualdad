@@ -22,7 +22,10 @@ class MapArticle extends React.Component {
 
       layers: [],
       selectedPlace: null,
-      showPlaces: false
+
+      showEditorial: true,
+      showPlaces: false,
+      showAnalysis: false
     };
 
     this.cVis = null;
@@ -196,16 +199,40 @@ class MapArticle extends React.Component {
     }
   }
 
-  onPlacesClick() {
-    this.setState({ showPlaces: !this.state.showPlaces }, () => {
-      if (this.state.showPlaces){
-        scroller.scrollTo("ele-places", true, 500, -50);
-      }
-    });
-  }
-
   onPlaceSelect(place) {
     this.setState({ selectedPlace: place });
+  }
+
+  onTabChange(id){
+    switch(id) {
+      case "editorial":
+        if (!this.state.showEditorial){
+          this.setState({ showEditorial: true, showPlaces: false });
+        }
+        break;
+      case "places":
+        if (!this.state.showPlaces){
+          this.setState({ showEditorial: false, showPlaces: true });
+          //scroller.scrollTo("ele-places", true, 500, -50);
+        }
+        break;
+    }
+  }
+
+  onEditorialTabChange(id){
+    switch(id) {
+      case "editorial":
+        if (this.state.showAnalysis){
+          this.setState({ showAnalysis: false });
+        }
+        break;
+      case "analysis":
+        if (!this.state.showAnalysis){
+          this.setState({ showAnalysis: true });
+          //scroller.scrollTo("ele-places", true, 500, -50);
+        }
+        break;
+    }
   }
 
   render() {
@@ -226,55 +253,101 @@ class MapArticle extends React.Component {
               onClick={ () => this.onLayerClick(layer) }>
               {layer.name}
             </a>
-            <span>{layer.info}</span>
+
           </li>
         );
       });
     }
+    //<span>{layer.info}</span>
 
     let [author] = article.authors || [""];
+    let [analysisAuthor] = article.analysis && article.analysis.authors || [""];
+
+    let bottomContent = null;
+    if (this.state.showAnalysis){
+      bottomContent = (
+        <div className="analysis">
+          <div className="body" dangerouslySetInnerHTML={{__html: article.analysis.body}}></div>
+          <div className="author">{analysisAuthor}</div>
+          <div className="author-mobile">{analysisAuthor}</div>
+        </div>
+      );
+    }
+    else {
+      bottomContent = (
+        <div className="editorial-article">
+          <div className="author-mobile">{author}</div>
+          <h2>{article.subtitle}</h2>
+          <div className="author">{author}</div>
+          <div className="intro" dangerouslySetInnerHTML={{__html: article.intro}}></div>
+          <div className="body" dangerouslySetInnerHTML={{__html: article.body}}></div>
+        </div>
+      );
+    }
 
     return (
       <section className="map-article">
 
-        <Toolbar opacity={1} />
+        <Toolbar opacity={1} title={article.title} />
 
         <div className="top-menu">
+
+          <ul className="tabs">
+            <li>
+              <a className={this.state.showEditorial ? " active" : "" }
+                onClick={ () => this.onTabChange("editorial") }>Editorial</a>
+            </li>
+            <li>
+              <a className={this.state.showPlaces ? " active" : "" }
+                onClick={ () => this.onTabChange("places") }>Destinos</a>
+            </li>
+          </ul>
 
           <ul className="layers">
             {layers}
           </ul>
 
-          <div className="places-btn">
-            <a className={ this.state.showPlaces ? "active" : "" }
-              onClick={ () => this.onPlacesClick() }>Mapa de Destinos</a>
-          </div>
-
         </div>
 
         <div id="map" ref="map" className="map"></div>
 
+        { this.state.showPlaces ?
+
         <Element name="ele-places" className="content">
-          <div className="tag">
-            <span>{article.title}</span>
-          </div>
-          <div className="header">
-            <div className="author-mobile">{author}</div>
-            <h2>{article.subtitle}</h2>
-            <div className="author">{author}</div>
-          </div>
-          <div className="intro" dangerouslySetInnerHTML={{__html: article.intro}}></div>
-          <div className="body" dangerouslySetInnerHTML={{__html: article.body}}></div>
-
-          { this.state.showPlaces ?
-
-              <Places
-                current={this.state.selectedPlace}
-                places={this.state.places}
-                onPlaceClick={ place => this.onPlaceSelect(place) }
-                onClose={ () => this.setState({ showPlaces: false }) }/>
-          : null }
+          <Places
+            current={this.state.selectedPlace}
+            places={this.state.places}
+            onPlaceClick={ place => this.onPlaceSelect(place) }
+            onClose={ () => this.setState({ showPlaces: false }) }/>
         </Element>
+
+        :
+
+        <Element name="ele-places" className="content">
+          <div className="km-viz">
+            <div>[Visualización KM]</div>
+          </div>
+
+          <div className="editorial-content">
+
+            <ul className="editorial-tabs">
+              <li>
+                <a className={!this.state.showAnalysis ? " active" : "" }
+                  onClick={ () => this.onEditorialTabChange("editorial") }>Editorial</a>
+              </li>
+              <li>
+                <a className={this.state.showAnalysis ? " active" : "" }
+                  onClick={ () => this.onEditorialTabChange("analysis") }>Análisis Externo</a>
+              </li>
+            </ul>
+
+            { bottomContent }
+
+          </div>
+
+        </Element>
+
+        }
 
       </section>
     );

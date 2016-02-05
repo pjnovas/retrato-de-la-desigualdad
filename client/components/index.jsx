@@ -1,7 +1,6 @@
 
 import IntroSection from "./IntroSection.jsx";
 import MapsSelector from "./MapsSelector.jsx";
-import AnalysisArticle from "./AnalysisArticle.jsx";
 import Testimonials from "./Testimonials.jsx";
 import Methodology from "./Methodology.jsx";
 import Logos from "./Logos.jsx";

@@ -7,6 +7,9 @@ class Toolbar extends React.Component {
     return (
       <div className="toolbar" style={ { opacity } }>
         <div className="logo-elfaro"></div>
+        {this.props.title ?
+          <h1>{this.props.title}</h1>
+        : null }
         <div className="logo-retrato"></div>
       </div>
     );

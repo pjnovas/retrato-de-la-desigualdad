@@ -65,8 +65,33 @@ class Places extends React.Component {
     return (
       <section className="places">
         <div className="content-place">
-          <a className="close"
-            onClick={ () => this.props.onClose() }>x</a>
+
+          <div className="places-list">
+
+            <Slider {...settings}>
+              { articles.map( p => {
+                let img = p.images && p.images.length && p.images[0].thumb || "";
+
+                return (
+                  <div key={p.number}
+                    className={"place-item " + (p.number === current.number ? "selected" : "")}
+                    onClick={ () => this.props.onPlaceClick(p) }>
+                    <div className="place-content">
+                      <div className="desc">
+                        <h3>{p.title}</h3>
+                        <h4>{p.meta.address}</h4>
+                      </div>
+                      <div className="img"
+                        style={{ backgroundImage: "url('" + img + "')" }} >
+                      </div>
+                    </div>
+                  </div>
+                );
+              }) }
+
+            </Slider>
+
+          </div>
 
           <div className="left">
 
@@ -85,7 +110,7 @@ class Places extends React.Component {
                 </div>
 
                 <div className="times">
-                  <label>Tiempo de visita</label>
+                  <label>Durante</label>
                   {current.meta.groups.a ?
                     <span title="Día" className="day">
                       <i className="icon-sun-filled"></i>
@@ -127,33 +152,6 @@ class Places extends React.Component {
 
           </div>
 
-          <div className="places-list">
-            <div className="tag">Otros Destinos</div>
-
-            <Slider {...settings}>
-              { articles.map( p => {
-                let img = p.images && p.images.length && p.images[0].thumb || "";
-
-                return (
-                  <div key={p.number}
-                    className={"place-item " + (p.number === current.number ? "selected" : "")}
-                    onClick={ () => this.props.onPlaceClick(p) }>
-                    <div className="place-content">
-                      <div className="desc">
-                        <h3>{p.title}</h3>
-                        <h4>{p.meta.address}</h4>
-                      </div>
-                      <div className="img"
-                        style={{ backgroundImage: "url('" + img + "')" }} >
-                      </div>
-                    </div>
-                  </div>
-                );
-              }) }
-
-            </Slider>
-
-          </div>
         </div>
       </section>
     );

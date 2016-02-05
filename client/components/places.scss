@@ -1,33 +1,108 @@
 .places {
-  position: absolute;
-  top: 0;
-  background: rgba(0,0,0,0.79);
-  color: #fff;
-  z-index: 999;
-  left: 0;
   width: 100%;
   margin: 0;
+  margin-bottom: 30px;
 
   .content-place {
     @include container;
-    padding-top: 30px;
 
-    .close {
-      cursor: pointer;
-      color: #fff;
-      position: absolute;
-      top: -3px;
-      right: 10px;
-      font-size: 30px;
-      font-family: sans-serif;
-      font-weight: bold;
+    .places-list {
+      display: inline-block;
+      @include span(12);
+
+      .slick-slider {
+        @include span(11 of 12 no-gutters);
+        margin: 0 span(0.5 of 12 no-gutters);
+
+        .slick-prev,
+        .slick-next {
+          display: block;
+          height: 94px;
+          top: 20px;
+          width: 40px;
+
+          @include susy-media(0 32em) {
+            width: 25px;
+          }
+
+          &:before {
+            font-family: "fontello";
+            color: #424242;
+            font-size: 40px
+          }
+        }
+
+        .slick-prev {
+          left: -35px;
+
+          @include susy-media(0 32em) {
+            left: -20px;
+          }
+
+          &:before {
+            content: "\e800";
+          }
+        }
+
+        .slick-next {
+          right: -35px;
+
+          @include susy-media(0 32em) {
+            right: -15px;
+          }
+
+          &:before {
+            content: "\e803";
+          }
+        }
+      }
+
+      .place-item {
+        cursor: pointer;
+        color: #000;
+        padding: 0;
+
+        overflow: hidden;
+        height: 115px;
+
+        .place-content {
+          background: #fff;
+          padding: 5px;
+          border: 2px solid #6F6F6F;
+          margin-bottom: 0;
+          margin-top: 10px;
+
+          h3 {
+            font-size: 13px;
+            font-weight: bold;
+          }
+
+          h4 {
+            font-size: 12px;
+          }
+        }
+
+        &.selected {
+          .place-content {
+            background: $active-color;
+            border: 2px solid $active-color;
+
+            .desc {
+              color: #fff;
+            }
+          }
+        }
+
+      }
+
     }
 
     .left {
-      @include span(5);
+      @include span(5 no-gutters);
+      position: relative;
 
       .picture {
-        @include span(12);
+        @include span(12 no-gutters);
 
         height: 450px;
         position: relative;
@@ -49,14 +124,16 @@
       }
 
       .content {
-        @include span(12);
+        @include span(12 no-gutters);
 
-        height: 85px;
-        position: relative;
+        height: 78px;
+        position: absolute;
+        bottom: 0;
+        left: 0;
 
         >div {
-          margin-top: 10px;
           color: #000;
+          background: rgba(255,255,255,0.75);
 
           position: absolute;
           top: 0;
@@ -68,9 +145,7 @@
 
           .groups {
             @include span(7 no-gutters);
-            background: #fff;
             padding: 5px 10px;
-            border-right: 5px solid $active-color;
 
             label {
               display: block;
@@ -98,8 +173,8 @@
 
           .times {
             @include span(5 no-gutters);
-            background: #fff;
             padding: 5px 10px;
+            text-align: right;
 
             label {
               display: block;
@@ -134,19 +209,24 @@
           }
         }
       }
+
+      @include susy-media(0 56em) {
+        @include span(12);
+
+        .picture {
+          height: 240px;
+        }
+      }
+
     }
 
     .right {
-      @include span(7);
+      @include span(7 no-gutters);
 
       .content {
         @include span(12);
         background-color: #fff;
         color: #000;
-        padding-top: 10px;
-        height: 540px;
-        overflow-x: hidden;
-        overflow-y: auto;
 
         .header,
         .body,
@@ -182,10 +262,11 @@
         .body {
           display: inline-block;
           margin: 0;
+          font-size: 16px;
         }
 
         .fields {
-          font-size: 18px;
+          font-size: 16px;
 
           >div {
             margin: 5px 0 20px 0;
@@ -209,85 +290,8 @@
 
       }
 
-    }
-
-  }
-
-  .places-list {
-    display: inline-block;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    @include span(12);
-
-    .tag {
-      border: 2px solid #fff;
-      padding: 5px;
-      text-transform: uppercase;
-      width: auto;
-    }
-
-    .slick-slider {
-      @include span(11 of 12 no-gutters);
-      margin: 0 span(0.5 of 12 no-gutters);
-
-      .slick-prev,
-      .slick-next {
-        display: block;
-        height: 67%;
-        top: 15%;
-        background: rgba(255,255,255,0.17);
-        width: 40px;
-
-        &:before {
-          font-family: "fontello";
-          color: #fff;
-        }
-      }
-
-      .slick-prev {
-        left: -35px;
-
-        &:before {
-          content: "\e800";
-        }
-      }
-
-      .slick-next {
-        right: -35px;
-
-        &:before {
-          content: "\e803";
-        }
-      }
-    }
-
-    .place-item {
-      cursor: pointer;
-      color: #000;
-      padding: 0;
-      background: transparent;
-
-      overflow: hidden;
-      height: 100px;
-
-      .place-content {
-        background: #fff;
-        padding: 5px;
-
-        h3 {
-          font-size: 13px;
-          font-weight: bold;
-        }
-
-        h4 {
-          font-size: 12px;
-        }
-      }
-
-      &.selected {
-        .place-content {
-          background: $active-color;
-        }
+      @include susy-media(0 56em) {
+        @include span(12);
       }
 
     }

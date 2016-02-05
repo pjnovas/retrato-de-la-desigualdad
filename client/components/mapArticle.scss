@@ -2,49 +2,51 @@
   @include section;
   padding-top: 60px;
 
+  @include susy-media(0 35em) {
+    padding-top: 115px;
+  }
+
+  @include susy-media(0 32em) {
+    padding-top: 135px;
+  }
+
   .top-menu {
     display: inline-block;
     width: 100%;
     @include container();
 
-    .layers, .places-btn {
+    .layers, .tabs {
       list-style: none;
       padding: 0;
+      margin-bottom: 0;
+      margin-top: 5px;
       display: inline-block;
 
       li {
         display: inline;
+        margin: 0 5px;
       }
 
       a {
         padding: 10px;
-        background: $primary-color;
-        color: #fff;
         text-transform: uppercase;
         font-weight: bold;
 
-        &.active {
-          background: $active-secondary-color;
-        }
+        text-align: center;
+        display: inline-block;
+        margin: 0;
       }
     }
 
-
     .layers {
-      @include span(8 of 12 no-gutter);
-      margin-bottom: 0;
+      @include span(6 of 12 right no-gutter);
+      text-align: right;
+
+      @include susy-media(0 32em) {
+        @include span(12 right);
+      }
 
       li {
-        display: block;
-        @include span(12 break);
-        margin: 5px 0;
-
-        a {
-          text-align: center;
-          display: inline-block;
-          margin: 0;
-          @include span(2 of 12 no-gutter);
-        }
 
         &:nth-child(1){
           a {
@@ -60,6 +62,8 @@
         }
 
         &:nth-child(2){
+          margin: 0;
+
           a {
             background: #fff;
             color: $group-b-color;
@@ -72,64 +76,66 @@
           }
         }
 
-        span {
-          margin-left: 0;
-          @include span(10 of 12 wide);
-        }
       }
 
-      @include susy-media(0 50em) {
+      @include susy-media(0 32em) {
+        @include span(12 no-gutters);
+
+        margin-top: 0;
+
         li {
-          a {
-            @include span(3 of 12 no-gutter);
-          }
+          margin: 0;
+          @include span(6 no-gutters);
 
-          span {
-            @include span(9 of 12 wide);
+          a {
+            @include span(12 no-gutters);
           }
         }
       }
 
-      @include susy-media(0 35em) {
-        @include span(12 of 12 no-gutter);
-      }
     }
 
-    .places-btn {
-      @include span(4 of 12 no-gutter);
-      text-align: right;
-      margin-top: 15px;
+    .tabs {
+      @include span(6 of 12 left no-gutter);
 
-      span {
-        text-transform: uppercase;
-        display: block;
-        margin: 20px 0 5px 0;
-        font-size: 18px;
-        font-weight: 600;
+      li {
+
+        &:nth-child(1){
+          margin: 0;
+        }
+
+        a {
+          color: $primary-color;
+          background: #fff;
+          border: 2px solid $primary-color;
+
+          &.active {
+            background: $primary-color;
+            color: #fff;
+          }
+        }
+
       }
 
-      a {
-        display: block;
-        max-width: 140px;
-        float: right;
+      @include susy-media(0 32em) {
+        @include span(12 no-gutters);
 
-        color: $primary-color;
-        background: #fff;
-        border: 2px solid $primary-color;
+        margin-top: 0;
+        position: fixed;
+        top: 89px;
+        left: 0;
+        z-index: 1001;
 
-        &.active {
-          background: $primary-color;
-          color: #fff;
+        li {
+          margin: 0;
+          @include span(6 no-gutters);
+
+          a {
+            @include span(12 no-gutters);
+          }
         }
       }
 
-      @include susy-media(0 45em) {
-        @include span(4 of 12 no-gutter);
-      }
-
-      @include susy-media(0 35em) {
-        display: none;
-      }
     }
 
   }
@@ -137,7 +143,7 @@
   .map {
     width: 100%;
     min-width: 200px;
-    height: 520px;
+    height: 380px;
     background: #DDDDDD;
 
     @include susy-media(0 30em) {
@@ -149,31 +155,81 @@
     @include container();
     position: relative;
 
-    .tag {
+    .km-viz {
       @include span(3 of 12);
 
-      span {
-        border: 2px solid black;
-        display: inline-block;
-        padding: 10px;
-        margin: 10px 0;
+      >div {
+        // Until it's built
+        vertical-align: middle;
+        color: #4C4C4C;
+        font-size: 20px;
+        text-align: center;
+        background: #E6FFEF;
+        margin: 20px;
+        padding: 20px;
       }
 
       @include susy-media(0 45em) {
-        @include span(6 of 12);
-      }
-
-      @include susy-media(0 30em) {
-        @include span(12 of 12);
+        @include span(12);
       }
     }
 
-    .header {
-      @include span(9 of 12);
+    .editorial-content {
+      @include span(9 of 12 no-gutter);
+
+      .editorial-tabs {
+        @include span(12 right);
+        text-align: right;
+
+        list-style: none;
+        padding: 0;
+        margin-bottom: 0;
+        margin-top: 15px;
+        display: inline-block;
+
+        border-bottom: 2px solid #E2E2E2;
+
+        li {
+          display: inline;
+
+          a {
+            padding: 10px;
+            text-transform: uppercase;
+            font-weight: bold;
+
+            text-align: center;
+            display: inline-block;
+            margin: 0;
+
+            border-bottom: none;
+            color: #A1A1A1;
+
+            &.active {
+              border: 2px solid #E2E2E2;
+              border-bottom: 2px solid white;
+              margin-bottom: -2px;
+              color: #6F6F6F;
+              border-top: 3px solid $active-color;
+            }
+          }
+
+        }
+
+      }
+
+      .analysis {
+        padding-top: 10px;
+        padding-bottom: 10px;
+      }
+
+      .editorial-article,
+      .analysis {
+        display: inline-block;
+      }
 
       h2 {
         margin: 10px 0 20px 0;
-        font-size: 60px;
+        font-size: 50px;
         font-weight: lighter;
         margin: 0;
       }
@@ -182,11 +238,13 @@
       .author-mobile {
         text-transform: uppercase;
         font-size: 22px;
+        float: right;
       }
 
       .author-mobile {
         display: none;
         font-size: 16px;
+        float: right;
       }
 
       @include susy-media(0 45em) {
@@ -216,36 +274,33 @@
         }
       }
 
-    }
+      .intro {
+        display: inline-block;
+        margin: 10px 0;
+        font-size: 24px;
+        font-weight: bold;
 
-    .intro {
-      display: inline-block;
-      margin: 10px 0;
-      font-size: 24px;
-      font-weight: bold;
+        p {
+          margin: 0;
+        }
 
-      p {
-        margin: 0;
+        @include susy-media(0 45em) {
+          font-size: 22px;
+        }
       }
 
-      @include susy-media(0 45em) {
-        font-size: 22px;
-      }
-    }
+      .body {
+        font-size: 18px;
 
-    .body {
-      @include span(9 of 12);
-      margin-left: span(3 wide);
-      font-size: 18px;
+        p {
+          margin-top: 0;
+        }
 
-      p {
-        margin-top: 0;
-      }
-
-      @include susy-media(0 45em) {
-        @include span(12);
-        margin-left: 0;
-        font-size: 16px;
+        @include susy-media(0 45em) {
+          @include span(12);
+          margin-left: 0;
+          font-size: 16px;
+        }
       }
     }
   }
