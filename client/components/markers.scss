@@ -1,0 +1,46 @@
+$marker-color: #555;
+
+.marker-icon {
+  background: #FFF;
+  border: 1px solid $marker-color;
+  border-radius: 4px;
+
+  .group-both,
+  .group-a,
+  .group-b {
+    width: 80%;
+    height: 80%;
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    border-radius: 50%;
+  }
+
+  .group-both {
+    background: linear-gradient(90deg, $group-a-color 50%, $group-b-color 50%);
+  }
+
+  .group-a {
+    background: $group-a-color;
+  }
+
+  .group-b {
+    background: $group-b-color;
+  }
+
+  &:after {
+    border-top-color: $marker-color;
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    border-top: 12.5px solid $marker-color;
+    border-left: 12.5px solid transparent;
+    border-right: 12.5px solid transparent;
+    margin-left: -12.5px;
+  }
+
+  &.selected {
+    background: yellow;
+  }
+}

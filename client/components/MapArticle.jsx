@@ -115,13 +115,12 @@ class MapArticle extends React.Component {
     });
   }
 
-  onLayerClick(layer){
+  onLayerClick(index){
     let layers = this.state.layers;
-    let [_layer] = layers.filter( l => l.index === layer.index );
-    let idx = layer.index;
-    let currShow = (idx === 0 ? this.showLA : this.showLB)
+    let [_layer] = layers.filter( l => l.index === index );
+    let idx = index;
 
-    if (currShow){
+    if (_layer.active){
       this.cLayers[idx].sub.hide();
       _layer.active = false;
     }
@@ -130,10 +129,12 @@ class MapArticle extends React.Component {
       _layer.active = true;
     }
 
-    layers[layer.index] = _layer;
     this.setState({ layers });
 
-    this.togglePlaces(idx === 0 ? "a" : "b", !currShow);
+    if (this.state.showPlaces){
+      let currShow = (idx === 0 ? this.showLA : this.showLB);
+      this.togglePlaces(idx === 0 ? "a" : "b", !currShow);
+    }
   }
 
   createMarkers() {
@@ -143,8 +144,29 @@ class MapArticle extends React.Component {
     const mPlace = p => {
       let img = p.images && p.images.length && p.images[0].thumb || "";
 
+      let group = p.meta.groups;
+      if (group.a && group.b){
+        group = 'both';
+      }
+      else if (group.a){
+        group = 'a';
+      }
+      else {
+        group = 'b';
+      }
+
+      var icon = L.divIcon({
+        className: "marker-icon",
+        iconSize: [25, 25],
+        html: '<div id="'+p.number+'" class="group-' + group + '" ></div>',
+        popupAnchor: [2, -12],
+        //iconAnchor: [0, 0],
+      });
+
+      let self = this;
+
       return L
-        .marker(p.meta.coords)
+        .marker(p.meta.coords, { icon })
         .bindPopup(`
           <div class="desc">
             <h3>${p.title}</h3>
@@ -159,6 +181,32 @@ class MapArticle extends React.Component {
         })
         .on('mouseout', function (e) {
           this.closePopup();
+        })
+        .on('click', function(e) {
+          /*
+          let placeNumber = e.originalEvent.target.id;
+          let div = e.originalEvent.target.parentElement;
+
+          [].map.call(
+            document.getElementById('map').querySelectorAll('.selected'),
+            el => el.classList.remove('selected')
+          );
+
+          div.classList.remove("selected");
+          div.classList.add("selected");
+
+          map.setView(this._latlng, 16, { animate: true });
+
+          let [selectedPlace] = self.state.places.filter(
+            pl => pl.number === placeNumber);
+
+          self.setState({ selectedPlace });
+          */
+
+          let placeNumber = e.originalEvent.target.id;
+
+          let [selectedPlace] = places.filter(pl => pl.number === placeNumber);
+          self.onPlaceSelect(selectedPlace);
         });
     };
 
@@ -168,8 +216,8 @@ class MapArticle extends React.Component {
     this.markersLA = L.layerGroup(markersA);
     this.markersLB = L.layerGroup(markersB);
 
-    this.togglePlaces("a", true);
-    this.togglePlaces("b", true);
+    this.togglePlaces("a", false);
+    this.togglePlaces("b", false);
   }
 
   togglePlaces(type, visible) {
@@ -201,7 +249,24 @@ class MapArticle extends React.Component {
   }
 
   onPlaceSelect(place) {
-    this.setState({ selectedPlace: place });
+    [].map.call(
+      document.getElementById('map').querySelectorAll('.selected'),
+      el => el.classList.remove('selected')
+    );
+
+    this.setState({ selectedPlace: place }, () => {
+      let ele = document.getElementById(place.number);
+
+      if (ele){
+        let div = ele.parentElement;
+        if (div){
+          window.setTimeout(() => div.classList.add("selected"), 500);
+        }
+      }
+
+      let map = this.cVis.getNativeMap();
+      map.setView(place.meta.coords, 16, { animate: true });
+    });
   }
 
   onTabChange(id){
@@ -209,14 +274,30 @@ class MapArticle extends React.Component {
       case "editorial":
         if (!this.state.showEditorial){
           this.setState({ showEditorial: true, showPlaces: false });
+          this.togglePlaces("a", false);
+          this.togglePlaces("b", false);
         }
         break;
       case "places":
         if (!this.state.showPlaces){
           this.setState({ showEditorial: false, showPlaces: true });
           //scroller.scrollTo("ele-places", true, 500, -50);
+          this.showPlacesLayer();
         }
         break;
+    }
+  }
+
+  showPlacesLayer() {
+    let layers = this.state.layers;
+    let [layer1, layer2] = layers;
+
+    if (layer1.active){
+      this.togglePlaces("a", true);
+    }
+
+    if (layer2.active){
+      this.togglePlaces("b", true);
     }
   }
 
@@ -251,7 +332,7 @@ class MapArticle extends React.Component {
         return (
           <li key={i}>
             <a className={layer.active ? "active": ""}
-              onClick={ () => this.onLayerClick(layer) }>
+              onClick={ () => this.onLayerClick(layer.index) }>
               {layer.name}
             </a>
 

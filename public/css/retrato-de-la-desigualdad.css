@@ -1126,6 +1126,38 @@ a {
   .logos .anacarolina {
     background-image: url("/images/AnaCarolina.jpg"); }
 
+.marker-icon {
+  background: #FFF;
+  border: 1px solid #555;
+  border-radius: 4px; }
+  .marker-icon .group-both,
+  .marker-icon .group-a,
+  .marker-icon .group-b {
+    width: 80%;
+    height: 80%;
+    position: absolute;
+    top: 10%;
+    left: 10%;
+    border-radius: 50%; }
+  .marker-icon .group-both {
+    background: linear-gradient(90deg, #3E7BB6 50%, #FF6600 50%); }
+  .marker-icon .group-a {
+    background: #3E7BB6; }
+  .marker-icon .group-b {
+    background: #FF6600; }
+  .marker-icon:after {
+    border-top-color: #555;
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    border-top: 12.5px solid #555;
+    border-left: 12.5px solid transparent;
+    border-right: 12.5px solid transparent;
+    margin-left: -12.5px; }
+  .marker-icon.selected {
+    background: yellow; }
+
 .metadata {
   width: 600px;
   margin: 20px auto; }
