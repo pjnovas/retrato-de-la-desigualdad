@@ -4,6 +4,7 @@ import {Element, scroller} from 'react-scroll';
 import Loading from "./Loading.jsx";
 import Places from "./Places.jsx";
 import Toolbar from "./Toolbar.jsx";
+import Logos from "./Logos.jsx";
 
 import {
   getPublishers,
@@ -348,6 +349,8 @@ class MapArticle extends React.Component {
         </Element>
 
         }
+
+        <Logos />
 
       </section>
     );
