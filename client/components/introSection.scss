@@ -70,13 +70,13 @@
   }
 
   .logo-elfaro {
-    width: 180px;
-    height: 70px;
+    width: 130px;
+    height: 50px;
     position: absolute;
     z-index: 10;
 
     top: 3%;
-    left: 8%;
+    right: 8%;
 
     &::before {
       background-image: $logo-el-faro;
@@ -108,7 +108,7 @@
       width: 100px;
 
       top: 1%;
-      left: 1%;
+      right: 1%;
     }
 
     @include susy-media(0 20em) {
@@ -118,24 +118,23 @@
   }
 
   .logo-retrato {
+    position: absolute;
+    z-index: 10;
+    top: 3%;
+    left: 8%;
+
     background-image: $logo-retrato;
     background-repeat: no-repeat;
 
-    width: 400px;
-    height: 132px;
-    margin: 50px auto;
+    width: 140px;
+    height: 46px;
     background-color: #fff;
-
-    @include susy-media(0 40em) {
-      width: 250px;
-      height: 83px;
-    }
 
     @include susy-media(0 32em) {
       width: 170px;
       height: 56px;
       position: absolute;
-      right: 1%;
+      left: 1%;
       top: 1%;
       margin: 0;
     }
@@ -145,12 +144,47 @@
     z-index: 20;
   }
 
+  .narrow-content {
+    margin-top: 0;
+  }
+
+  .title, .body {
+    padding: 10px 10%;
+  }
+
+  .title {
+    text-align: left;
+
+    h1 {
+      color: $active-color;
+      background-color: #fff;
+      margin: 0;
+      padding: 9px 25px;
+      font-size: 90px;
+      white-space: pre-wrap;
+      -webkit-box-decoration-break: clone;
+      display: inline;
+
+      @include susy-media(0 48em) {
+        font-size: 70px;
+      }
+
+      @include susy-media(0 40em) {
+        font-size: 50px;
+      }
+
+      @include susy-media(0 32em) {
+        display: none;
+      }
+
+    }
+  }
+
   .body {
     display: inline-block;
     font-size: 20px;
     font-weight: bold;
     color: #fff;
-    padding: 10px 10%;
 
     @include susy-media(32em 40em) {
       padding: 10px 15%;

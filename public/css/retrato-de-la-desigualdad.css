@@ -242,12 +242,12 @@ a {
       .intro-section .overlay-3 {
         height: 85%; } }
   .intro-section .logo-elfaro {
-    width: 180px;
-    height: 70px;
+    width: 130px;
+    height: 50px;
     position: absolute;
     z-index: 10;
     top: 3%;
-    left: 8%; }
+    right: 8%; }
     .intro-section .logo-elfaro::before {
       background-image: url(/images/logo.svg);
       background-repeat: no-repeat;
@@ -272,38 +272,60 @@ a {
         height: 50px;
         width: 100px;
         top: 1%;
-        left: 1%; } }
+        right: 1%; } }
     @media (min-width: 0) and (max-width: 20em) {
       .intro-section .logo-elfaro {
         height: 40px;
         width: 90px; } }
   .intro-section .logo-retrato {
+    position: absolute;
+    z-index: 10;
+    top: 3%;
+    left: 8%;
     background-image: url(/images/retrato.svg);
     background-repeat: no-repeat;
-    width: 400px;
-    height: 132px;
-    margin: 50px auto;
+    width: 140px;
+    height: 46px;
     background-color: #fff; }
-    @media (min-width: 0) and (max-width: 40em) {
-      .intro-section .logo-retrato {
-        width: 250px;
-        height: 83px; } }
     @media (min-width: 0) and (max-width: 32em) {
       .intro-section .logo-retrato {
         width: 170px;
         height: 56px;
         position: absolute;
-        right: 1%;
+        left: 1%;
         top: 1%;
         margin: 0; } }
   .intro-section .content-center {
     z-index: 20; }
+  .intro-section .narrow-content {
+    margin-top: 0; }
+  .intro-section .title, .intro-section .body {
+    padding: 10px 10%; }
+  .intro-section .title {
+    text-align: left; }
+    .intro-section .title h1 {
+      color: #009FE3;
+      background-color: #fff;
+      margin: 0;
+      padding: 9px 25px;
+      font-size: 90px;
+      white-space: pre-wrap;
+      -webkit-box-decoration-break: clone;
+      display: inline; }
+      @media (min-width: 0) and (max-width: 48em) {
+        .intro-section .title h1 {
+          font-size: 70px; } }
+      @media (min-width: 0) and (max-width: 40em) {
+        .intro-section .title h1 {
+          font-size: 50px; } }
+      @media (min-width: 0) and (max-width: 32em) {
+        .intro-section .title h1 {
+          display: none; } }
   .intro-section .body {
     display: inline-block;
     font-size: 20px;
     font-weight: bold;
-    color: #fff;
-    padding: 10px 10%; }
+    color: #fff; }
     @media (min-width: 32em) and (max-width: 40em) {
       .intro-section .body {
         padding: 10px 15%; } }
@@ -470,7 +492,7 @@ a {
     .map-article .top-header a {
       text-decoration: none;
       color: #6F6F6F;
-      padding: 10px 5px;
+      padding: 4px 5px;
       border: 2px solid #6F6F6F;
       font-weight: bold;
       display: inline-block;
@@ -510,8 +532,8 @@ a {
           padding-left: 0.8333333333%;
           padding-right: 0.8333333333%; } }
       .map-article .top-header .social a {
-        font-size: 22px;
-        padding: 6px; }
+        font-size: 18px;
+        padding: 2px; }
         .map-article .top-header .social a:last-child {
           margin-left: 5px; }
       .map-article .top-header .social .twitter {
@@ -525,7 +547,7 @@ a {
         background-color: #fff;
         color: #3b5998;
         border: 2px solid #3b5998;
-        padding: 6px 7px; }
+        padding: 2px 3px; }
         .map-article .top-header .social .facebook:hover {
           background-color: #3b5998;
           color: #fff; }
