@@ -331,17 +331,16 @@ class MapArticle extends React.Component {
     if (this.state.showAnalysis){
       bottomContent = (
         <div className="analysis">
-          <div className="body" dangerouslySetInnerHTML={{__html: article.analysis.body}}></div>
+          <h2>{article.analysis.title}</h2>
           <div className="author">{analysisAuthor}</div>
-          <div className="author-mobile">{analysisAuthor}</div>
+          <div className="body" dangerouslySetInnerHTML={{__html: article.analysis.body}}></div>
         </div>
       );
     }
     else {
       bottomContent = (
         <div className="editorial-article">
-          <div className="author-mobile">{author}</div>
-          <h2>{article.subtitle}</h2>
+          <h2>{article.title}</h2>
           <div className="author">{author}</div>
           <div className="intro" dangerouslySetInnerHTML={{__html: article.intro}}></div>
           <div className="body" dangerouslySetInnerHTML={{__html: article.body}}></div>
@@ -408,7 +407,7 @@ class MapArticle extends React.Component {
             <ul className="editorial-tabs">
               <li>
                 <a className={!this.state.showAnalysis ? " active" : "" }
-                  onClick={ () => this.onEditorialTabChange("editorial") }>Editorial</a>
+                  onClick={ () => this.onEditorialTabChange("editorial") }>Artículo</a>
               </li>
               <li>
                 <a className={this.state.showAnalysis ? " active" : "" }

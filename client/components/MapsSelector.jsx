@@ -31,7 +31,7 @@ class MapsSelector extends React.Component {
                 <li key={article.number}>
                   <Link className="wrap" to={article.number}>
                     <div className="img"><img src={mapImgUrl}/></div>
-                    <h4>{article.subtitle}</h4>
+                    <h4>{article.title}</h4>
                   </Link>
                 </li>
               );

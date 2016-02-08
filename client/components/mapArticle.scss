@@ -363,17 +363,12 @@
         margin: 0;
       }
 
-      .author,
-      .author-mobile {
-        text-transform: uppercase;
+      .author {
+        //text-transform: uppercase;
         font-size: 22px;
-        float: right;
-      }
-
-      .author-mobile {
-        display: none;
-        font-size: 16px;
-        float: right;
+        width: 100%;
+        text-align: left;
+        margin: 10px 0;
       }
 
       @include susy-media(0 45em) {
@@ -384,12 +379,7 @@
         }
 
         .author {
-          display: none;
-        }
-
-        .author-mobile {
           font-size: 18px;
-          display: block;
         }
       }
 
