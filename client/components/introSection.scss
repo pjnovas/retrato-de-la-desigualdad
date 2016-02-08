@@ -117,6 +117,18 @@
     }
   }
 
+  .social {
+    position: absolute;
+    z-index: 110;
+    top: 11%;
+    right: 11%;
+
+    @include susy-media(0 32em) {
+      top: 12%;
+      right: 6%;
+    }
+  }
+
   .logo-retrato {
     position: absolute;
     z-index: 10;

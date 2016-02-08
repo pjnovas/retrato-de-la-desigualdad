@@ -1,7 +1,13 @@
 
+import Social from "./Social.jsx";
+
+const twBy = "@_ElFaro_";
+
 class IntroSection extends React.Component {
 
   render() {
+    let text = `Un retrato de desigualdad por ${twBy}`;
+
     return (
       <section className="intro-section">
         <div className="background"></div>
@@ -11,6 +17,10 @@ class IntroSection extends React.Component {
 
         <div className="logo-elfaro"></div>
         <div className="logo-retrato"></div>
+
+        <Social name="Un retrato de desigualdad" path="/"
+          FBCaption="El Salvador, para algunos, puede ser una gran prisión. Estos mapas interactivos son el resultado de un experimento con 24 jóvenes del Área Metropolitana de San Salvador, que accedieron a que se registrara su movilización 24 horas al día durante todo octubre de 2015"
+          TWText={text}/>
 
         <div className="content-center" style={{ opacity: (1 - this.props.opacity) }}>
           <div className="narrow-content">

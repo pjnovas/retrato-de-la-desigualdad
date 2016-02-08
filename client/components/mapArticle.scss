@@ -7,7 +7,7 @@
   }
 
   @include susy-media(0 32em) {
-    padding-top: 135px;
+    padding-top: 123px;
   }
 
   .top-header {
@@ -18,18 +18,20 @@
       margin-bottom: 5px;
     }
 
-    a {
-      text-decoration: none;
-      color: $primary-color;
-      padding: 4px 5px;
-      border: 2px solid $primary-color;
-      font-weight: bold;
-      display: inline-block;
-      text-transform: uppercase;
+    .back {
+      a {
+        text-decoration: none;
+        color: $primary-color;
+        padding: 4px 5px;
+        border: 2px solid $primary-color;
+        font-weight: bold;
+        display: inline-block;
+        text-transform: uppercase;
 
-      &:hover {
-        background: $primary-color;
-        color: #fff;
+        &:hover {
+          background: $primary-color;
+          color: #fff;
+        }
       }
     }
 
@@ -44,43 +46,13 @@
     .social {
       @include span(6 right no-gutters);
       text-align: right;
+      margin-top: 3px;
 
       @include susy-media(0 32em) {
         @include span(6 right);
       }
-
-      a {
-        font-size: 18px;
-        padding: 2px;
-
-        &:last-child {
-          margin-left: 5px;
-        }
-      }
-
-      .twitter {
-        background-color: #fff;
-        color: #00aced;
-        border: 2px solid #00aced;
-
-        &:hover {
-          background-color: #00aced;
-          color: #fff;
-        }
-      }
-
-      .facebook {
-        background-color: #fff;
-        color: #3b5998;
-        border: 2px solid #3b5998;
-        padding: 2px 3px;
-
-        &:hover{
-          background-color: #3b5998;
-          color: #fff;
-        }
-      }
     }
+
   }
 
   .top-menu {
@@ -97,11 +69,11 @@
 
       li {
         display: inline;
-        margin: 0 5px;
+        //margin: 0 5px;
       }
 
       a {
-        padding: 10px;
+        padding: 12px;
         text-transform: uppercase;
         font-weight: bold;
 
@@ -112,43 +84,89 @@
     }
 
     .layers {
-      @include span(6 of 12 right no-gutter);
+      @include span(6 of 12 right no-gutters);
       text-align: right;
 
-      @include susy-media(0 32em) {
-        @include span(12 right);
-      }
-
       li {
+        margin: 0;
+        @include span(6);
+
+        a {
+          @include span(12 no-gutters);
+          padding: 0;
+          color: #4A4A4A;
+          display: table;
+
+          >div:first-child {
+            @include span(4 no-gutters);
+            display: table-cell;
+            padding: 12px 10px;
+            vertical-align: middle;
+            border-right: 2px solid;
+          }
+
+          >div:last-child {
+            @include span(8 no-gutters);
+            display: table-cell;
+            text-transform: none;
+            padding: 2px;
+            font-weight: normal;
+          }
+        }
+
 
         &:nth-child(1){
           a {
             background: #fff;
-            color: $group-a-color;
             border: 2px solid $group-a-color;
 
+            >div:first-child {
+              color: $group-a-color;
+            }
+
             &.active {
-              background: $group-a-color;
-              color: #fff;
+              >div:first-child {
+                border-right: none;
+                background: $group-a-color;
+                color: #fff;
+              }
             }
           }
         }
 
         &:nth-child(2){
-          margin: 0;
 
           a {
             background: #fff;
-            color: $group-b-color;
             border: 2px solid $group-b-color;
 
-            &.active {
-              background: $group-b-color;
-              color: #fff;
+            >div:first-child {
+              color: $group-b-color;
             }
+
+            &.active {
+              >div:first-child {
+                border-right: none;
+                background: $group-b-color;
+                color: #fff;
+              }
+            }
+
           }
         }
 
+      }
+
+      @include susy-media(0 65em) {
+        @include span(8 of 12 right no-gutters);
+      }
+
+      @include susy-media(0 50em) {
+        @include span(7 of 12 right no-gutters);
+
+        li {
+          @include span(12);
+        }
       }
 
       @include susy-media(0 32em) {
@@ -157,11 +175,31 @@
         margin-top: 0;
 
         li {
+          padding: 0;
           margin: 0;
+
           @include span(6 no-gutters);
 
           a {
             @include span(12 no-gutters);
+
+            >div:first-child,
+            >div:last-child {
+              @include span(12 no-gutters);
+            }
+
+            >div:first-child {
+              padding: 2px 10px;
+              border-right: none;
+              border-bottom: 2px solid;
+            }
+
+            &.active {
+              >div:first-child {
+                border-bottom: 2px solid transparent;
+              }
+            }
+
           }
         }
       }
@@ -172,12 +210,12 @@
       @include span(6 of 12 left no-gutter);
 
       li {
-
-        &:nth-child(1){
-          margin: 0;
-        }
+        margin: 0;
+        @include span(3);
 
         a {
+          @include span(12 no-gutters);
+
           color: $primary-color;
           background: #fff;
           border: 2px solid $primary-color;
@@ -190,6 +228,21 @@
 
       }
 
+      @include susy-media(0 65em) {
+        @include span(4 of 12 left no-gutters);
+
+        li {
+          @include span(5);
+        }
+      }
+
+      @include susy-media(0 50em) {
+        @include span(5 of 12 left no-gutters);
+        li {
+          @include span(8);
+        }
+      }
+
       @include susy-media(0 32em) {
         @include span(12 no-gutters);
 
@@ -200,10 +253,13 @@
         z-index: 1001;
 
         li {
+          padding: 0;
           margin: 0;
+
           @include span(6 no-gutters);
 
           a {
+            padding: 5px 12px;
             @include span(12 no-gutters);
           }
         }
@@ -220,7 +276,7 @@
     background: #DDDDDD;
 
     @include susy-media(0 30em) {
-      height: 320px;
+      height: 280px;
     }
   }
 
