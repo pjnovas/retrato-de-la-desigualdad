@@ -1,8 +1,8 @@
 @charset "UTF-8";
 @font-face {
   font-family: 'fontello';
-  src: url("/font/fontello.eot?55886270");
-  src: url("/font/fontello.eot?55886270#iefix") format("embedded-opentype"), url("/font/fontello.woff?55886270") format("woff"), url("/font/fontello.ttf?55886270") format("truetype"), url("/font/fontello.svg?55886270#fontello") format("svg");
+  src: url("/font/fontello.eot?20649566");
+  src: url("/font/fontello.eot?20649566#iefix") format("embedded-opentype"), url("/font/fontello.woff?20649566") format("woff"), url("/font/fontello.ttf?20649566") format("truetype"), url("/font/fontello.svg?20649566#fontello") format("svg");
   font-weight: normal;
   font-style: normal; }
 
@@ -12,7 +12,7 @@
 @media screen and (-webkit-min-device-pixel-ratio:0) {
   @font-face {
     font-family: 'fontello';
-    src: url('../font/fontello.svg?55886270#fontello') format('svg');
+    src: url('../font/fontello.svg?20649566#fontello') format('svg');
   }
 }
 */
@@ -67,6 +67,14 @@
   content: '\e805'; }
 
 /* '' */
+.icon-facebook:before {
+  content: '\e806'; }
+
+/* '' */
+.icon-twitter:before {
+  content: '\e807'; }
+
+/* '' */
 html, body, #app, #app > div {
   height: 100%;
   width: 100%; }
@@ -149,7 +157,8 @@ a {
     left: 0;
     color: #fff;
     font-size: 26px;
-    text-align: center; }
+    text-align: center;
+    z-index: 1; }
     @media (min-width: 0) and (max-width: 35em) {
       .toolbar h1 {
         position: static;
@@ -164,7 +173,12 @@ a {
     width: 145px;
     height: 48px;
     background-color: #fff;
-    margin-left: 10px; }
+    margin-left: 10px;
+    display: block;
+    z-index: 10;
+    position: absolute;
+    left: 0;
+    top: 5px; }
 
 .intro-section {
   display: table;
@@ -441,6 +455,80 @@ a {
   @media (min-width: 0) and (max-width: 32em) {
     .map-article {
       padding-top: 135px; } }
+  .map-article .top-header {
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5px; }
+    .map-article .top-header:after {
+      content: " ";
+      display: block;
+      clear: both; }
+    @media (min-width: 0) and (max-width: 32em) {
+      .map-article .top-header {
+        margin-bottom: 5px; } }
+    .map-article .top-header a {
+      text-decoration: none;
+      color: #6F6F6F;
+      padding: 10px 5px;
+      border: 2px solid #6F6F6F;
+      font-weight: bold;
+      display: inline-block;
+      text-transform: uppercase; }
+      .map-article .top-header a:hover {
+        background: #6F6F6F;
+        color: #fff; }
+    .map-article .top-header .back {
+      -moz-box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+      width: 50%;
+      float: left; }
+      @media (min-width: 0) and (max-width: 32em) {
+        .map-article .top-header .back {
+          -moz-box-sizing: border-box;
+          -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+          width: 50%;
+          float: left;
+          padding-left: 0.8333333333%;
+          padding-right: 0.8333333333%; } }
+    .map-article .top-header .social {
+      -moz-box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+      width: 50%;
+      float: left;
+      text-align: right; }
+      @media (min-width: 0) and (max-width: 32em) {
+        .map-article .top-header .social {
+          -moz-box-sizing: border-box;
+          -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+          width: 50%;
+          float: left;
+          padding-left: 0.8333333333%;
+          padding-right: 0.8333333333%; } }
+      .map-article .top-header .social a {
+        font-size: 22px;
+        padding: 6px; }
+        .map-article .top-header .social a:last-child {
+          margin-left: 5px; }
+      .map-article .top-header .social .twitter {
+        background-color: #fff;
+        color: #00aced;
+        border: 2px solid #00aced; }
+        .map-article .top-header .social .twitter:hover {
+          background-color: #00aced;
+          color: #fff; }
+      .map-article .top-header .social .facebook {
+        background-color: #fff;
+        color: #3b5998;
+        border: 2px solid #3b5998;
+        padding: 6px 7px; }
+        .map-article .top-header .social .facebook:hover {
+          background-color: #3b5998;
+          color: #fff; }
   .map-article .top-menu {
     display: inline-block;
     width: 100%;

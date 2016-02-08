@@ -10,6 +10,79 @@
     padding-top: 135px;
   }
 
+  .top-header {
+    @include container;
+    margin-top: 5px;
+
+    @include susy-media(0 32em) {
+      margin-bottom: 5px;
+    }
+
+    a {
+      text-decoration: none;
+      color: $primary-color;
+      padding: 10px 5px;
+      border: 2px solid $primary-color;
+      font-weight: bold;
+      display: inline-block;
+      text-transform: uppercase;
+
+      &:hover {
+        background: $primary-color;
+        color: #fff;
+      }
+    }
+
+    .back {
+      @include span(6 left  no-gutters);
+
+      @include susy-media(0 32em) {
+        @include span(6 left);
+      }
+    }
+
+    .social {
+      @include span(6 right no-gutters);
+      text-align: right;
+
+      @include susy-media(0 32em) {
+        @include span(6 right);
+      }
+
+      a {
+        font-size: 22px;
+        padding: 6px;
+
+        &:last-child {
+          margin-left: 5px;
+        }
+      }
+
+      .twitter {
+        background-color: #fff;
+        color: #00aced;
+        border: 2px solid #00aced;
+
+        &:hover {
+          background-color: #00aced;
+          color: #fff;
+        }
+      }
+
+      .facebook {
+        background-color: #fff;
+        color: #3b5998;
+        border: 2px solid #3b5998;
+        padding: 6px 7px;
+
+        &:hover{
+          background-color: #3b5998;
+          color: #fff;
+        }
+      }
+    }
+  }
+
   .top-menu {
     display: inline-block;
     width: 100%;

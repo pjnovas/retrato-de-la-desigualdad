@@ -8,6 +8,26 @@
     <meta name="msapplication-navbutton-color" content="#009FE3">
     <meta name="apple-mobile-web-app-status-bar-style" content="#009FE3">
 
+    <meta name="description" content="El Salvador, para algunos, puede ser una gran prisión. Estos mapas interactivos son el resultado de un experimento con 24 jóvenes del Área Metropolitana de San Salvador, que accedieron a que se registrara su movilización 24 horas al día durante todo octubre de 2015">
+    <link rel="image_src" type="image/png" href="http://retrato.elfaro.net/images/retrato.png">
+
+    <meta property="og:image" content="http://retrato.elfaro.net/images/retrato.png">
+    <meta property="og:title" content="Un retrato de desigualdad">
+    <meta property="og:description" content="El Salvador, para algunos, puede ser una gran prisión. Estos mapas interactivos son el resultado de un experimento con 24 jóvenes del Área Metropolitana de San Salvador, que accedieron a que se registrara su movilización 24 horas al día durante todo octubre de 2015">
+    <meta property="og:url" content="http://retrato.elfaro.net">
+    <meta property="og:site_name" content="Un retrato de desigualdad">
+    <meta property="og:type" content="website">
+
+    <meta property="fb:app_id" content="226832930676708" />
+
+    <meta property="twitter:card" content="summary">
+    <meta property="twitter:title" content="Un retrato de desigualdad">
+    <meta property="twitter:description" content="El Salvador, para algunos, puede ser una gran prisión. Estos mapas interactivos son el resultado de un experimento con 24 jóvenes del Área Metropolitana de San Salvador, que accedieron a que se registrara su movilización 24 horas al día durante todo octubre de 2015">
+    <meta property="twitter:image:src" content="http://retrato.elfaro.net/images/retrato.png">
+
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="icon" href="/favicon.ico">
+
     <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,300,700' rel='stylesheet' type='text/css'>
     <link rel='stylesheet' href='/css/style.css' />
   </head>
@@ -24,6 +44,41 @@
     ga('create', 'UA-643290-1', 'auto');
     ga('require', 'displayfeatures');
     ga('send', 'pageview');
+  </script>
+
+  <script>
+    window.twttr = (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0],
+        t = window.twttr || {};
+      if (d.getElementById(id)) return t;
+      js = d.createElement(s);
+      js.id = id;
+      js.src = "https://platform.twitter.com/widgets.js";
+      fjs.parentNode.insertBefore(js, fjs);
+
+      t._e = [];
+      t.ready = function(f) {
+        t._e.push(f);
+      };
+
+      return t;
+    }(document, "script", "twitter-wjs"));
+  </script>
+
+  <script>
+    (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id))
+          return;
+      js = d.createElement(s);
+      js.id = id;
+      js.src = "//connect.facebook.net/en_US/all.js";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+
+    window.fbAsyncInit = function() {
+      FB.init({ appId: '226832930676708' });
+    };
   </script>
 
 </html>

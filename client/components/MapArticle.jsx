@@ -11,6 +11,9 @@ import {
   getPlaces
 } from "../api";
 
+const link = window.location.protocol + "//" + window.location.host;
+const twBy = "@_ElFaro_";
+
 class MapArticle extends React.Component {
 
   constructor(props){
@@ -31,6 +34,8 @@ class MapArticle extends React.Component {
 
     this.cVis = null;
     this.cLayers = null;
+
+    this.linkURL = link;
   }
 
   componentDidMount(){
@@ -48,6 +53,8 @@ class MapArticle extends React.Component {
           );
 
           if (article){
+            this.linkURL = link + "/" + article.number;
+
             this.setState({ publishers, places, article }, () => {
               setTimeout(() => this.initMap(), 500);
               setTimeout(() => window.scrollTo(0, 0), 1000);
@@ -183,26 +190,6 @@ class MapArticle extends React.Component {
           this.closePopup();
         })
         .on('click', function(e) {
-          /*
-          let placeNumber = e.originalEvent.target.id;
-          let div = e.originalEvent.target.parentElement;
-
-          [].map.call(
-            document.getElementById('map').querySelectorAll('.selected'),
-            el => el.classList.remove('selected')
-          );
-
-          div.classList.remove("selected");
-          div.classList.add("selected");
-
-          map.setView(this._latlng, 16, { animate: true });
-
-          let [selectedPlace] = self.state.places.filter(
-            pl => pl.number === placeNumber);
-
-          self.setState({ selectedPlace });
-          */
-
           let placeNumber = e.originalEvent.target.id;
 
           let [selectedPlace] = places.filter(pl => pl.number === placeNumber);
@@ -317,6 +304,20 @@ class MapArticle extends React.Component {
     }
   }
 
+  onFBShare(){
+    let article = this.state.article;
+
+    window.FB.ui({
+      method: 'feed',
+      name: article.subtitle,
+      link: this.linkURL,
+      picture: link + "/images/retrato.png",
+      caption: article.intro || article.body.substr(0, 250)
+    }, function( response ) {
+      console.log(response);
+    });
+  }
+
   render() {
     let article = this.state.article;
 
@@ -367,10 +368,27 @@ class MapArticle extends React.Component {
       );
     }
 
+    let text = encodeURI(`Un retrato de desigualdad: ${article.subtitle} por ${twBy}`);
+    let link = encodeURIComponent(this.linkURL);
+
+    const twLink = `https://twitter.com/intent/tweet?url=${link}%2F&text=${text}`;
+
     return (
       <section className="map-article">
 
         <Toolbar opacity={1} title={article.title} />
+
+        <div className="top-header">
+          <div className="back">
+            <a href="/"><i className="icon-left-open"></i>Volver</a>
+          </div>
+          <div className="social">
+            <a href={twLink} className="twitter"><i className="icon-twitter"></i></a>
+            <a className="facebook" onClick={() => this.onFBShare()}>
+              <i className="icon-facebook"></i>
+            </a>
+          </div>
+        </div>
 
         <div className="top-menu">
 

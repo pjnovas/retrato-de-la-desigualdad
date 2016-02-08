@@ -25,6 +25,7 @@
     color: #fff;
     font-size: 26px;
     text-align: center;
+    z-index: 1;
 
     @include susy-media(0 35em) {
       position: static;
@@ -44,5 +45,11 @@
     height: 48px;
     background-color: #fff;
     margin-left: 10px;
+
+    display: block;
+    z-index: 10;
+    position: absolute;
+    left: 0;
+    top: 5px;
   }
 }
