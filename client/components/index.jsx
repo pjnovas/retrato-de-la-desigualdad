@@ -15,6 +15,8 @@ import {
 
 import { Element, scroller, scrollSpy } from 'react-scroll';
 
+const twBy = "@_ElFaro_";
+
 class Main extends React.Component {
 
   constructor(props){
@@ -90,10 +92,18 @@ class Main extends React.Component {
   render() {
     let opacity = this.getToolbarOpacity();
 
+    let social = {
+      name: "Un retrato de desigualdad",
+      path: "/",
+      FBCaption: "El Salvador, para algunos, puede ser una gran prisión. Estos mapas interactivos son el resultado de un experimento con 24 jóvenes del Área Metropolitana de San Salvador, que accedieron a que se registrara su movilización 24 horas al día durante todo octubre de 2015",
+      TWText: `Un retrato de desigualdad por ${twBy}`
+    };
+
     return (
       <div>
         <IntroSection opacity={opacity} onContinue={ () => this.onContinue() }/>
-        <Toolbar opacity={opacity} />
+
+        <Toolbar opacity={opacity} social={social}/>
 
         <Element name="map-selector">
           <MapsSelector articles={this.state.publishers} />

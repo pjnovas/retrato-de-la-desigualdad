@@ -24,10 +24,10 @@ class Social extends React.Component {
 
     return (
       <div className="social">
-        <a href={twLink} className="twitter"><i className="icon-twitter"></i></a>
         <a className="facebook" onClick={() => this.onFBShare()}>
           <i className="icon-facebook"></i>
         </a>
+        <a href={twLink} className="twitter"><i className="icon-twitter"></i></a>
       </div>
     );
   }

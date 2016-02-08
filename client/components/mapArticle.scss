@@ -2,57 +2,8 @@
   @include section;
   padding-top: 60px;
 
-  @include susy-media(0 35em) {
-    padding-top: 115px;
-  }
-
-  @include susy-media(0 32em) {
-    padding-top: 123px;
-  }
-
-  .top-header {
-    @include container;
-    margin-top: 5px;
-
-    @include susy-media(0 32em) {
-      margin-bottom: 5px;
-    }
-
-    .back {
-      a {
-        text-decoration: none;
-        color: $primary-color;
-        padding: 4px 5px;
-        border: 2px solid $primary-color;
-        font-weight: bold;
-        display: inline-block;
-        text-transform: uppercase;
-
-        &:hover {
-          background: $primary-color;
-          color: #fff;
-        }
-      }
-    }
-
-    .back {
-      @include span(6 left  no-gutters);
-
-      @include susy-media(0 32em) {
-        @include span(6 left);
-      }
-    }
-
-    .social {
-      @include span(6 right no-gutters);
-      text-align: right;
-      margin-top: 3px;
-
-      @include susy-media(0 32em) {
-        @include span(6 right);
-      }
-    }
-
+  @include susy-media(0 40em) {
+    padding-top: 92px;
   }
 
   .top-menu {
@@ -172,8 +123,6 @@
       @include susy-media(0 32em) {
         @include span(12 no-gutters);
 
-        margin-top: 0;
-
         li {
           padding: 0;
           margin: 0;
@@ -200,6 +149,16 @@
               }
             }
 
+          }
+        }
+      }
+
+      @include susy-media(0 28em) {
+        li {
+          a {
+            >div:last-child {
+              font-size: 13px;
+            }
           }
         }
       }
@@ -245,12 +204,6 @@
 
       @include susy-media(0 32em) {
         @include span(12 no-gutters);
-
-        margin-top: 0;
-        position: fixed;
-        top: 89px;
-        left: 0;
-        z-index: 1001;
 
         li {
           padding: 0;

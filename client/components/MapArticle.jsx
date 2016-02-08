@@ -5,7 +5,6 @@ import Loading from "./Loading.jsx";
 import Places from "./Places.jsx";
 import Toolbar from "./Toolbar.jsx";
 import Logos from "./Logos.jsx";
-import Social from "./Social.jsx";
 
 import {
   getPublishers,
@@ -348,21 +347,17 @@ class MapArticle extends React.Component {
       );
     }
 
-    let text = `Un retrato de desigualdad: ${article.subtitle} por ${twBy}`;
+    let social = {
+      name: article.subtitle,
+      path: "/" + article.number,
+      FBCaption: article.intro || article.body.substr(0, 250),
+      TWText: `Un retrato de desigualdad: ${article.subtitle} por ${twBy}`
+    };
 
     return (
       <section className="map-article">
 
-        <Toolbar opacity={1} title={article.title} />
-
-        <div className="top-header">
-          <div className="back">
-            <a href="/"><i className="icon-left-open"></i>Volver</a>
-          </div>
-          <Social name={article.subtitle} path={"/" + article.number}
-            FBCaption={article.intro || article.body.substr(0, 250)}
-            TWText={text}/>
-        </div>
+        <Toolbar opacity={1} title={article.title} social={social}/>
 
         <div className="top-menu">
 

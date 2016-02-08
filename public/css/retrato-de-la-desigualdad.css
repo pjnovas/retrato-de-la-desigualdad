@@ -149,6 +149,13 @@ a {
     height: 50px;
     float: right;
     margin-right: -20px; }
+    @media (min-width: 0) and (max-width: 32em) {
+      .toolbar .logo-elfaro {
+        width: 110px;
+        height: 43px;
+        float: right;
+        margin-right: -25px;
+        margin-top: 10px; } }
   .toolbar h1 {
     margin: 12px auto;
     position: absolute;
@@ -159,14 +166,23 @@ a {
     font-size: 26px;
     text-align: center;
     z-index: 1; }
-    @media (min-width: 0) and (max-width: 35em) {
+    @media (min-width: 0) and (max-width: 40em) {
       .toolbar h1 {
         position: static;
         float: left;
-        font-size: 22px; } }
-    @media (min-width: 0) and (max-width: 32em) {
-      .toolbar h1 {
+        font-size: 22px;
         margin: 0; } }
+  .toolbar .social {
+    position: absolute;
+    right: 120px;
+    top: 25px;
+    z-index: 2; }
+    @media (min-width: 0) and (max-width: 40em) {
+      .toolbar .social {
+        right: 27%; } }
+    @media (min-width: 0) and (max-width: 32em) {
+      .toolbar .social {
+        right: 90px; } }
   .toolbar .logo-retrato {
     background-image: url(/images/retrato.svg);
     background-repeat: no-repeat;
@@ -179,6 +195,9 @@ a {
     position: absolute;
     left: 0;
     top: 5px; }
+    @media (min-width: 0) and (max-width: 32em) {
+      .toolbar .logo-retrato {
+        margin-left: 5px; } }
 
 .social a {
   font-size: 18px;
@@ -331,7 +350,7 @@ a {
     z-index: 20; }
   .intro-section .narrow-content {
     margin-top: 0; }
-  .intro-section .title, .intro-section .body {
+  .intro-section .title, .intro-section .body, .intro-section .signed {
     padding: 10px 10%; }
   .intro-section .title {
     text-align: left; }
@@ -364,6 +383,12 @@ a {
     @media (min-width: 0) and (max-width: 32em) {
       .intro-section .body {
         font-size: 16px; } }
+  .intro-section .signed {
+    display: inline-block;
+    font-size: 16px;
+    color: #fff;
+    margin: 0;
+    font-style: italic; }
   .intro-section .continue {
     position: absolute;
     bottom: 3%;
@@ -503,67 +528,9 @@ a {
     content: " ";
     display: block;
     clear: both; }
-  @media (min-width: 0) and (max-width: 35em) {
+  @media (min-width: 0) and (max-width: 40em) {
     .map-article {
-      padding-top: 115px; } }
-  @media (min-width: 0) and (max-width: 32em) {
-    .map-article {
-      padding-top: 123px; } }
-  .map-article .top-header {
-    max-width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 5px; }
-    .map-article .top-header:after {
-      content: " ";
-      display: block;
-      clear: both; }
-    @media (min-width: 0) and (max-width: 32em) {
-      .map-article .top-header {
-        margin-bottom: 5px; } }
-    .map-article .top-header .back a {
-      text-decoration: none;
-      color: #6F6F6F;
-      padding: 4px 5px;
-      border: 2px solid #6F6F6F;
-      font-weight: bold;
-      display: inline-block;
-      text-transform: uppercase; }
-      .map-article .top-header .back a:hover {
-        background: #6F6F6F;
-        color: #fff; }
-    .map-article .top-header .back {
-      -moz-box-sizing: border-box;
-      -webkit-box-sizing: border-box;
-      box-sizing: border-box;
-      width: 50%;
-      float: left; }
-      @media (min-width: 0) and (max-width: 32em) {
-        .map-article .top-header .back {
-          -moz-box-sizing: border-box;
-          -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-          width: 50%;
-          float: left;
-          padding-left: 0.8333333333%;
-          padding-right: 0.8333333333%; } }
-    .map-article .top-header .social {
-      -moz-box-sizing: border-box;
-      -webkit-box-sizing: border-box;
-      box-sizing: border-box;
-      width: 50%;
-      float: left;
-      text-align: right;
-      margin-top: 3px; }
-      @media (min-width: 0) and (max-width: 32em) {
-        .map-article .top-header .social {
-          -moz-box-sizing: border-box;
-          -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-          width: 50%;
-          float: left;
-          padding-left: 0.8333333333%;
-          padding-right: 0.8333333333%; } }
+      padding-top: 92px; } }
   .map-article .top-menu {
     display: inline-block;
     width: 100%;
@@ -680,8 +647,7 @@ a {
           -webkit-box-sizing: border-box;
           box-sizing: border-box;
           width: 100%;
-          float: left;
-          margin-top: 0; }
+          float: left; }
           .map-article .top-menu .layers li {
             padding: 0;
             margin: 0;
@@ -709,6 +675,9 @@ a {
                 border-bottom: 2px solid; }
               .map-article .top-menu .layers li a.active > div:first-child {
                 border-bottom: 2px solid transparent; } }
+      @media (min-width: 0) and (max-width: 28em) {
+        .map-article .top-menu .layers li a > div:last-child {
+          font-size: 13px; } }
     .map-article .top-menu .tabs {
       -moz-box-sizing: border-box;
       -webkit-box-sizing: border-box;
@@ -772,12 +741,7 @@ a {
           -webkit-box-sizing: border-box;
           box-sizing: border-box;
           width: 100%;
-          float: left;
-          margin-top: 0;
-          position: fixed;
-          top: 89px;
-          left: 0;
-          z-index: 1001; }
+          float: left; }
           .map-article .top-menu .tabs li {
             padding: 0;
             margin: 0;

@@ -160,7 +160,7 @@
     margin-top: 0;
   }
 
-  .title, .body {
+  .title, .body, .signed {
     padding: 10px 10%;
   }
 
@@ -205,6 +205,14 @@
     @include susy-media(0 32em) {
       font-size: 16px;
     }
+  }
+
+  .signed {
+    display: inline-block;
+    font-size: 16px;
+    color: #fff;
+    margin: 0;
+    font-style: italic;
   }
 
   .continue {
