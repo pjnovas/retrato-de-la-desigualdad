@@ -73,6 +73,32 @@
         font-weight: normal;
       }
 
+      &.disabled {
+        cursor: default;
+
+        .wrap {
+          .img {
+            background-color: #CFCFCF;
+          }
+
+          h4 {
+            color: #BABABA;
+          }
+          
+          &:hover {
+            background-color: #fff;
+
+            .img {
+              opacity: 0.75;
+            }
+
+            h4 {
+              color: #BABABA;
+            }
+          }
+        }
+
+      }
 
       @include susy-media(0 72em) {
         @include span(6 of 12 no-gutters);

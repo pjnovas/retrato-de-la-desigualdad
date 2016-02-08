@@ -502,6 +502,18 @@ a {
         margin-bottom: 0;
         color: #000;
         font-weight: normal; }
+      .maps-selector ul li.disabled {
+        cursor: default; }
+        .maps-selector ul li.disabled .wrap .img {
+          background-color: #CFCFCF; }
+        .maps-selector ul li.disabled .wrap h4 {
+          color: #BABABA; }
+        .maps-selector ul li.disabled .wrap:hover {
+          background-color: #fff; }
+          .maps-selector ul li.disabled .wrap:hover .img {
+            opacity: 0.75; }
+          .maps-selector ul li.disabled .wrap:hover h4 {
+            color: #BABABA; }
       @media (min-width: 0) and (max-width: 72em) {
         .maps-selector ul li {
           -moz-box-sizing: border-box;
