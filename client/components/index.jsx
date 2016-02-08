@@ -75,6 +75,9 @@ class Main extends React.Component {
         opacity = ((this.state.scroll * 100) / top) / 100;
         opacity = parseFloat(opacity.toFixed(1));
       }
+      else if (top < 0){
+        opacity = 1;
+      }
 
       if (opacity > 1) {
         opacity = 1;
