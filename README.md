@@ -56,8 +56,10 @@ Client is compiled with Grunt using Browserify and Babel 2015. Client source is 
 Server exposes an API to access seccions and articles from a  Newscoop instance (caching them to Filesystem as JSON files).  
 
 **API endpoints (only GET):**
-* `http://your_host/sections` Retrieve all sections cached or from Newscoop API if is first fetch.
-* `http://your_host/sections/:section/articles` Retrieve all articles for a section (by number) cached or from Newscoop API if is first fetch.
+* `http://your_host/articles/methodology` Retrieve Methodology section articles
+* `http://your_host/articles/publishers` Retrieve Publishers section articles
+* `http://your_host/articles/testimonials` Retrieve Testimonials section articles
+* `http://your_host/articles/places` Retrieve Places section articles
 
 **Cache clean:**
 * `http://your_host/cache` Using the password at your `config.json`
