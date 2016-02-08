@@ -41,6 +41,7 @@
       li {
         margin: 0;
         @include span(6);
+        padding-right: 0;
 
         a {
           @include span(12 no-gutters);
@@ -117,6 +118,7 @@
 
         li {
           @include span(12);
+          padding-right: 0;
         }
       }
 
@@ -171,6 +173,7 @@
       li {
         margin: 0;
         @include span(3);
+        padding-left: 0;
 
         a {
           @include span(12 no-gutters);
@@ -192,6 +195,7 @@
 
         li {
           @include span(5);
+          padding-left: 0;
         }
       }
 
@@ -199,6 +203,7 @@
         @include span(5 of 12 left no-gutters);
         li {
           @include span(8);
+          padding-left: 0;
         }
       }
 

@@ -571,7 +571,8 @@ a {
         width: 50%;
         float: left;
         padding-left: 0.8333333333%;
-        padding-right: 0.8333333333%; }
+        padding-right: 0.8333333333%;
+        padding-right: 0; }
         .map-article .top-menu .layers li a {
           -moz-box-sizing: border-box;
           -webkit-box-sizing: border-box;
@@ -640,7 +641,8 @@ a {
             width: 100%;
             float: left;
             padding-left: 0.8333333333%;
-            padding-right: 0.8333333333%; } }
+            padding-right: 0.8333333333%;
+            padding-right: 0; } }
       @media (min-width: 0) and (max-width: 32em) {
         .map-article .top-menu .layers {
           -moz-box-sizing: border-box;
@@ -692,7 +694,8 @@ a {
         width: 25%;
         float: left;
         padding-left: 0.8333333333%;
-        padding-right: 0.8333333333%; }
+        padding-right: 0.8333333333%;
+        padding-left: 0; }
         .map-article .top-menu .tabs li a {
           -moz-box-sizing: border-box;
           -webkit-box-sizing: border-box;
@@ -719,7 +722,8 @@ a {
             width: 41.6666666667%;
             float: left;
             padding-left: 0.8333333333%;
-            padding-right: 0.8333333333%; } }
+            padding-right: 0.8333333333%;
+            padding-left: 0; } }
       @media (min-width: 0) and (max-width: 50em) {
         .map-article .top-menu .tabs {
           -moz-box-sizing: border-box;
@@ -734,7 +738,8 @@ a {
             width: 66.6666666667%;
             float: left;
             padding-left: 0.8333333333%;
-            padding-right: 0.8333333333%; } }
+            padding-right: 0.8333333333%;
+            padding-left: 0; } }
       @media (min-width: 0) and (max-width: 32em) {
         .map-article .top-menu .tabs {
           -moz-box-sizing: border-box;
