@@ -36,6 +36,7 @@
         text-align: center;
         display: inline-block;
         margin: 0;
+        text-decoration: underline;
       }
     }
 
@@ -60,6 +61,7 @@
             padding: 13px 10px;
             vertical-align: middle;
             border-right: 2px solid;
+            text-decoration: underline;
           }
 
           >div:last-child {
@@ -88,6 +90,12 @@
                 color: #fff;
               }
             }
+
+            &:hover {
+              >div:first-child {
+                background: lighten($group-a-color, 15%);
+              }
+            }
           }
         }
 
@@ -106,6 +114,12 @@
                 border-right: none;
                 background: $group-b-color;
                 color: #fff;
+              }
+            }
+
+            &:hover {
+              >div:first-child {
+                background: lighten($group-b-color, 15%);
               }
             }
 
@@ -186,11 +200,19 @@
           color: $primary-color;
           background: #fff;
           border: 2px solid $primary-color;
+          text-decoration: underline;
+
+          &:hover {
+            background: lighten($primary-color, 30%);
+          }
 
           &.active {
             background: $primary-color;
             color: #fff;
+            cursor: pointer;
+            text-decoration: none;
           }
+
         }
 
       }
@@ -305,6 +327,11 @@
 
             border-bottom: none;
             color: #A1A1A1;
+            text-decoration: underline;
+
+            &:hover {
+              color: darken(#A1A1A1, 50%);
+            }
 
             &.active {
               border: 2px solid #E2E2E2;
@@ -312,6 +339,7 @@
               margin-bottom: -2px;
               color: #6F6F6F;
               border-top: 3px solid $active-color;
+              text-decoration: none;
             }
           }
 

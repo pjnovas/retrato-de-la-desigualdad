@@ -270,7 +270,7 @@ a {
   .intro-section .overlay-3 {
     border: 20px solid #009FE3;
     z-index: 4;
-    width: 80%;
+    width: 85%;
     left: 5%;
     top: 5%;
     height: 75%; }
@@ -484,7 +484,8 @@ a {
         opacity: 0.75;
         height: 0;
         padding-top: 25%;
-        position: relative; }
+        position: relative;
+        min-height: 50px; }
         .maps-selector ul li .img img {
           position: absolute;
           top: 0;
@@ -590,7 +591,8 @@ a {
         font-weight: bold;
         text-align: center;
         display: inline-block;
-        margin: 0; }
+        margin: 0;
+        text-decoration: underline; }
     .map-article .top-menu .layers {
       -moz-box-sizing: border-box;
       -webkit-box-sizing: border-box;
@@ -626,7 +628,8 @@ a {
             display: table-cell;
             padding: 13px 10px;
             vertical-align: middle;
-            border-right: 2px solid; }
+            border-right: 2px solid;
+            text-decoration: underline; }
           .map-article .top-menu .layers li a > div:last-child {
             -moz-box-sizing: border-box;
             -webkit-box-sizing: border-box;
@@ -646,6 +649,8 @@ a {
             border-right: none;
             background: #3E7BB6;
             color: #fff; }
+          .map-article .top-menu .layers li:nth-child(1) a:hover > div:first-child {
+            background: #72a1cf; }
         .map-article .top-menu .layers li:nth-child(2) a {
           background: #fff;
           border: 2px solid #FF6600; }
@@ -655,6 +660,8 @@ a {
             border-right: none;
             background: #FF6600;
             color: #fff; }
+          .map-article .top-menu .layers li:nth-child(2) a:hover > div:first-child {
+            background: #ff944d; }
       @media (min-width: 0) and (max-width: 65em) {
         .map-article .top-menu .layers {
           -moz-box-sizing: border-box;
@@ -739,10 +746,15 @@ a {
           float: left;
           color: #6F6F6F;
           background: #fff;
-          border: 2px solid #6F6F6F; }
+          border: 2px solid #6F6F6F;
+          text-decoration: underline; }
+          .map-article .top-menu .tabs li a:hover {
+            background: #bcbcbc; }
           .map-article .top-menu .tabs li a.active {
             background: #6F6F6F;
-            color: #fff; }
+            color: #fff;
+            cursor: pointer;
+            text-decoration: none; }
       @media (min-width: 0) and (max-width: 65em) {
         .map-article .top-menu .tabs {
           -moz-box-sizing: border-box;
@@ -877,13 +889,17 @@ a {
             display: inline-block;
             margin: 0;
             border-bottom: none;
-            color: #A1A1A1; }
+            color: #A1A1A1;
+            text-decoration: underline; }
+            .map-article .content .editorial-content .editorial-tabs li a:hover {
+              color: #222222; }
             .map-article .content .editorial-content .editorial-tabs li a.active {
               border: 2px solid #E2E2E2;
               border-bottom: 2px solid white;
               margin-bottom: -2px;
               color: #6F6F6F;
-              border-top: 3px solid #009FE3; }
+              border-top: 3px solid #009FE3;
+              text-decoration: none; }
       .map-article .content .editorial-content .analysis {
         padding-top: 10px;
         padding-bottom: 10px; }
