@@ -57,7 +57,7 @@
           >div:first-child {
             @include span(4 no-gutters);
             display: table-cell;
-            padding: 12px 10px;
+            padding: 13px 10px;
             vertical-align: middle;
             border-right: 2px solid;
           }

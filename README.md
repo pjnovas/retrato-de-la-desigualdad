@@ -50,6 +50,12 @@ Watching files for changes:
 grunt w
 ```
 
+### Compile client (PROD)
+This command will minify the JS and CSS files
+```bash
+grunt min
+```
+
 ## Project overview
 Client is compiled with Grunt using Browserify and Babel 2015. Client source is built with React and Flux, making requests to Server using Superagent.  
 

@@ -6,3 +6,10 @@ default:
 w:
   - 'browserify:watch'
   - 'watch:app'
+
+min:
+  - 'eslint'
+  - 'sass'
+  - 'browserify:app'
+  - 'uglify'
+  - 'cssmin'
