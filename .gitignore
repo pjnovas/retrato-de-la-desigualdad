@@ -33,3 +33,5 @@ npm-debug.log
 lib/build
 config.json
 data.json
+public/css/retrato-de-la-desigualdad.css
+public/js/retrato-de-la-desigualdad.js
