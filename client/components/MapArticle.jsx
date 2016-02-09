@@ -330,7 +330,7 @@ class MapArticle extends React.Component {
     if (this.state.showAnalysis){
       bottomContent = (
         <div className="analysis">
-          <h2>{article.analysis.title}</h2>
+          {article.analysis.subtitle ? <h2>{article.analysis.subtitle}</h2> : null }
           <div className="author">{analysisAuthor}</div>
           <div className="body" dangerouslySetInnerHTML={{__html: article.analysis.body}}></div>
         </div>
@@ -339,7 +339,7 @@ class MapArticle extends React.Component {
     else {
       bottomContent = (
         <div className="editorial-article">
-          <h2>{article.title}</h2>
+          {article.subtitle ? <h2>{article.subtitle}</h2> : null }
           <div className="author">{author}</div>
           <div className="intro" dangerouslySetInnerHTML={{__html: article.intro}}></div>
           <div className="body" dangerouslySetInnerHTML={{__html: article.body}}></div>
@@ -355,72 +355,76 @@ class MapArticle extends React.Component {
     };
 
     return (
-      <section className="map-article">
+      <div>
+        <section className="map-article">
 
-        <Toolbar opacity={1} title={article.title} social={social}/>
+          <div className="wrap">
+            <Toolbar opacity={1} title={article.title} social={social}/>
 
-        <div className="top-menu">
+            <div className="top-menu">
 
-          <ul className="tabs">
-            <li>
-              <a className={this.state.showEditorial ? " active" : "" }
-                onClick={ () => this.onTabChange("editorial") }>Editorial</a>
-            </li>
-            <li>
-              <a className={this.state.showPlaces ? " active" : "" }
-                onClick={ () => this.onTabChange("places") }>Destinos</a>
-            </li>
-          </ul>
+              <ul className="tabs">
+                <li>
+                  <a className={this.state.showEditorial ? " active" : "" }
+                    onClick={ () => this.onTabChange("editorial") }>Editorial</a>
+                </li>
+                <li>
+                  <a className={this.state.showPlaces ? " active" : "" }
+                    onClick={ () => this.onTabChange("places") }>Destinos</a>
+                </li>
+              </ul>
 
-          <ul className="layers">
-            {layers}
-          </ul>
+              <ul className="layers">
+                {layers}
+              </ul>
 
-        </div>
+            </div>
 
-        <div id="map" ref="map" className="map"></div>
+            <div id="map" ref="map" className="map"></div>
 
-        { this.state.showPlaces ?
+            { this.state.showPlaces ?
 
-        <Element name="ele-places" className="content">
-          <Places
-            current={this.state.selectedPlace}
-            places={this.state.places}
-            onPlaceClick={ place => this.onPlaceSelect(place) }
-            onClose={ () => this.setState({ showPlaces: false }) }/>
-        </Element>
+            <Element name="ele-places" className="content">
+              <Places
+                current={this.state.selectedPlace}
+                places={this.state.places}
+                onPlaceClick={ place => this.onPlaceSelect(place) }
+                onClose={ () => this.setState({ showPlaces: false }) }/>
+            </Element>
 
-        :
+            :
 
-        <Element name="ele-places" className="content">
-          <div className="km-viz">
-            <div>[Visualización KM]</div>
+            <Element name="ele-places" className="content">
+              <div className="km-viz">
+                <div>[Visualización KM]</div>
+              </div>
+
+              <div className="editorial-content">
+
+                <ul className="editorial-tabs">
+                  <li>
+                    <a className={!this.state.showAnalysis ? " active" : "" }
+                      onClick={ () => this.onEditorialTabChange("editorial") }>Artículo</a>
+                  </li>
+                  <li>
+                    <a className={this.state.showAnalysis ? " active" : "" }
+                      onClick={ () => this.onEditorialTabChange("analysis") }>Análisis Externo</a>
+                  </li>
+                </ul>
+
+                { bottomContent }
+
+              </div>
+
+            </Element>
+
+            }
+
           </div>
-
-          <div className="editorial-content">
-
-            <ul className="editorial-tabs">
-              <li>
-                <a className={!this.state.showAnalysis ? " active" : "" }
-                  onClick={ () => this.onEditorialTabChange("editorial") }>Artículo</a>
-              </li>
-              <li>
-                <a className={this.state.showAnalysis ? " active" : "" }
-                  onClick={ () => this.onEditorialTabChange("analysis") }>Análisis Externo</a>
-              </li>
-            </ul>
-
-            { bottomContent }
-
-          </div>
-
-        </Element>
-
-        }
+        </section>
 
         <Logos />
-
-      </section>
+      </div>
     );
   }
 

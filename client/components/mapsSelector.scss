@@ -23,10 +23,11 @@
         border: solid 1px silver;
         margin: 10px;
         padding: 0;
-        display: block;
+        @include flex-box;
 
         &:hover {
           background-color: $active-color;
+          text-decoration: none;
 
           .img {
             opacity: 1;
@@ -65,12 +66,16 @@
       }
 
       h4 {
-        @include span(8 of 12 narrow);
+        @include span(8 of 12 right wide);
         font-size: 16px;
-        margin-top: 10px;
+        margin-top: 0;
         margin-bottom: 0;
         color: #000;
         font-weight: normal;
+
+        @include flex-box;
+        @include flex-box-center;
+        justify-content: center;
       }
 
       &.disabled {
@@ -84,7 +89,7 @@
           h4 {
             color: #BABABA;
           }
-          
+
           &:hover {
             background-color: #fff;
 
