@@ -2,14 +2,13 @@ default:
   - 'eslint'
   - 'sass'
   - 'browserify:app'
+  - 'copy:compiled'
 
 w:
   - 'browserify:watch'
   - 'watch:app'
 
 min:
-  - 'eslint'
-  - 'sass'
-  - 'browserify:app'
+  - 'copy:compiled'
   - 'uglify'
   - 'cssmin'

@@ -3,5 +3,5 @@ module.exports = {
     config: 'eslint.json',
     reset: true
   },
-  target: ['client/**/*.js']
+  target: ['client/**/*.js', '!client/dist/**/*.js']
 };

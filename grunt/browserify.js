@@ -29,13 +29,13 @@ module.exports = {
   app: {
     options: options,
     src: ['client/index.js'],
-    dest: 'public/js/<%= pkg.name %>.js'
+    dest: 'client/dist/<%= pkg.name %>.js'
   },
 
   watch: {
     options: optsW,
     src: ['client/index.js'],
-    dest: 'public/js/<%= pkg.name %>.js'
+    dest: 'client/dist/<%= pkg.name %>.js'
   }
 
 };

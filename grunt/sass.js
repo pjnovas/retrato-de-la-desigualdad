@@ -5,7 +5,7 @@ module.exports = {
       require: 'susy'
     },
     files: {
-      "public/css/<%= pkg.name %>.css": 'client/index.scss'
+      "client/dist/<%= pkg.name %>.css": 'client/index.scss'
     }
   }
 };
