@@ -88,7 +88,7 @@ class MapArticle extends React.Component {
       layer_selector: false,
       cartodb_logo: false,
       fullscreen: true,
-      zoom: 12
+      zoom: 10
     })
     .done( (vis, layers) => {
       this.cVis = vis;
