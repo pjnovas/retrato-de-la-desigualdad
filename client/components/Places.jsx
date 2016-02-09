@@ -48,7 +48,7 @@ class Places extends React.Component {
       current.images[0].url || "";
 
     let settings = {
-      initialSlide: this.getCurrentIndex(),
+      slickGoTo: this.getCurrentIndex(),
       dots: false,
       infinite: true,
       speed: 500,
