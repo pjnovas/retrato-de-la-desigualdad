@@ -35,6 +35,14 @@ For a complete guide of Production installation follow [this wiki](../../wiki/In
 * Copy `config.json.sample` to `config.json` and edit your configs (follow the  instructions in the json file).
 * Copy `data.json.sample` to `data.json` and edit your data related configurations (follow the  instructions in the json file).
 
+### Compile client files for (PROD)
+At this repo client files are already compiled at `client/dist`.  
+With those files in place a production command can be run:
+```bash
+grunt prod
+```
+This command will minify the JS and CSS files and copy them into `public` so they can be served.
+
 ### Start Server
 ```bash
 npm start
@@ -50,11 +58,6 @@ Watching files for changes:
 grunt w
 ```
 
-### Compile client (PROD)
-This command will minify the JS and CSS files
-```bash
-grunt min
-```
 
 ## Project overview
 Client is compiled with Grunt using Browserify and Babel 2015. Client source is built with React and Flux, making requests to Server using Superagent.  
