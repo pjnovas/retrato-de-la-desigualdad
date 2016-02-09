@@ -396,7 +396,7 @@ class MapArticle extends React.Component {
 
             <Element name="ele-places" className="content">
               <div className="km-viz">
-                <div>[Visualización KM]</div>
+                <div></div>
               </div>
 
               <div className="editorial-content">
