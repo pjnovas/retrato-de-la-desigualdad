@@ -15,7 +15,7 @@ class IntroSection extends React.Component {
         <div className="overlay-2"></div>
         <div className="overlay-3"></div>
 
-        <div className="logo-elfaro"></div>
+        <a href="http://elfaro.net" target="_blank" className="logo-elfaro"></a>
         <div className="logo-retrato"></div>
 
         <Social name="Un retrato de desigualdad" path="/"
