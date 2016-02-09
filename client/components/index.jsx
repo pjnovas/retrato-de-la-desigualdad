@@ -27,6 +27,8 @@ class Main extends React.Component {
       testimonials: [],
       scroll: 0
     };
+
+    this.unmounted = false;
   }
 
   componentDidMount(){
@@ -55,11 +57,14 @@ class Main extends React.Component {
   }
 
   componentWillUnmount(){
+    this.unmounted = true;
     document.removeEventListener('scroll', this.scrollHandler);
   }
 
   scrollHandler() {
-    this.setState({ scroll: scrollSpy.currentPositionY() });
+    if (!this.unmounted){
+      this.setState({ scroll: scrollSpy.currentPositionY() });
+    }
   }
 
   onContinue() {

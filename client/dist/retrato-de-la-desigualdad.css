@@ -245,7 +245,7 @@ a {
   .intro-section .background {
     width: 70%;
     left: 15%;
-    background-image: url(/images/bgs/2.JPG);
+    background-image: url(/images/bgs/2_exp.JPG);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -842,7 +842,7 @@ a {
         background: #D2D2D2;
         margin: 20px;
         padding: 20px;
-        background-image: url(/images/bgs/1.JPG);
+        background-image: url(/images/bgs/1_exp.JPG);
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center;
