@@ -351,7 +351,7 @@ class MapArticle extends React.Component {
       name: article.subtitle,
       path: "/" + article.number,
       FBCaption: article.intro || article.body.substr(0, 250),
-      TWText: `Un retrato de desigualdad: ${article.subtitle} por ${twBy}`
+      TWText: `Un retrato de desigualdad: ${article.title} por ${twBy}`
     };
 
     return (

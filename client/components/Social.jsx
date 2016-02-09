@@ -18,9 +18,9 @@ class Social extends React.Component {
 
   render() {
     let text = encodeURI(this.props.TWText);
-    let link =  encodeURIComponent(link + this.props.path);
+    let lnk =  encodeURIComponent(link + this.props.path);
 
-    const twLink = `https://twitter.com/intent/tweet?url=${link}%2F&text=${text}`;
+    const twLink = `https://twitter.com/intent/tweet?url=${lnk}%2F&text=${text}`;
 
     return (
       <div className="social">
