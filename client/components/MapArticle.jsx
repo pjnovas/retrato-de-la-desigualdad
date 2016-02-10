@@ -162,7 +162,7 @@ class MapArticle extends React.Component {
         iconSize: [25, 25],
         html: '<div id="'+p.number+'" class="group-' + group + '" ></div>',
         popupAnchor: [2, -12],
-        //iconAnchor: [0, 0],
+        //iconAnchor: [0, 50],
       });
 
       let self = this;

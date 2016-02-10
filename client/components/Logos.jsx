@@ -19,6 +19,10 @@ class Logos extends React.Component {
       class: "avina",
       url: "http://www.avinaamericas.org/"
     }, {
+      name: "ICCO Cooperation",
+      class: "icco",
+      url: "http://www.icco-international.com/"
+    }, {
       name: "Ana Carolina",
       class: "anacarolina",
       url: ""

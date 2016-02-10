@@ -3,17 +3,28 @@
 
   h1 {
     @include section-title;
+    top: 0;
   }
 
   .content-center {
     border: $section-border;
+    background-color: $active-color;
+  }
+
+  .narrow-content {
+    max-width: 60em;
+
+    @include susy-media(0 32em) {
+      margin-top: 40px;
+    }
   }
 
   .body {
     display: inline-block;
-    font-size: 20px;
+    font-size: 18px;
     text-align: left;
     margin-left: 20px;
     margin-right: 20px;
+    color: #fff;
   }
 }

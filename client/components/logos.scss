@@ -1,6 +1,6 @@
 .logos {
   @include section;
-  margin-top: 20px;
+  margin: 20px auto;
 
   .legend {
     font-size: 20px;
@@ -16,10 +16,10 @@
   }
 
   a, >div {
-    height: 100px;
+    height: 80px;
     display: inline-block;
     text-align: center;
-    width: 20%;
+    width: span(2 of 12);
 
     background-position: center;
     background-repeat: no-repeat;
@@ -55,5 +55,9 @@
 
   .anacarolina {
     background-image: url('/images/AnaCarolina.jpg');
+  }
+
+  .icco {
+    background-image: url('/images/icco.png');
   }
 }

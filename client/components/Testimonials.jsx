@@ -44,9 +44,14 @@ class Testimonials extends React.Component {
       dots: false,
       infinite: true,
       speed: 500,
+      //slidesToShow: 2,
+      //slidesToScroll: 2,
       slidesToShow: 1,
       slidesToScroll: 1,
-      adaptiveHeight: true
+      adaptiveHeight: true,
+      //responsive: [
+      //  { breakpoint: 768, settings: { slidesToShow: 1, slidesToScroll: 1 } }
+      //]
     };
 
     return (

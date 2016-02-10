@@ -160,7 +160,12 @@
   }
 
   .title {
-    text-align: left;
+    text-align: center;
+    padding: 10px 5%;
+
+    @include susy-media(0 48em) {
+      padding: 10px 10%;
+    }
 
     h1 {
       color: $active-color;
@@ -202,7 +207,7 @@
     }
 
     @include susy-media(0 30em) {
-      font-size: 14px;
+      font-size: 13px;
     }
   }
 
