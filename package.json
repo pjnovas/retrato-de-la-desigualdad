@@ -1,6 +1,6 @@
 {
   "name": "retrato-de-la-desigualdad",
-  "version": "0.9.3",
+  "version": "0.9.4",
   "scripts": {
     "start": "NODE_PATH=. DEBUG=retrato-de-la-desigualdad:* node ./bin/www"
   },
