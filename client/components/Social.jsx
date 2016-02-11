@@ -9,8 +9,9 @@ class Social extends React.Component {
       method: 'feed',
       name: this.props.name,
       link: link + (this.props.path) || "",
-      picture: link + "/images/retrato.png",
+      //picture: link + "/images/retrato.png",
       caption: this.props.FBCaption,
+      redirect_uri: link + (this.props.path) || "",
     }, function( response ) {
       console.log(response);
     });
