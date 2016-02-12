@@ -4,7 +4,9 @@ const twBy = "@_ElFaro_";
 
 class Social extends React.Component {
 
-  onFBShare(){
+  onFBShare(lnk){
+    window.open(lnk,'','scrollbars=no,width=620,height=425,location=no');
+    /*
     window.FB.ui({
       method: 'feed',
       name: this.props.name,
@@ -15,17 +17,19 @@ class Social extends React.Component {
     }, function( response ) {
       console.log(response);
     });
+    */
   }
 
   render() {
     let text = encodeURI(this.props.TWText);
     let lnk =  encodeURIComponent(link + this.props.path);
 
-    const twLink = `https://twitter.com/intent/tweet?url=${lnk}%2F&text=${text}`;
+    const twLink = `https://twitter.com/intent/tweet?url=${lnk}&text=${text}`;
+    const fbLink = `https://www.facebook.com/sharer/sharer.php?u=${lnk}`;
 
     return (
       <div className="social">
-        <a className="facebook" onClick={() => this.onFBShare()}>
+        <a className="facebook" onClick={() => { this.onFBShare(fbLink) }}>
           <i className="icon-facebook"></i>
         </a>
         <a href={twLink} className="twitter"><i className="icon-twitter"></i></a>
