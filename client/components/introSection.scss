@@ -1,8 +1,8 @@
 
 .intro-section {
   @include full-screen-section;
+  max-width: 100%;
   margin: 0;
-  width: 100%;
 
   .background,
   .overlay-1,
@@ -52,8 +52,8 @@
   .overlay-3 {
     border: $section-border;
     z-index: 4;
-    width: 85%;
-    left: 5%;
+    width: 83%;
+    left: 7%;
     top: 5%;
     height: 75%;
 
@@ -127,7 +127,7 @@
     position: absolute;
     z-index: 10;
     top: 3%;
-    left: 8%;
+    left: 10%;
 
     background-image: $logo-retrato;
     background-repeat: no-repeat;
@@ -172,13 +172,13 @@
       background-color: #fff;
       margin: 0;
       padding: 9px 25px;
-      font-size: 90px;
+      font-size: 60px;
       white-space: pre-wrap;
       -webkit-box-decoration-break: clone;
       display: inline;
 
       @include susy-media(0 48em) {
-        font-size: 70px;
+        font-size: 50px;
       }
 
       @include susy-media(0 40em) {
@@ -186,7 +186,8 @@
       }
 
       @include susy-media(0 32em) {
-        display: none;
+        font-size: 18px;
+        padding: 4px 9px;
       }
 
     }
@@ -194,9 +195,11 @@
 
   .body {
     display: inline-block;
-    font-size: 20px;
     font-weight: bold;
     color: #fff;
+
+    font-size: 18px;
+    max-width: 26em;
 
     @include susy-media(32em 40em) {
       padding: 10px 15%;
@@ -217,6 +220,11 @@
     color: #fff;
     margin: 0;
     font-style: italic;
+
+    @include susy-media(0 30em) {
+      font-size: 12px;
+      padding: 0 10%;
+    }
   }
 
   .continue {

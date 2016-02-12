@@ -134,6 +134,24 @@ body {
 a {
   cursor: pointer; }
 
+.holder-testi-method {
+  display: table;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  margin: 20px auto;
+  max-width: 70em; }
+  .holder-testi-method > div {
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    border: 20px solid #009FE3;
+    display: table; }
+    .holder-testi-method > div:after {
+      content: " ";
+      display: block;
+      clear: both; }
+
 .toolbar {
   background: #009FE3;
   padding: 5px 0;
@@ -226,13 +244,11 @@ a {
   display: table;
   position: relative;
   height: 100%;
-  width: 90%;
+  width: 100%;
   margin: 20px auto;
-  margin: 0;
-  width: 100%; }
-  @media (min-width: 0) and (max-width: 40em) {
-    .intro-section {
-      width: 100%; } }
+  max-width: 70em;
+  max-width: 100%;
+  margin: 0; }
   .intro-section .background,
   .intro-section .overlay-1,
   .intro-section .overlay-2,
@@ -270,8 +286,8 @@ a {
   .intro-section .overlay-3 {
     border: 20px solid #009FE3;
     z-index: 4;
-    width: 85%;
-    left: 5%;
+    width: 83%;
+    left: 7%;
     top: 5%;
     height: 75%; }
     @media (min-width: 0) and (max-width: 30em) {
@@ -328,7 +344,7 @@ a {
     position: absolute;
     z-index: 10;
     top: 3%;
-    left: 8%;
+    left: 10%;
     background-image: url(/images/retrato.svg);
     background-repeat: no-repeat;
     width: 140px;
@@ -359,24 +375,26 @@ a {
       background-color: #fff;
       margin: 0;
       padding: 9px 25px;
-      font-size: 90px;
+      font-size: 60px;
       white-space: pre-wrap;
       -webkit-box-decoration-break: clone;
       display: inline; }
       @media (min-width: 0) and (max-width: 48em) {
         .intro-section .title h1 {
-          font-size: 70px; } }
+          font-size: 50px; } }
       @media (min-width: 0) and (max-width: 40em) {
         .intro-section .title h1 {
           font-size: 50px; } }
       @media (min-width: 0) and (max-width: 32em) {
         .intro-section .title h1 {
-          display: none; } }
+          font-size: 18px;
+          padding: 4px 9px; } }
   .intro-section .body {
     display: inline-block;
-    font-size: 20px;
     font-weight: bold;
-    color: #fff; }
+    color: #fff;
+    font-size: 18px;
+    max-width: 26em; }
     @media (min-width: 32em) and (max-width: 40em) {
       .intro-section .body {
         padding: 10px 15%; } }
@@ -392,6 +410,10 @@ a {
     color: #fff;
     margin: 0;
     font-style: italic; }
+    @media (min-width: 0) and (max-width: 30em) {
+      .intro-section .signed {
+        font-size: 12px;
+        padding: 0 10%; } }
   .intro-section .continue {
     position: absolute;
     bottom: 3%;
@@ -412,11 +434,9 @@ a {
   display: table;
   position: relative;
   height: 100%;
-  width: 90%;
-  margin: 20px auto; }
-  @media (min-width: 0) and (max-width: 40em) {
-    .maps-selector {
-      width: 100%; } }
+  width: 100%;
+  margin: 20px auto;
+  max-width: 70em; }
   .maps-selector h1 {
     text-align: left;
     display: inline-block;
@@ -426,12 +446,12 @@ a {
     position: absolute;
     left: 20px;
     top: -30px;
-    font-size: 40px;
+    font-size: 32px;
     margin: 0;
     color: #009FE3; }
-    @media (min-width: 0) and (max-width: 32em) {
+    @media (min-width: 0) and (max-width: 40em) {
       .maps-selector h1 {
-        font-size: 32px; } }
+        font-size: 24px; } }
   .maps-selector .content-center {
     border: 20px solid #009FE3; }
   .maps-selector ul {
@@ -490,6 +510,9 @@ a {
         padding-top: 25%;
         position: relative;
         min-height: 50px; }
+        @media (min-width: 0) and (max-width: 40em) {
+          .maps-selector ul li .img {
+            padding-top: 8.3333333333%; } }
         .maps-selector ul li .img img {
           position: absolute;
           top: 0;
@@ -521,6 +544,9 @@ a {
         -webkit-align-items: center;
         align-items: center;
         justify-content: center; }
+        @media (min-width: 0) and (max-width: 40em) {
+          .maps-selector ul li h4 {
+            font-size: 14px; } }
       .maps-selector ul li.disabled {
         cursor: default; }
         .maps-selector ul li.disabled .wrap .img {
@@ -555,14 +581,18 @@ a {
   margin: 0 auto;
   padding: 0;
   border: 20px solid #6F6F6F;
-  padding-top: 40px; }
+  max-width: 70em;
+  margin: 0 auto;
+  padding-top: 0;
+  border: 20px solid #6F6F6F;
+  margin-top: 70px; }
   .map-article:after {
     content: " ";
     display: block;
     clear: both; }
   @media (min-width: 0) and (max-width: 40em) {
     .map-article {
-      padding-top: 70px; } }
+      margin-top: 92px; } }
   .map-article .wrap {
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
@@ -601,7 +631,7 @@ a {
       -moz-box-sizing: border-box;
       -webkit-box-sizing: border-box;
       box-sizing: border-box;
-      width: 50%;
+      width: 58.3333333333%;
       float: left;
       text-align: right; }
       .map-article .top-menu .layers li {
@@ -613,7 +643,8 @@ a {
         float: left;
         padding-left: 0.8333333333%;
         padding-right: 0.8333333333%;
-        padding-right: 0; }
+        padding-right: 0;
+        font-size: 14px; }
         .map-article .top-menu .layers li a {
           -moz-box-sizing: border-box;
           -webkit-box-sizing: border-box;
@@ -725,12 +756,12 @@ a {
                 border-bottom: 2px solid transparent; } }
       @media (min-width: 0) and (max-width: 28em) {
         .map-article .top-menu .layers li a > div:last-child {
-          font-size: 13px; } }
+          font-size: 10px; } }
     .map-article .top-menu .tabs {
       -moz-box-sizing: border-box;
       -webkit-box-sizing: border-box;
       box-sizing: border-box;
-      width: 50%;
+      width: 41.6666666667%;
       float: left; }
       .map-article .top-menu .tabs li {
         margin: 0;
@@ -834,10 +865,11 @@ a {
       -moz-box-sizing: border-box;
       -webkit-box-sizing: border-box;
       box-sizing: border-box;
-      width: 33.3333333333%;
+      width: 41.6666666667%;
       float: left;
       padding-left: 0.8333333333%;
-      padding-right: 0.8333333333%; }
+      padding-right: 0.8333333333%;
+      margin-top: 80px; }
       .map-article .content .km-viz > div {
         vertical-align: middle;
         color: #4C4C4C;
@@ -859,15 +891,17 @@ a {
           width: 100%;
           float: left;
           padding-left: 0.8333333333%;
-          padding-right: 0.8333333333%; }
+          padding-right: 0.8333333333%;
+          margin-top: 0; }
           .map-article .content .km-viz > div {
             min-height: 100px; } }
     .map-article .content .editorial-content {
       -moz-box-sizing: border-box;
       -webkit-box-sizing: border-box;
       box-sizing: border-box;
-      width: 66.6666666667%;
-      float: left; }
+      width: 54.1666666667%;
+      float: left;
+      padding-left: 4.1666666667%; }
       .map-article .content .editorial-content .editorial-tabs {
         -moz-box-sizing: border-box;
         -webkit-box-sizing: border-box;
@@ -904,6 +938,9 @@ a {
               color: #6F6F6F;
               border-top: 3px solid #009FE3;
               text-decoration: none; }
+        @media (min-width: 0) and (max-width: 28em) {
+          .map-article .content .editorial-content .editorial-tabs {
+            font-size: 13px; } }
       .map-article .content .editorial-content .analysis {
         padding-top: 10px;
         padding-bottom: 10px; }
@@ -1026,15 +1063,19 @@ a {
       height: 80px; }
 
 .testimonials {
-  display: table;
-  position: relative;
-  height: 100%;
-  width: 90%;
-  margin: 20px auto;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 50%;
+  float: left;
   display: block; }
   @media (min-width: 0) and (max-width: 40em) {
     .testimonials {
-      width: 100%; } }
+      -moz-box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+      width: 100%;
+      float: left; } }
   .testimonials h1 {
     text-align: left;
     display: inline-block;
@@ -1044,44 +1085,50 @@ a {
     position: absolute;
     left: 20px;
     top: -30px;
-    font-size: 40px;
+    font-size: 32px;
     margin: 0;
-    color: #009FE3; }
-    @media (min-width: 0) and (max-width: 32em) {
+    color: #009FE3;
+    top: -80px;
+    left: 5%; }
+    @media (min-width: 0) and (max-width: 40em) {
       .testimonials h1 {
-        font-size: 32px; } }
+        font-size: 24px; } }
+    @media (min-width: 0) and (max-width: 40em) {
+      .testimonials h1 {
+        top: -65px;
+        font-size: 24px; } }
   .testimonials .content-center {
-    border: 20px solid #009FE3;
     display: block; }
   .testimonials .narrow-content {
-    max-width: 60em; }
-    @media (min-width: 0) and (max-width: 80em) {
+    width: 400px;
+    margin: 50px auto; }
+    @media (min-width: 0) and (max-width: 52em) {
       .testimonials .narrow-content {
-        margin: 60px 20px 50px 20px; } }
+        width: 350px; } }
+    @media (min-width: 0) and (max-width: 48em) {
+      .testimonials .narrow-content {
+        width: 300px; } }
+    @media (min-width: 0) and (max-width: 40em) {
+      .testimonials .narrow-content {
+        width: 30em;
+        margin-top: 40px;
+        margin-bottom: 80px; } }
     @media (min-width: 0) and (max-width: 32em) {
       .testimonials .narrow-content {
-        margin: 20px 20px 50px 20px; } }
-  .testimonials .wrap {
-    max-width: 100%;
-    margin-left: auto;
-    margin-right: auto; }
-    .testimonials .wrap:after {
-      content: " ";
-      display: block;
-      clear: both; }
+        width: 24em; } }
+    @media (min-width: 0) and (max-width: 28em) {
+      .testimonials .narrow-content {
+        width: 18em; } }
   .testimonials .body {
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    width: 100%;
-    float: left;
-    display: inline-block;
     margin: 0;
-    font-size: 18px;
+    font-size: 16px;
     font-style: italic; }
     .testimonials .body p {
       margin-top: 0;
       display: inline; }
+    @media (min-width: 0) and (max-width: 40em) {
+      .testimonials .body {
+        font-size: 14px; } }
   .testimonials .author {
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
@@ -1113,14 +1160,18 @@ a {
       content: "\e800"; }
 
 .methodology {
-  display: table;
-  position: relative;
-  height: 100%;
-  width: 90%;
-  margin: 20px auto; }
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 50%;
+  float: left; }
   @media (min-width: 0) and (max-width: 40em) {
     .methodology {
-      width: 100%; } }
+      -moz-box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+      box-sizing: border-box;
+      width: 100%;
+      float: left; } }
   .methodology h1 {
     text-align: left;
     display: inline-block;
@@ -1130,28 +1181,37 @@ a {
     position: absolute;
     left: 20px;
     top: -30px;
-    font-size: 40px;
+    font-size: 32px;
     margin: 0;
     color: #009FE3;
-    top: 0; }
-    @media (min-width: 0) and (max-width: 32em) {
+    top: -30px;
+    left: 10%; }
+    @media (min-width: 0) and (max-width: 40em) {
       .methodology h1 {
-        font-size: 32px; } }
+        font-size: 24px; } }
+    @media (min-width: 0) and (max-width: 40em) {
+      .methodology h1 {
+        top: 20px;
+        font-size: 24px; } }
   .methodology .content-center {
-    border: 20px solid #009FE3;
     background-color: #009FE3; }
   .methodology .narrow-content {
-    max-width: 60em; }
-    @media (min-width: 0) and (max-width: 32em) {
+    margin-top: 30px; }
+    @media (min-width: 0) and (max-width: 40em) {
       .methodology .narrow-content {
-        margin-top: 40px; } }
+        margin-top: 60px; } }
   .methodology .body {
     display: inline-block;
-    font-size: 18px;
+    font-size: 16px;
     text-align: left;
-    margin-left: 20px;
-    margin-right: 20px;
-    color: #fff; }
+    color: #fff;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 70%; }
+    @media (min-width: 0) and (max-width: 40em) {
+      .methodology .body {
+        max-width: 80%;
+        font-size: 14px; } }
 
 .places {
   width: 100%;
@@ -1416,6 +1476,7 @@ a {
   margin-right: auto;
   margin: 0 auto;
   padding: 0;
+  max-width: 70em;
   margin: 20px auto; }
   .logos:after {
     content: " ";

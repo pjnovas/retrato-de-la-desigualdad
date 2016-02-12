@@ -114,13 +114,12 @@ class Main extends React.Component {
           <MapsSelector articles={this.state.publishers} />
         </Element>
 
-        <Element name="testimonials">
-          <Testimonials articles={this.state.testimonials} />
-        </Element>
-
-        <Element name="methodology">
-          <Methodology article={this.state.methodology} />
-        </Element>
+        <div className="holder-testi-method">
+          <div>
+            <Testimonials articles={this.state.testimonials} />
+            <Methodology article={this.state.methodology} />
+          </div>
+        </div>
 
         <Logos />
       </div>

@@ -4,6 +4,16 @@ a {
   cursor: pointer;
 }
 
+.holder-testi-method {
+  @include full-screen-section;
+  
+  >div {
+    @include container;
+    border: $section-border;
+    display: table;
+  }
+}
+
 @import "./toolbar.scss";
 @import "./social.scss";
 @import "./introSection.scss";

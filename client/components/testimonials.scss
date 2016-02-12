@@ -1,43 +1,67 @@
 .testimonials {
-  @include full-screen-section;
+  //@include full-screen-section;
+  @include span(6 of 12 no-gutters);
   display: block;
+
+  @include susy-media(0 40em) {
+    @include span(12 of 12 no-gutters);
+  }
 
   h1 {
     @include section-title;
+    top: -80px;
+    left: 5%;
+
+    @include susy-media(0 40em) {
+      top: -65px;
+      font-size: 24px;
+    }
   }
 
   .content-center {
-    border: $section-border;
     display: block;
   }
 
   .narrow-content {
-    max-width: 60em;
+    width: 400px;
+    margin: 50px auto;
 
-    @include susy-media(0 80em) {
-      margin: 60px 20px 50px 20px;
+    @include susy-media(0 52em) {
+      width: 350px;
+    }
+
+    @include susy-media(0 48em) {
+      width: 300px;
+    }
+
+    @include susy-media(0 40em) {
+      width: 30em;
+      margin-top: 40px;
+      margin-bottom: 80px;
     }
 
     @include susy-media(0 32em) {
-      margin: 20px 20px 50px 20px;
+      width: 24em;
+    }
+
+    @include susy-media(0 28em) {
+      width: 18em;
     }
 
   }
 
-  .wrap {
-    @include container;
-  }
-
   .body {
-    @include span(12 no-gutters);
-    display: inline-block;
     margin: 0;
-    font-size: 18px;
+    font-size: 16px;
     font-style: italic;
 
     p {
       margin-top: 0;
       display: inline;
+    }
+
+    @include susy-media(0 40em) {
+      font-size: 14px;
     }
   }
 

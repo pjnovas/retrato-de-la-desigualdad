@@ -55,6 +55,10 @@
         position: relative;
         min-height: 50px;
 
+        @include susy-media(0 40em) {
+          padding-top: span(1);
+        }
+
         img {
           position: absolute;
           top: 0;
@@ -77,6 +81,10 @@
         @include flex-box;
         @include flex-box-center;
         justify-content: center;
+
+        @include susy-media(0 40em) {
+          font-size: 14px;
+        }
       }
 
       &.disabled {

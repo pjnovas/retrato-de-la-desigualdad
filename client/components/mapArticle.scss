@@ -1,10 +1,15 @@
 .map-article {
   @include section;
   border: 20px solid #6F6F6F;
-  padding-top: 40px;
+
+  max-width: 70em;
+  margin: 0 auto;
+  padding-top: 0;
+  border: 20px solid #6F6F6F;
+  margin-top: 70px;
 
   @include susy-media(0 40em) {
-    padding-top: 70px;
+    margin-top: 92px;
   }
 
   .wrap {
@@ -41,13 +46,14 @@
     }
 
     .layers {
-      @include span(6 of 12 right no-gutters);
+      @include span(7 of 12 right no-gutters);
       text-align: right;
 
       li {
         margin: 0;
         @include span(6);
         padding-right: 0;
+        font-size: 14px;
 
         a {
           @include span(12 no-gutters);
@@ -178,7 +184,7 @@
         li {
           a {
             >div:last-child {
-              font-size: 13px;
+              font-size: 10px;
             }
           }
         }
@@ -187,7 +193,7 @@
     }
 
     .tabs {
-      @include span(6 of 12 left no-gutter);
+      @include span(5 of 12 left no-gutter);
 
       li {
         margin: 0;
@@ -270,7 +276,8 @@
     position: relative;
 
     .km-viz {
-      @include span(4 of 12);
+      @include span(5 of 12);
+      margin-top: 80px;
 
       >div {
         // Until it's built
@@ -291,6 +298,7 @@
 
       @include susy-media(0 45em) {
         @include span(12);
+        margin-top: 0;
 
         >div {
           min-height: 100px;
@@ -299,7 +307,8 @@
     }
 
     .editorial-content {
-      @include span(8 of 12 no-gutter);
+      @include span(6.5 of 12 no-gutter);
+      padding-left: span(0.5 of 12 no-gutter);
 
       .editorial-tabs {
         @include span(12 right);
@@ -343,6 +352,10 @@
             }
           }
 
+        }
+
+        @include susy-media(0 28em) {
+          font-size: 13px;
         }
 
       }

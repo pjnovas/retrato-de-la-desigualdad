@@ -33,12 +33,10 @@ $logo-retrato: url(/images/retrato.svg);
   display: table;
   position: relative;
   height: 100%;
-  width: 90%;
+  width: 100%;
   margin: 20px auto;
 
-  @include susy-media(0 40em) {
-    width: 100%;
-  }
+  max-width: 70em;
 }
 
 @mixin section {
@@ -71,12 +69,12 @@ $logo-retrato: url(/images/retrato.svg);
   position: absolute;
   left: 20px;
   top: -30px;
-  font-size: 40px;
+  font-size: 32px;
   margin: 0;
   color: $section-border-color;
 
-  @include susy-media(0 32em) {
-    font-size: 32px;
+  @include susy-media(0 40em) {
+    font-size: 24px;
   }
 }
 

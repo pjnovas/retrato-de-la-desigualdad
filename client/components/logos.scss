@@ -1,5 +1,6 @@
 .logos {
   @include section;
+  max-width: 70em;
   margin: 20px auto;
 
   .legend {
