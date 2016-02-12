@@ -111,11 +111,11 @@ class Places extends React.Component {
 
                 <div className="times">
                   <label>Durante</label>
-                  {current.meta.groups.a ?
+                  {current.meta.times.day ?
                     <span title="Día" className="day">
                       <i className="icon-sun-filled"></i>
                     </span> : null }
-                  {current.meta.groups.b ?
+                  {current.meta.times.night ?
                     <span title="Noche" className="night">
                       <i className="icon-moon-inv"></i>
                     </span> : null }
