@@ -10,8 +10,8 @@ import MapArticle from "./components/MapArticle.jsx";
 const routes = (
   <Router history={createBrowserHistory()}>
     <Route path="/" component={Main} />
-    <Route path="/:publisher" component={MapArticle} />
     <Route path="/metadata" component={Metadata} />
+    <Route path="/:publisher" component={MapArticle} />
   </Router>
 );
 

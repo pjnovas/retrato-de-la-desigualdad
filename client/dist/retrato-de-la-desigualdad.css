@@ -1492,8 +1492,8 @@ a {
     background: yellow; }
 
 .metadata {
-  width: 600px;
-  margin: 20px auto; }
+  margin: 20px auto;
+  max-width: 40em; }
   .metadata h1 {
     margin: 10px; }
   .metadata .control {
