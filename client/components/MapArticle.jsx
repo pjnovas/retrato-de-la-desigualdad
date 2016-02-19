@@ -313,7 +313,7 @@ class MapArticle extends React.Component {
       layers = this.state.layers.map( (layer, i) => {
         return (
           <li key={i}>
-            <a className={layer.active ? "active": ""}
+            <a className={"c-" + article.number + (layer.active ? " active": "")}
               onClick={ () => this.onLayerClick(layer.index) }>
               <div>{layer.name}</div>
               <div>{layer.info}</div>

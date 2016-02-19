@@ -675,28 +675,54 @@ a {
             text-transform: none;
             padding: 2px;
             font-weight: normal; }
-        .map-article .top-menu .layers li:nth-child(1) a {
+        .map-article .top-menu .layers li:nth-child(1) .c-17706 {
           background: #fff;
           border: 2px solid #3E7BB6; }
-          .map-article .top-menu .layers li:nth-child(1) a > div:first-child {
+          .map-article .top-menu .layers li:nth-child(1) .c-17706 > div:first-child {
             color: #3E7BB6; }
-          .map-article .top-menu .layers li:nth-child(1) a.active > div:first-child {
+          .map-article .top-menu .layers li:nth-child(1) .c-17706.active > div:first-child {
             border-right: none;
             background: #3E7BB6;
             color: #fff; }
-          .map-article .top-menu .layers li:nth-child(1) a:hover > div:first-child {
+          .map-article .top-menu .layers li:nth-child(1) .c-17706:hover > div:first-child {
             background: #72a1cf; }
-        .map-article .top-menu .layers li:nth-child(2) a {
+        .map-article .top-menu .layers li:nth-child(1) .c-17686 {
+          background: #fff;
+          border: 2px solid #2A5471; }
+          .map-article .top-menu .layers li:nth-child(1) .c-17686 > div:first-child {
+            color: #2A5471; }
+          .map-article .top-menu .layers li:nth-child(1) .c-17686.active > div:first-child {
+            border-right: none;
+            background: #2A5471;
+            color: #fff; }
+          .map-article .top-menu .layers li:nth-child(1) .c-17686:hover > div:first-child {
+            background: #3f7da9; }
+          .map-article .top-menu .layers li:nth-child(1) .c-17686 > div:last-child {
+            line-height: 2.8; }
+        .map-article .top-menu .layers li:nth-child(2) .c-17706 {
           background: #fff;
           border: 2px solid #FF6600; }
-          .map-article .top-menu .layers li:nth-child(2) a > div:first-child {
+          .map-article .top-menu .layers li:nth-child(2) .c-17706 > div:first-child {
             color: #FF6600; }
-          .map-article .top-menu .layers li:nth-child(2) a.active > div:first-child {
+          .map-article .top-menu .layers li:nth-child(2) .c-17706.active > div:first-child {
             border-right: none;
             background: #FF6600;
             color: #fff; }
-          .map-article .top-menu .layers li:nth-child(2) a:hover > div:first-child {
+          .map-article .top-menu .layers li:nth-child(2) .c-17706:hover > div:first-child {
             background: #ff944d; }
+        .map-article .top-menu .layers li:nth-child(2) .c-17686 {
+          background: #fff;
+          border: 2px solid #C8E235; }
+          .map-article .top-menu .layers li:nth-child(2) .c-17686 > div:first-child {
+            color: #C8E235; }
+          .map-article .top-menu .layers li:nth-child(2) .c-17686.active > div:first-child {
+            border-right: none;
+            background: #C8E235;
+            color: #fff; }
+          .map-article .top-menu .layers li:nth-child(2) .c-17686:hover > div:first-child {
+            background: #daec78; }
+          .map-article .top-menu .layers li:nth-child(2) .c-17686 > div:last-child {
+            line-height: 2.8; }
       @media (min-width: 0) and (max-width: 65em) {
         .map-article .top-menu .layers {
           -moz-box-sizing: border-box;

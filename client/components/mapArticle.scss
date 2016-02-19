@@ -1,3 +1,28 @@
+
+@mixin getLayerLink($color) {
+  background: #fff;
+  border: 2px solid $color;
+
+  >div:first-child {
+    color: $color;
+  }
+
+  &.active {
+    >div:first-child {
+      border-right: none;
+      background: $color;
+      color: #fff;
+    }
+  }
+
+  &:hover {
+    >div:first-child {
+      background: lighten($color, 15%);
+    }
+  }
+}
+
+
 .map-article {
   @include section;
   border: 20px solid #6F6F6F;
@@ -79,56 +104,30 @@
           }
         }
 
-
         &:nth-child(1){
-          a {
-            background: #fff;
-            border: 2px solid $group-a-color;
+          .c-17706 {
+            @include getLayerLink($group-a-color);
+          }
 
-            >div:first-child {
-              color: $group-a-color;
-            }
-
-            &.active {
-              >div:first-child {
-                border-right: none;
-                background: $group-a-color;
-                color: #fff;
-              }
-            }
-
-            &:hover {
-              >div:first-child {
-                background: lighten($group-a-color, 15%);
-              }
+          .c-17686 {
+            @include getLayerLink($night-color);
+            >div:last-child {
+              line-height: 2.8;
             }
           }
         }
 
         &:nth-child(2){
+          .c-17706 {
+            @include getLayerLink($group-b-color);
+          }
 
-          a {
-            background: #fff;
-            border: 2px solid $group-b-color;
+          .c-17686 {
+            @include getLayerLink($day-color);
 
-            >div:first-child {
-              color: $group-b-color;
+            >div:last-child {
+              line-height: 2.8;
             }
-
-            &.active {
-              >div:first-child {
-                border-right: none;
-                background: $group-b-color;
-                color: #fff;
-              }
-            }
-
-            &:hover {
-              >div:first-child {
-                background: lighten($group-b-color, 15%);
-              }
-            }
-
           }
         }
 
